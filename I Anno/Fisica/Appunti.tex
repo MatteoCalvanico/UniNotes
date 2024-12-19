@@ -1,760 +1,1121 @@
-\section{Unità di misura}\label{unituxe0-di-misura}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{textgreek}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\subsection{S.I.}\label{s.i.}
+\author{}
+\date{}
 
-Sistema Internazionale, comprende le seguenti unità fondamentali:
+\begin{document}
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+{FISICA}
+
+{}
+
+\section{\texorpdfstring{{Unità }{di
+misura}}{Unità di misura}}\label{h.l5wfwwv3cbxn}
+
+\subsection{\texorpdfstring{{S.I.}}{S.I.}}\label{h.hw5gyoas23ps}
+
+{Sistema Internazionale, comprende le seguenti unità fondamentali:}
+
+{}
+
+\begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\centering
-\textbf{Nome}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\textbf{Unità}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-\textbf{Simbolo}
-\end{minipage} \\
-\begin{minipage}[b]{\linewidth}\centering
-Lunghezza
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Metro
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-m
-\end{minipage} \\
-\begin{minipage}[b]{\linewidth}\centering
-Massa
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Chilogrammo
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-kg
-\end{minipage} \\
-\begin{minipage}[b]{\linewidth}\centering
-Intervallo di tempo
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Secondo
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-s
-\end{minipage} \\
-\begin{minipage}[b]{\linewidth}\centering
-Intensità di corrente elettrica
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Ampere
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-A
-\end{minipage} \\
-\begin{minipage}[b]{\linewidth}\centering
-Temperatura
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Kelvin
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-K
-\end{minipage} \\
-\begin{minipage}[b]{\linewidth}\centering
-Intensità luminosa
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Candela
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-cd
-\end{minipage} \\
-\begin{minipage}[b]{\linewidth}\centering
-Quantità di materia
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-Mole
-\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
-mol
-\end{minipage} \\
-\midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
+{Nome} & {Unità} & {Simbolo} \\
+{Lunghezza} & {Metro} & {m} \\
+{Massa} & {Chilogrammo} & {kg} \\
+{Intervallo di tempo} & {Secondo} & {s} \\
+{Intensità di corrente elettrica} & {Ampere} & {A} \\
+{Temperatura} & {Kelvin} & {K} \\
+{Intensità luminosa} & {Candela} & {cd} \\
+{Quantità di materia} & {Mole} & {mol} \\
 \end{longtable}
 
-Da queste unità base è possibile ricavare unità derivate.
+{}
 
-\emph{Esempio: Kg -\textgreater{} g}
+{Da queste unità base è possibile ricavare unità derivate.}
 
-Il SI è \textbf{coerente}, cioè il prodotto o il rapporto di due unità
-da un'altra unità del SI, \textbf{assoluto}, le unità \ul{non} cambiano
-in base al luogo o al momento, e \textbf{decimale}, cioè multipli e
-sottomultipli corrispondono alle potenze di 10.
+{}
 
-\subsection{Analisi dimensionale}\label{analisi-dimensionale}
+{~Esempio: Kg -\textgreater{} g}
 
-Con il SI è possibile ricavare nuove unità, dalla combinazione di quelle
-fondamentali possiamo fare l'analisi \emph{dimensionale} (dimensione =
-``natura delle grandezze fisiche coinvolte'') delle equazioni delle
-leggi fisiche che incontreremo.
+{}
 
-\section{Calcolo vettoriale}\label{calcolo-vettoriale}
+{Il SI è }{coerente}{, cioè il prodotto o il rapporto di due unità da
+un'altra unità del SI, }{assoluto}{, le unità }{non}{~}{cambiano in base
+al luogo o al momento, e }{decimale}{, cioè multipli e sottomultipli
+corrispondono alle potenze di 10.}
 
-Con alcune grandezze un solo numero non basta per rappresentarle, per
-questo si usa il calcolo vettoriale.
+\subsection{\texorpdfstring{{Analisi
+dimensionale}}{Analisi dimensionale}}\label{h.4b09ywiqwmvv}
 
-\includegraphics[width=6.26772in,height=2.47222in]{media/image16.png}
+{Con il }{SI è}{~possibile ricavare nuove unità, dalla combinazione di
+quelle fondamentali possiamo fare l'analisi }{dimensionale }{(dimensione
+= ``natura delle grandezze fisiche coinvolte'') delle equazioni delle
+leggi fisiche che incontreremo.}
 
-Tramite il teorema di Pitagora,seno e coseno possiamo trovare le
-componenti di un vettore.
+{}
 
-\includegraphics[width=6.0625in,height=3.55208in]{media/image6.png}
+\section{\texorpdfstring{{Calcolo
+vettoriale}}{Calcolo vettoriale}}\label{h.93p8g45f8wyi}
 
-\emph{Si decide se usare sen/cos in base all'asse utilizzato (in questo
-caso X)}
+{Con alcune grandezze un solo numero non basta per rappresentarle, per
+questo si usa il calcolo vettoriale.}
 
-Il modulo:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image61.png}}}
 
-\(|V| =\)
+{Tramite il teorema di Pitagora,seno e coseno possiamo trovare le
+componenti di un vettore.}
 
-\subsection{Somma}\label{somma}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image65.png}}}
 
-È possibile sommare i vettori con il metodo del parallelogramma o
-sommando le componenti.
+{Si decide se usare sen/cos in base all'asse utilizzato (in questo caso
+X)}
 
-\includegraphics[width=6.26772in,height=1.875in]{media/image10.png}
+{}
 
-\emph{Con parallelogramma}
+{Il modulo:}
 
-\includegraphics[width=6.26772in,height=2.80556in]{media/image14.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image1.png}}
 
-\emph{Sommando componenti}
+\subsection{\texorpdfstring{{Somma}}{Somma}}\label{h.beivh3hgpdth}
 
-\subsection{Differenza}\label{differenza}
+{È possibile sommare i vettori con il metodo del parallelogramma o
+sommando le componenti.}
 
-La differenza si fa invertendo il verso del vettore da sottrarre o
-sottraendo fra loro le componenti.
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image59.png}}}
 
-\includegraphics[width=2.47917in,height=2.71875in]{media/image5.png}
+{Con parallelogramma}
 
-\emph{Modo grafico}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image62.png}}}
 
-\includegraphics[width=6.26772in,height=3.06944in]{media/image19.png}
+{Sommando componenti}
 
-\emph{Sottraendo componenti}
+{}
 
-\subsection{Prodotto scalare}\label{prodotto-scalare}
+\subsection{\texorpdfstring{{Differenza}}{Differenza}}\label{h.qqcggqhskpvf}
 
-Il risultato \ul{non} è un vettore, ma uno scalare (numero) che
-rappresenta i loro moduli quando i due vettori sono paralleli.
+{La differenza si fa invertendo il verso del vettore da sottrarre o
+sottraendo fra loro le componenti.}
 
-\includegraphics[width=4.32292in,height=1.87494in]{media/image23.jpg}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image67.png}}}
 
-\subsection{Prodotto vettoriale}\label{prodotto-vettoriale}
+{Modo grafico}
 
-Il risultato è un vettore, si usa la regola della mano \textbf{destra}.
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image70.png}}}
 
-\includegraphics[width=4.36532in,height=2.86979in]{media/image11.png}
+{Sottraendo componenti}
 
-Il prodotto vettoriale tra due vettori a e b nello spazio è definito da:
+{}
 
-\(r\  = \ a\ x\ b\  = n|a||b|sin(\theta)\)
+\subsection{\texorpdfstring{{Prodotto
+scalare}}{Prodotto scalare}}\label{h.ccgpw5h6cpxl}
 
-\includegraphics[width=1.60052in,height=2.25171in]{media/image12.png}
+{Il risultato }{non}{~è un vettore, ma uno scalare (numero) che
+rappresenta i loro moduli quando i due vettori sono paralleli.}
 
-o
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image63.jpg}}}
 
-\(a\ x\ b\  = |a||b|cos(\theta)\)
+\subsection{\texorpdfstring{{Prodotto
+vettoriale}}{Prodotto vettoriale}}\label{h.5nbhpw85z5fw}
 
-\subsubsection{Proprietà}\label{proprietuxe0}
+{Il risultato è un vettore, si usa la regola della mano }{destra}{.}
+
+{}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image64.png}}}
+
+{Il prodotto vettoriale tra due vettori a e b nello spazio è definito
+da:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image2.png}}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image76.png}}}
+
+{o}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image3.png}}
+
+{}
+
+\subsubsection{\texorpdfstring{{Proprietà}}{Proprietà}}\label{h.rbyya54pej89}
 
 \begin{itemize}
+\tightlist
 \item
-  Il modulo del prodotto vettoriale è pari all'area del parallelogramma
-  individuato dai due vettori;
+  {Il modulo del prodotto vettoriale è pari all'area del parallelogramma
+  individuato dai due vettori;}
 \item
-  Il prodotto vettoriale è nullo se i due vettori sono paralleli
+  {Il prodotto vettoriale è nullo se i due vettori sono paralleli}
 \item
-  Il prodotto vettoriale gode della \emph{proprietà anticommutativa (b x
-  a = -a x b)}.
+  {Il prodotto vettoriale gode della }{proprietà anticommutativa (b x a
+  = -a x b)}{.}
 \end{itemize}
 
-\section{Trigonometria}\label{trigonometria}
+\section{\texorpdfstring{{Trigonometria}}{Trigonometria}}\label{h.ue79vjagpw72}
 
-\includegraphics[width=3.46354in,height=3.49496in]{media/image18.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image78.png}}}
 
-\emph{(\textbf{cos},\textbf{sin}) ← Legenda}
+{(}{cos}{,}{sin}{) ← Legenda}
 
-Il \emph{coseno} è la parte che è parallela
-all\textquotesingle{}\textbf{asse X}, il \emph{seno} è la parte che è
-parallela all'\textbf{asse Y}.
+{}
 
-\subsubsection{Formula duplicazione
-angoli}\label{formula-duplicazione-angoli}
+{Il }{coseno}{~}{è la parte che è parallela
+all}{\textquotesingle{}}{asse X}{, il }{seno}{~}{è la parte che è
+parallela all'}{asse Y}{.}
 
-Esprime il valore di un angolo doppio in funzione del valore di un
-angolo semplice.
+\subsubsection{\texorpdfstring{{Formula duplicazione
+angoli}}{Formula duplicazione angoli}}\label{h.dho1p7xfsfbd}
 
-\emph{sin(2θ) = 2sin(θ)cos(θ)}
+{Esprime il valore di un angolo doppio in funzione del valore di un
+angolo semplice.}
 
-\emph{cos(2θ) = cos\^{}2(θ) - sin\^{}2(θ)}
+{}
 
-\section{Moto}\label{moto}
+{sin(2$(x, y, \theta)$) = }{2sin}{($(x, y, \theta)$)cos($(x, y, \theta)$)}
 
-\subsection{Unidimensionale}\label{unidimensionale}
+{~cos(2$(x, y, \theta)$) = cos\^{}2($(x, y, \theta)$) - sin\^{}2($(x, y, \theta)$)}
 
-Il moto unidimensionale si riferisce a un movimento che avviene lungo
-una singola direzione, ad esempio lungo una retta.
+{}
 
-\subsubsection{Velocità}\label{velocituxe0}
+\section{\texorpdfstring{{Moto}}{Moto}}\label{h.imao6m7ejpzy}
 
-\ul{Formula velocità}: \(V\  = Vo\  + \ a*t\ \)\textbf{(dove a =
-costante di gravità e Vo = velocità al momento)}
+\subsection{\texorpdfstring{{Unidimensionale}}{Unidimensionale}}\label{h.gedl4e75hk77}
 
-↑
+{Il moto unidimensionale si riferisce a un movimento che avviene lungo
+una singola direzione, ad esempio lungo una retta.}
 
-\emph{Cambiamento di velocità più accelerazione per il tempo}
+\subsubsection{\texorpdfstring{{Velocità}}{Velocità}}\label{h.u8baxmf7pyck}
 
-\ul{Formula velocità istantanea}:
-\(v\  = \ \lim_{\Delta t \rightarrow 0}\frac{\Delta x}{\Delta t} = \frac{dx}{dt}\)
-\textbf{(velocità in un dato istante di tempo)}
+{Formula velocità}{:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image4.png}}{(dove
+a = costante di gravità e Vo = velocità al momento)}
 
-↑
+{↑}
 
-\emph{Derivata della posizione rispetto al tempo}
+{Cambiamento di velocità }{più}{~accelerazione per il tempo}
 
-\subsubsection{Accelerazione}\label{accelerazione}
+{}
 
-\textbf{Variazione} di velocità:
+{Formula velocità istantanea}{:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image5.png}}{~}{(velocità
+in un dato istante di tempo)}
 
-\(v\  = \ \lim_{\Delta t \rightarrow 0}\frac{\Delta v}{\Delta t} = \frac{dv}{dt}\)
+{↑}
 
-Accelerazione costante, 3 casi:
+{Derivata della posizione rispetto al tempo}
+
+\subsubsection{\texorpdfstring{{Accelerazione}}{Accelerazione}}\label{h.n808ronr2ejg}
+
+{Variazione }{di velocità:}
+
+{}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}
+
+{}
+
+{Accelerazione costante, 3 casi:}
+
+{}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \(v\  = \ v_{o}\  + at\)
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image7.png}}
 \end{enumerate}
 
-\begin{quote}
-\includegraphics[width=1.02825in,height=0.83497in]{media/image15.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image77.png}}}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
+\tightlist
 \item
-  \(a\  = \ \lim_{\Delta t \rightarrow 0}\frac{\Delta v}{\Delta t} = \frac{dv}{dt}\)
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image8.png}}
 \end{enumerate}
 
-\begin{quote}
-\includegraphics[width=1.00156in,height=0.81229in]{media/image20.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image69.png}}}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
+\tightlist
 \item
-  \(x\  = \ x_{0} + \ v_{0}t + \frac{1}{2}at^{2}\) (\textbf{xo} = punto
-  di partenza, \textbf{vo} = velocità al momento, \textbf{t} = tempo
-  impiegato).
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{~(}{x}{o}{~=
+  punto di partenza, }{v}{o}{~= velocità al momento, }{t}{~= tempo
+  impiegato}{).}
 \end{enumerate}
 
-\begin{quote}
-\includegraphics[width=1.13698in,height=0.89088in]{media/image9.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image73.png}}}
 
-\subsection{Su più dimensioni}\label{su-piuxf9-dimensioni}
+{}
 
-Se consideriamo il moto in più dimensioni accelerazione e velocità
+{}
+
+{}
+
+\subsection{\texorpdfstring{{Su più
+dimensioni}}{Su più dimensioni}}\label{h.cskrlavz2cw2}
+
+{Se consideriamo il moto in più dimensioni accelerazione e velocità
 possono anche non essere parallele; usando la scomposizione dei vettori
 possiamo scomporre il moto in componenti per ciascun asse e trattare
-queste in modo indipendente.
+queste in modo indipendente. }
 
-\includegraphics[width=3.16146in,height=1.94689in]{media/image7.png}
+{}
 
-In un moto arbitrario sono presenti due tipi di accelerazioni:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image71.png}}}
+
+{}
+
+{In un moto arbitrario sono presenti due tipi di accelerazioni:}
+
+{}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Tangenziale}: indica la variazione della velocità di un
-  oggetto lungo la direzione tangente alla sua traiettoria (come la
-  velocità di un oggetto cambia in termini di modulo o direzione nel
-  corso del tempo);
+  {Tangenziale}{: indica la variazione della velocità di un oggetto
+  lungo la direzione tangente alla sua traiettoria (come la velocità di
+  un oggetto cambia in termini di modulo o direzione nel corso del
+  tempo);}
 \item
-  \textbf{Centripeta}: accelerazione diretta verso il centro di una
+  {Centripeta}{: accelerazione diretta verso il centro di una
   traiettoria circolare. Questa accelerazione è necessaria per mantenere
   un oggetto su una traiettoria circolare e dipende dalla velocità e dal
-  raggio della curva
+  raggio della curva}
 \end{itemize}
 
-\section{Forze}\label{forze}
+\section{\texorpdfstring{{Forze}}{Forze}}\label{h.molkyw15qzlx}
 
-Unità di misura: \textbf{Newton (N)}
+{Unità di misura: }{Newton (N)}
 
-\subsection{Leggi di Newton}\label{leggi-di-newton}
+\subsection{\texorpdfstring{{Leggi di
+Newton}}{Leggi di Newton}}\label{h.mflpysdw6sz5}
 
-Legge universale:
+{Legge universale:}
 
-\(F = g\frac{m_{1}m_{2}}{r^{2}}\)
+\pandocbounded{\includegraphics[keepaspectratio]{images/image10.png}}
 
-\subsubsection{Prima}\label{prima}
+\subsubsection{\texorpdfstring{{Prima}}{Prima}}\label{h.2ewv6w5bdn6d}
 
-\emph{Se la somma di tutte le forze applicate a un corpo è 0 allora non
+{Se la somma di tutte le forze applicate a un corpo è 0 allora non
 cambierà il suo stato di quiete o di moto.}
 
-\subsubsection{Seconda}\label{seconda}
+\subsubsection{\texorpdfstring{{Seconda}}{Seconda}}\label{h.45xg1f6o44w}
 
-\emph{L'accelerazione di un oggetto è direttamente proporzionale alla
-somma delle forze agenti su di esso e inversamente proporzionale alla
-sua MASSA.}
+{L'accelerazione di un oggetto è direttamente proporzionale alla somma
+delle forze agenti su di esso e inversamente proporzionale alla sua
+MASSA.}
 
-\(F\  = \sum_{}^{}f_{i} = m*a\)
+\pandocbounded{\includegraphics[keepaspectratio]{images/image11.png}}
 
-\subsubsection{Terza}\label{terza}
+\subsubsection{\texorpdfstring{{Terza}}{Terza}}\label{h.sv2r3n5ivjor}
 
-\emph{Se due oggetti interagiscono, la forza} \(F_{12}\)
-\emph{esercitata dall\textquotesingle oggetto 1
-sull\textquotesingle oggetto 2 è uguale in grandezza e opposta in
-direzione alla forza} \(F_{21}\) \emph{esercitata
+{Se due oggetti interagiscono, la forza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{~esercitata
+dall\textquotesingle oggetto 1 sull\textquotesingle oggetto 2 è uguale
+in grandezza e opposta in direzione }{alla}{~forza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image13.png}}{~esercitata
 dall\textquotesingle oggetto 2 sull\textquotesingle oggetto 1.}
 
-\(F_{12}\) = \(- F_{21}\)
+{}
 
-\subsection{Attrito}\label{attrito}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{~=
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image14.png}}
 
-Quando un corpo è posto su di una superficie vi è attrito fra i due. La
+\subsection{\texorpdfstring{{Attrito}}{Attrito}}\label{h.x94iyldv7377}
+
+{Quando un corpo è posto su di una superficie vi è attrito fra i due. La
 forza di attrito si oppone al moto ed è proporzionale alla forza normale
 alla superficie. Il corpo non si muove finché non viene superato
-l'attrito statico poi rallenta secondo l'attrito dinamico.
+l'attrito statico poi rallenta secondo l'attrito dinamico.}
 
-\subsection{Conservativa}\label{conservativa}
+\subsection{\texorpdfstring{{Conservativa}}{Conservativa}}\label{h.zd4ikqvvff4b}
 
-Una forza è conservativa se:
+{Una forza è conservativa se: }
+
+{}
 
 \begin{itemize}
+\tightlist
 \item
-  Il lavoro che fa su una particella che si muove tra due punti
-  qualsiasi è indipendente dal percorso fatto dalla particella;
-\item
-  Il lavoro fatto da una forza conservativa su una particella che si
-  muove attraverso un percorso chiuso è zero.
+  {Il lavoro che fa su una particella che si muove tra due punti
+  qualsiasi è indipendente dal percorso fatto dalla particella;}
 \end{itemize}
 
-\section{Energia e Lavoro}\label{energia-e-lavoro}
+{}
 
-Lavoro: \textbf{energia trasferita} a un oggetto quando questo viene
-messo in movimento.
+\begin{itemize}
+\tightlist
+\item
+  {Il lavoro fatto da una forza conservativa su una particella che si
+  muove attraverso un percorso chiuso è zero. ~}
+\end{itemize}
 
-Si calcola con il prodotto scalare fra la forza applicata e il suo
-vettore spostamento:
+{}
 
-\(W = \ F\ *\ d\  = \ FdCos(\theta)\) \emph{\textbf{(d -\textgreater{}
-vettore percorso})}
+\section{\texorpdfstring{{Energia e
+Lavoro}}{Energia e Lavoro}}\label{h.zh05bw4n6uco}
 
-\emph{oppure (se non sono costanti)}
+{Lavoro: }{energia trasferita }{a un oggetto quando questo viene messo
+in movimento.}
 
-\(W\  = \ \int_{}^{}F\ dx\)
+{Si calcola con il prodotto scalare fra la forza applicata e il suo
+vettore spostamento:}
 
-Il segno dipende dalla variazione di velocità e si misura in Joule
-{[}J{]}.
+{}
 
-\subsection{Legge di Hooke}\label{legge-di-hooke}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image15.png}}{~}{(d
+-\textgreater{} vettore percorso}{)}
 
-Prendendo come esempio una molla:
+{oppure (se non sono costanti)}
 
-Se \textbf{non} si deforma (se siamo in regime elastico) spostandola
-dalla sua posizione di equilibrio una molla eserciterà una forza
-proporzionale ed opposta allo spostamento:
+\pandocbounded{\includegraphics[keepaspectratio]{images/image16.png}}
 
-\emph{F = -kx}
+{Il segno dipende dalla variazione di velocità e si misura in Joule
+{[}J{]}.}
 
-\subsection{Energia cinetica}\label{energia-cinetica}
+\subsection{\texorpdfstring{{Legge di
+Hooke}}{Legge di Hooke}}\label{h.eii8b14m63js}
 
-Se consideriamo il lavoro fatto su una particella esso equivale al
-cambiamento della sua energia cinetica:
+{Prendendo come esempio una molla:}
 
-\(W = \frac{1}{2}m*v^{2}\)
+{Se }{non }{si deforma (se siamo in regime elastico) spostandola dalla
+sua posizione di equilibrio una molla }{eserciterà}{~una forza
+proporzionale ed opposta allo spostamento:}
 
-\subsection{Potenza}\label{potenza}
+{}
 
-La potenza media è un lavoro {[}w{]} applicato per un certo tempo.
+{F = -kx}
 
-\(\underline{P} \equiv \frac{W}{\Delta t}\)
+\subsection{\texorpdfstring{{Energia
+cinetica}}{Energia cinetica}}\label{h.6zmenjm9d3fv}
 
-La potenza istantanea:
+{Se consideriamo il lavoro fatto su una particella esso equivale al
+cambiamento della sua energia cinetica:}
 
-\(\underline{P} \equiv \lim_{\Delta t \rightarrow 0}\frac{W}{\Delta t}\)
+\pandocbounded{\includegraphics[keepaspectratio]{images/image17.png}}
 
-\(P = F*\frac{ds}{dt} = F*v\) \emph{{[}Watt{]}}
+{}
 
-\subsection{Energia potenziale}\label{energia-potenziale}
+\subsection{\texorpdfstring{{Potenza}}{Potenza}}\label{h.n211wdn7wjw7}
 
-Nei \textbf{sistemi conservativi} è il lavoro che il sistema potrebbe
-fare su un oggetto, es: sistemi gravitazionali.
+{La potenza media è un lavoro {[}w{]} applicato per un certo tempo.}
 
-\(F = G\frac{mM}{r^{2}} = mg\)
+{}
 
-Lavoro fatto da una forza gravitazionale se un corpo cade da una
-altezza\(\ y_{i}\) fino ad \(\ y_{f}\) :
+\pandocbounded{\includegraphics[keepaspectratio]{images/image18.png}}
 
-\(W = mg(\ y_{i}\  - \ y_{f}\ )\)
+{La potenza istantanea:}
 
-quindi possiamo scrivere:
+{}
 
-\(W = (U_{i} - U_{f})\  = \  - (U_{f} - U_{i}) \equiv \  - \Delta U_{g}\)
+\pandocbounded{\includegraphics[keepaspectratio]{images/image19.png}}
 
-\emph{dove} \(U_{i}\)\emph{: energia pot. iniziale}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image20.png}}{~{[}Watt{]}}
 
-\emph{e}
+\subsection{\texorpdfstring{{Energia
+potenziale}}{Energia potenziale}}\label{h.f7fdtba8iraa}
 
-\(U_{f}\)\emph{: energia pot. finale}
+{Nei }{sistemi conservativi}{~è il lavoro che il sistema potrebbe fare
+su un oggetto, es: sistemi gravitazionali.}
 
-\emph{e}
+{}
 
-\(U_{g}\): energia gravitazionale
+\pandocbounded{\includegraphics[keepaspectratio]{images/image21.png}}
 
-In un sistema elastico abbiamo:
+{}
 
-\(- \Delta U_{s}\)
+{Lavoro fatto da una forza gravitazionale se un corpo cade da una
+altezza}\pandocbounded{\includegraphics[keepaspectratio]{images/image22.png}}{~fino
+ad
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image23.png}}{~:
+}
 
-\subsection{Energia meccanica}\label{energia-meccanica}
+{}
 
-Per TUTTI i sistemi conservativi possiamo definire una energia meccanica
-totale \(E = K + U\) che è costante in assenza di altre forze agenti sul
-corpo.
+\pandocbounded{\includegraphics[keepaspectratio]{images/image24.png}}
 
-\subsection{Pendolo}\label{pendolo}
+{}
 
-Un pendolo è una massa attaccata a un filo leggero e di lunghezza
-costante.
+{}
 
-Se vogliamo calcolare il periodo per piccole oscillazioni:
+{quindi possiamo scrivere:}
 
-\(\frac{d^{2}\theta}{dt}L \simeq \  - g\theta\)
+{}
 
-\emph{e otteniamo}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image25.png}}
 
-\(\theta(t)\  = cos(\omega t)\)
+{dove
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image26.png}}{:
+energia pot. iniziale }
 
-\section{Quantità di moto}\label{quantituxe0-di-moto}
+{e}
 
-Detto anche momento, è un vettore definito come: \(P = mv\) (massa *
-velocità)
+{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image27.png}}{:
+energia pot. finale}
 
-Il momento è costante e si conserva.
+{e}
 
-\subsection{Urti}\label{urti}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image28.png}}{:
+energia gravitazionale}
 
-Nel caso di un urto fra particelle esistono due casi limite: negli urti
+{}
+
+{In un sistema elastico abbiamo:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image29.png}}
+
+{}
+
+\subsection{\texorpdfstring{{Energia
+meccanica}}{Energia meccanica}}\label{h.von70sgtz3mh}
+
+{Per TUTTI i sistemi conservativi possiamo definire una energia
+meccanica totale
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image30.png}}{~che
+è costante in assenza di altre forze agenti sul corpo.}
+
+{}
+
+\subsection{\texorpdfstring{{Pendolo}}{Pendolo}}\label{h.1oediyvcos6u}
+
+{Un pendolo è una massa attaccata a un filo leggero e di lunghezza
+costante.}
+
+{Se vogliamo calcolare il periodo per piccole oscillazioni:}
+
+{}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image31.png}}
+
+{e otteniamo}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image32.png}}
+
+{}
+
+{}
+
+\section{\texorpdfstring{{Quantità di
+moto}}{Quantità di moto}}\label{h.ra024frm88jc}
+
+{Detto anche momento, è un vettore definito come:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image33.png}}{~(massa
+* velocità)}
+
+{Il momento è costante e si conserva. }
+
+\subsection{\texorpdfstring{{Urti}}{Urti}}\label{h.7cxlqym634h6}
+
+{Nel caso di un urto fra particelle esistono due casi limite: negli urti
 elastici l'energia cinetica è conservata e in quelli anelastici si
-perde.
+perde.}
 
-\subsubsection{Legge di Noether}\label{legge-di-noether}
+\subsubsection{\texorpdfstring{{Legge di
+Noether}}{Legge di Noether}}\label{h.bts61n3qizrd}
 
-\emph{Ad ogni SIMMETRIA corrisponde una quantità conservata}
+{Ad ogni SIMMETRIA corrisponde una quantità conservata}
 
-Per la conservazione del momento:
+{}
 
-\(mv_{1i} = mv_{2f} + mv_{1f}sin(\theta)\) applicata in Y
+{Per la conservazione del momento:}
 
-o
+\pandocbounded{\includegraphics[keepaspectratio]{images/image34.png}}{~}{applicata
+in Y}
 
-\(mv_{1i} = mv_{2f} + mv_{1f}cos(\theta)\) applicata in X
+{o}
 
-Andando a misurare l'angolo con cui vengono deviate le traiettorie si
-ottiene il rapporto delle velocità.
+\pandocbounded{\includegraphics[keepaspectratio]{images/image35.png}}{~}{applicata
+in X}
 
-\section{Centro di massa}\label{centro-di-massa}
+{Andando a misurare l'angolo con cui vengono deviate le traiettorie si
+ottiene il rapporto delle velocità.}
 
-Le coordinate del CENTRO DI MASSA di un sistema di particelle sono date
-dalla media pesata delle coordinate delle particelle con la loro massa.
+{}
 
-\(r_{cm} \equiv \frac{\Sigma m_{i}r_{i}}{M}\)
+\section{\texorpdfstring{{Centro di
+massa}}{Centro di massa}}\label{h.j1d37uwj89ku}
 
-\emph{oppure con gli infinitesimi}
+{Le coordinate del CENTRO DI MASSA di un sistema di particelle sono date
+dalla media pesata delle coordinate delle particelle con la loro massa.}
 
-\(r_{cm} \equiv \frac{1}{M}\int_{}^{}r\ dx\)
+{}
 
-Derivando la prima formula:
+\pandocbounded{\includegraphics[keepaspectratio]{images/image36.png}}
 
-\(Mv_{cm} = P_{cm} = \Sigma p_{i}\)
+{oppure con gli infinitesimi}
 
-Applicando la 3° legge di Newton:
+\pandocbounded{\includegraphics[keepaspectratio]{images/image37.png}}
 
-\(Ma_{cm} = \Sigma F_{i} = \Sigma F_{esterne}\)
+{}
 
-\emph{Il centro di massa di un sistema di particelle di massa totale M
-si muove come si muoverebbe una equivalente massa M sotto
+{Derivando la prima formula:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image38.png}}
+
+{}
+
+{Applicando la 3° legge di Newton:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image39.png}}
+
+{}
+
+{Il centro di massa di un sistema di particelle di massa totale M si
+muove come si muoverebbe una equivalente massa M sotto
 l\textquotesingle influenza della risultante delle forze esterne agenti
 sul sistema.}
 
-\subsection{Spinta}\label{spinta}
+{}
 
-\(v_{s}\frac{dM}{dT}\)
+{}
 
-\section{Analisi errori}\label{analisi-errori}
+{}
 
-Ogni volta che facciamo una misura il valore che otteniamo è affetto da
-una incertezza ovvero da un errore inevitabile.
+{}
 
-Esistono due regole per riportare in modo corretto i dati sperimentali:
+{}
+
+\subsection{\texorpdfstring{{Spinta}}{Spinta}}\label{h.2wyy8turwf1v}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image40.png}}
+
+{}
+
+{}
+
+\section{\texorpdfstring{{Analisi
+errori}}{Analisi errori}}\label{h.a8pn2fciw7bd}
+
+{Ogni volta che facciamo una misura il valore che otteniamo è affetto da
+una incertezza ovvero da un errore inevitabile.}
+
+{}
+
+{Esistono due regole per riportare in modo corretto i dati
+sperimentali:}
+
+{}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Le incertezze vanno arrotondate ad UNA cifra significativa;
-\item
-  L'ultima cifra significativa di una misura deve essere dello stesso
-  ordine di grandezza dell'incertezza.
+  {Le incertezze vanno arrotondate ad UNA cifra significativa;}
 \end{enumerate}
 
-Questo vuol dire che scriveremo:
+{}
 
-1.2 +/- 0.5 e non 1.2+/- 0.48912667
+\begin{enumerate}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  {L'ultima cifra significativa di una misura deve essere dello stesso
+  ordine di grandezza dell'incertezza.}
+\end{enumerate}
 
-E NON
+{}
 
-1.2353456 +/- 0.5
+{Questo vuol dire che scriveremo: }
 
-\subsection{Incertezza}\label{incertezza}
+{1.2 +/- 0.5 e non 1.2+/- 0.}{48912667}{~}
 
-Può essere espressa come incertezza relativa (precisione):
+{E NON }
 
-\(\Delta\frac{\delta x}{|x|}\)
+{1.2}{353456}{~+/- 0.5}
 
-o anche
+{}
 
-Incertezza percentuale:
+\subsection{\texorpdfstring{{Incertezza}}{Incertezza}}\label{h.cuh8tfbvoudd}
 
-\(\Delta x*100\)
+{Può essere espressa come incertezza relativa (precisione):}
 
-\subsection{Errori casuali e
-sistematici}\label{errori-casuali-e-sistematici}
+{}
 
-\includegraphics[width=2.57168in,height=2.86759in]{media/image22.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image41.png}}
 
-\section{Elettronica}\label{elettronica}
+{}
 
-\subsection{Legge di Ohm}\label{legge-di-ohm}
+{o anche}
 
-\emph{V = RI}
+{}
 
-\emph{(resistività * cariche al secondo)}
+{Incertezza percentuale:}
 
-NON è sempre valida. I conduttori cambiano la propria resistività con la
-temperatura (e quindi possono essere usati come sensori di temperatura)
-mentre nei semiconduttori la legge non è valida.
+\pandocbounded{\includegraphics[keepaspectratio]{images/image42.png}}
 
-La legge completa è:
+\subsection{\texorpdfstring{{Errori casuali e
+sistematici}}{Errori casuali e sistematici}}\label{h.1c2bijdupztb}
 
-\(R = R_{0}(1 + aT)\)
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image80.png}}}
 
-\emph{a e} \(R_{0}\)\emph{sono costanti}
+{}
 
-e
+{}
 
-\(T = \frac{R\  - \ R_{0}}{R_{0}*a}\)
+{}
 
-\subsection{Serie e parallelo}\label{serie-e-parallelo}
+\section{\texorpdfstring{{Elettronica}}{Elettronica}}\label{h.1h99sf20oto}
 
-Si dice che elementi elettrici sono in SERIE quando sono attraversati
-dalla stessa corrente:
+\subsection{\texorpdfstring{{Legge di
+Ohm}}{Legge di Ohm}}\label{h.av8cgi8cjzv2}
 
-\includegraphics[width=2.1526in,height=1.48832in]{media/image1.png}
+{}
 
-\(V = (R_{1} + R_{2} + R_{n})*I\)
+{V = RI }
 
-Mentre sono detti IN PARALLELO quando ai loro capi è applicata la stessa
-differenza di potenziale:
+{(resistività * cariche al secondo)}
 
-\includegraphics[width=2.13542in,height=0.92708in]{media/image8.png}
+{}
 
-\(I = \frac{V}{R_{1} + R_{2} + R_{N}}\)
+{NON è sempre valida. I conduttori cambiano la propria
+}{resistività}{~con la temperatura (e quindi possono essere usati come
+sensori di temperatura) mentre nei semiconduttori la legge non è
+valida.}
 
-La capacità si trova:
+{}
 
-\(C = \frac{Q}{V}\) \emph{dove la Q = carica}
+{La legge completa è:}
 
-Il Wattaggio:
+\pandocbounded{\includegraphics[keepaspectratio]{images/image43.png}}
 
-\(W_{z} = \frac{1}{2}CV^{2}\)
+{a e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image44.png}}{sono
+costanti}
 
-\subsection{Leggi di Kirchhoff}\label{leggi-di-kirchhoff}
+{e}
 
-Iniziamo dicendo che un \textbf{nodo} è un incrocio di più conduttori o
-rami di un circuito; una maglia è un percorso chiuso in un circuito.
+\pandocbounded{\includegraphics[keepaspectratio]{images/image45.png}}
 
-\subsubsection{1° legge}\label{legge}
+\subsection{\texorpdfstring{{Serie e
+parallelo}}{Serie e parallelo}}\label{h.md78lgo1tlqz}
 
-La somma delle correnti che affluiscono a un NODO è = 0
+{Si dice che elementi elettrici sono in SERIE quando sono attraversati
+dalla stessa corrente:}
 
-\subsubsection{2° legge}\label{legge-1}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image72.png}}}
 
-La somma delle differenze di potenziale lungo una MAGLIA è = 0
+\pandocbounded{\includegraphics[keepaspectratio]{images/image46.png}}
 
-Quindi se in un circuito abbiamo una batteria da 7 Volt la somma di
-tutte le resistenze deve essere 7 Volt totali.
+{}
 
-\subsection{Teorema di Thévenin}\label{teorema-di-thuxe9venin}
+{Mentre sono detti IN PARALLELO quando ai loro capi è applicata la
+stessa differenza di potenziale:}
 
-\emph{Una qualunque rete lineare può essere modellizzata da due dei suoi
-nodi A e B come la serie di un generatore di tensione} \(V_{th}\)
-\emph{e una resistenza} \(R_{th}\)\emph{.}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image66.png}}}
 
-\(V_{th}\) è uguale alla tensione presente ai capi A e B aperti mentre
-\(R_{th}\) si ottiene cortocircuitando tutti i generatori di tensione e
-interrompendo tutti i generatori di corrente.
+\pandocbounded{\includegraphics[keepaspectratio]{images/image47.png}}
 
-\includegraphics[width=6.26772in,height=1.66667in]{media/image2.png}
+{La capacità si trova:}
 
-\subsection{Teorema di Norton}\label{teorema-di-norton}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image48.png}}{~}{dove
+la Q = carica}
 
-\emph{Una qualunque rete lineare può essere modellizzata tra due dei
-suoi nodi A e B come il parallelo di un generatore di corrente}
-\(I_{Nr}\)\emph{e una resistenza} \(R_{Nr}\)\emph{.}
+{}
 
-\(I_{Nr}\) è uguale alla corrente che scorre fra i capi A e B
-cortocircuitati mentre \(R_{Nr}\) si ottiene cortocircuitando tutti i
-generatori di tensione e interrompendo tutti i generatori di corrente.
+{Il Wattaggio:}
 
-\includegraphics[width=6.26772in,height=1.97222in]{media/image3.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}
 
-\section{Analisi statistica}\label{analisi-statistica}
+\subsection{\texorpdfstring{{Leggi di
+Kirchhoff}}{Leggi di Kirchhoff}}\label{h.fkx934jjylz7}
 
-La media di N misure è definita:
+{Iniziamo dicendo che un }{nodo}{~è un incrocio di più conduttori o rami
+di un circuito; una maglia è un percorso chiuso in un circuito.}
 
-\(\underline{x} = \frac{\Sigma x_{i}}{N}\)
+\subsubsection{\texorpdfstring{{1°
+legge}}{1° legge}}\label{h.glck7lbk4vz7}
 
-\emph{(somma di tutti i valori / il numero di misure fatte)}
+{La somma delle correnti che affluiscono a un NODO è = 0 }
 
-La media è un estimatore statistico, questi ``tools'' si utilizzano per
-avere misure migliori, un altro è la deviazione quaratica media (RMS),
-che viene usata per rappresentare l'incertezza del singolo dato:
+\subsubsection{\texorpdfstring{{2°
+legge}}{2° legge}}\label{h.qsbb4njka1cc}
 
-\includegraphics[width=5.57292in,height=1.16667in]{media/image17.png}
+{La somma delle differenze di potenziale lungo una MAGLIA è = 0}
 
-\emph{media degli scarti al quadrato}
+{}
 
-La media pesata per N misure ripetute:
+{Quindi se in un circuito abbiamo una batteria da 7 Volt la somma di
+tutte le resistenze deve essere 7 Volt totali.}
 
-\includegraphics[width=2.72031in,height=0.83839in]{media/image13.png}
+{}
 
-\emph{si usa per andare a pesare di più certi valori nella media}
+{}
 
-\subsection{Teorema del limite
-centrale}\label{teorema-del-limite-centrale}
+{}
 
-Il teorema del limite centrale afferma che:
+{}
 
-\emph{la somma o la media di un gran numero di variabili aleatorie
-indipendenti e dotate della stessa distribuzione è distribuito secondo
-la distribuzione di Gauss indipendentemente dalla distribuzione
-soggiacente.}
+\subsection{\texorpdfstring{{Teorema di
+Thévenin}}{Teorema di Thévenin}}\label{h.mj1oeeb3s2p3}
 
-Questo significa che la distribuzione di alcune statistiche come per
-esempio la media del campione diventa nota anche se non sappiamo nulla a
-proposito della forma della distribuzione della popolazione da cui i
-campioni sono stati tratti.
+{Una qualunque rete lineare può essere modellizzata da due dei suoi nodi
+A e B come la serie di un generatore di tensione
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image50.png}}{~e
+una resistenza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image51.png}}{.}
 
-\section{Circuiti}\label{circuiti}
+{}
 
-\subsection{RL}\label{rl}
+{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image50.png}}{~è
+uguale alla tensione presente ai capi A e B aperti mentre
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image51.png}}{~si
+ottiene cortocircuitando tutti i generatori di tensione e interrompendo
+tutti i generatori di corrente.}
 
-Un circuito RL è un circuito che contiene una resistenza (R) e una
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image60.png}}}
+
+\subsection{\texorpdfstring{{Teorema di
+Norton}}{Teorema di Norton}}\label{h.n26dau9t3e4i}
+
+{Una qualunque rete lineare può essere modellizzata tra due dei suoi
+nodi A e B come il parallelo di un generatore di corrente
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image52.png}}{e
+una resistenza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image53.png}}{.
+}
+
+{}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image52.png}}{~}{è
+uguale alla corrente che scorre fra i capi A e B cortocircuitati mentre
+}{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image53.png}}{~}{si
+ottiene cortocircuitando tutti i generatori di tensione e interrompendo
+tutti i generatori di corrente.}
+
+{}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image75.png}}}
+
+{}
+
+{}
+
+{}
+
+{}
+
+\section{\texorpdfstring{{Analisi
+statistica}}{Analisi statistica}}\label{h.c3c6175ywqd3}
+
+{La media di N misure è definita:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image54.png}}{~}
+
+{(somma di tutti i valori / il numero di misure fatte)}
+
+{}
+
+{La media è un estimatore statistico, questi ``tools'' si utilizzano per
+avere misure migliori, un altro è la deviazione }{quaratica}{~media
+(RMS), che viene usata per rappresentare l'incertezza del singolo dato:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image79.png}}}
+
+{}
+
+{media degli scarti al quadrato}
+
+{}
+
+{}
+
+{La media pesata per N misure ripetute:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image68.png}}}
+
+{si usa per andare a pesare di più certi valori nella media}
+
+{}
+
+{}
+
+\subsection{\texorpdfstring{{Teorema del limite
+centrale}}{Teorema del limite centrale}}\label{h.6wr8eccyska4}
+
+{Il teorema del limite centrale afferma che:}
+
+{~la somma o la media di un gran numero di variabili aleatorie
+indipendenti e dotate della stessa distribuzione è
+}{distribuito}{~secondo la distribuzione di Gauss indipendentemente
+dalla distribuzione soggiacente. }
+
+{}
+
+{Questo significa che la distribuzione di alcune statistiche come per
+esempio la media del campione }{diventa}{~nota anche se non sappiamo
+nulla a proposito della forma della distribuzione della popolazione da
+cui i campioni sono stati tratti.}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+\section{\texorpdfstring{{Circuiti}}{Circuiti}}\label{h.8lv14blsfsi4}
+
+\subsection{\texorpdfstring{{RL}}{RL}}\label{h.gw1tnriwzbpt}
+
+{Un circuito RL è un circuito che contiene una resistenza (R) e una
 bobina (L). I circuiti RL possono essere utilizzati per filtrare
 segnali, generare impulsi, stabilizzare tensioni, e gestire il
-comportamento temporale dei segnali.
+comportamento temporale dei segnali.}
 
-La resistenza è un componente passivo che limita il flusso di corrente
-nel circuito. Misurata in ohm (Ω), la resistenza dissipa energia sotto
+{}
+
+{La resistenza è un componente passivo che limita il flusso di corrente
+nel circuito. Misurata in ohm ($\Omega$), la resistenza dissipa energia sotto
 forma di calore. Nel circuito RL, la resistenza influisce sulla caduta
-di tensione e sulla dissipazione di energia.
+di tensione e sulla dissipazione di energia.}
 
-Una bobina è un componente che immagazzina energia sotto forma di campo
+{}
+
+{Una bobina è un componente che immagazzina energia sotto forma di campo
 magnetico quando attraversata da una corrente. La bobina ha
 un\textquotesingle induttanza (L) misurata in henry (H).
 L\textquotesingle induttanza determina la capacità della bobina di
-opporsi a variazioni rapide di corrente e di immagazzinare energia.
+opporsi a variazioni rapide di corrente e di immagazzinare energia.}
 
-Tramite la seguente formula si trova il tempo di costante:
+{}
 
-\emph{t=L/R}
+{}
 
-\subsection{LC}\label{lc}
+{Tramite la seguente formula si trova il tempo di costante:}
 
-Un circuito LC è un tipo di circuito che comprende un induttanza (L) e
+{t=L/R}
+
+{}
+
+{}
+
+\subsection{\texorpdfstring{{LC}}{LC}}\label{h.nstmyfwqsvh8}
+
+{Un circuito LC è un tipo di circuito che comprende un induttanza (L) e
 un condensatore (C). Questi circuiti sfruttano le proprietà di
 immagazzinamento di energia di entrambi i componenti per creare
-oscillazioni e risonanze.
+oscillazioni e risonanze.}
 
-L\textquotesingle induttanza è un componente che immagazzina energia
+{}
+
+{L\textquotesingle induttanza è un componente che immagazzina energia
 sotto forma di campo magnetico quando attraversato da una corrente.
 Viene misurata in henry (H). L\textquotesingle induttanza in un circuito
 LC influisce sulla velocità di variazione della corrente e sulla
-frequenza di oscillazione del circuito.
+frequenza di oscillazione del circuito.}
 
-Un condensatore è un componente che immagazzina energia sotto forma di
+{}
+
+{Un condensatore è un componente che immagazzina energia sotto forma di
 campo elettrico tra le sue piastre quando viene applicata una differenza
 di potenziale. Viene misurato in farad (F). Il condensatore in un
 circuito LC influisce sulla capacità di immagazzinare carica e sulla
-frequenza di oscillazione del circuito.
+frequenza di oscillazione del circuito.}
 
-Energia accumulata dal condensatore:
+{}
 
-\(U_{E} = \frac{1}{2C}Q^{2}\)
+{}
 
-Equazione oscillatore armonico:
+{Energia accumulata dal condensatore:}
 
-q(t) = \(Q_{\max}^{2}cos(\omega t\  + \ \varphi)\)\(\)
+{}
 
-\section{Amplificatori Operazionali}\label{amplificatori-operazionali}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image55.png}}
 
-\includegraphics[width=3.70989in,height=1.23663in]{media/image4.png}
+{}
 
-Il modello ideale di amplificatore operazionale implica che la
+{Equazione oscillatore armonico:}
+
+{}
+
+{q(t) =
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image56.png}}\pandocbounded{\includegraphics[keepaspectratio]{images/image57.png}}
+
+{}
+
+{}
+
+\section{\texorpdfstring{{Amplificatori
+Operazionali}}{Amplificatori Operazionali}}\label{h.iwci826bwx9c}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image81.png}}}
+
+{}
+
+{Il modello ideale di amplificatore operazionale implica che la
 differenza di tensione fra le uscite sia sempre uguale a zero quando
-siamo in presenza di una retro reazione.
+siamo in presenza di una retro reazione.}
 
-Il circuito più semplice che possiamo realizzare è quello di un buffer
+{Il circuito più semplice che possiamo realizzare è quello di un buffer
 non invertente. In questo circuito la tensione di ingresso viene
 riportata in uscita con guadagno uno, l'importanza di questo circuito
 sta nel fatto che in data l\textquotesingle{} impedenza infinita di
 ingresso dell\textquotesingle amplificatore operazionale questo circuito
-ci permette di misurare tensioni in un sistema senza perturbarlo
-comportandosi come buffer.
+ci permette di misurare tensioni in un sistema senza
+}{perturbarlo}{~comportandosi come buffer.}
 
-\subsection{Non invertente}\label{non-invertente}
+{}
 
-Un amplificatore non invertente è un tipo di configurazione di
+\subsection{\texorpdfstring{{Non
+invertente}}{Non invertente}}\label{h.w68fnrvcgkdh}
+
+{Un amplificatore non invertente è un tipo di configurazione di
 amplificazione utilizzando un amplificatore operazionale in cui il
 segnale in ingresso viene amplificato senza essere invertito in fase
 nell\textquotesingle uscita. Questa configurazione è ampiamente
 utilizzata in applicazioni in cui è necessario amplificare un segnale
-senza cambiarne la polarità.
+senza cambiarne la polarità.}
 
-Prevede \textbf{due resistenze}, una collegata
-\emph{all\textquotesingle ingresso invertente}
-dell\textquotesingle op-amp a una tensione di riferimento (solitamente
-la massa o un punto di tensione stabile), e l\textquotesingle altra
-collegata \ul{tra} \emph{l\textquotesingle uscita
-dell\textquotesingle op-amp e l\textquotesingle ingresso non
-invertente}. L\textquotesingle ingresso del segnale da amplificare viene
-collegato all\textquotesingle ingresso non invertente.
+{}
 
-\includegraphics[width=2.76718in,height=1.74732in]{media/image21.png}
+{P}{revede }{due resistenze}{, una collegata
+}{all\textquotesingle ingresso invertente}{~dell\textquotesingle op-amp
+a una tensione di riferimento (solitamente la massa o un punto di
+tensione stabile), e l\textquotesingle altra collegata
+}{tra}{~}{l\textquotesingle uscita dell\textquotesingle op-amp e
+l\textquotesingle ingresso non invertente}{. L\textquotesingle ingresso
+del segnale da amplificare viene collegato all\textquotesingle ingresso
+non invertente.}
 
-Il \emph{guadagno} si trova con:
+{}
 
-\(G = 1 + (\frac{R1}{R2})\)
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image74.png}}}
 
-R1 \textbf{{[}RF{]}} -\textgreater{} collegata
-all\textquotesingle ingresso / R2 \textbf{{[}R2{]}} -\textgreater{}
-collegata all'uscita
+{}
 
-\subsection{Comparatore con isteresi}\label{comparatore-con-isteresi}
+{Il }{guadagno }{si trova con:}
 
-Un circuito comparatore dotato di isteresi è un tipo di circuito che
+\pandocbounded{\includegraphics[keepaspectratio]{images/image58.png}}
+
+{R1}{~{[}R}{F}{{]}}{~-\textgreater{} collegata
+all\textquotesingle ingresso / R2 }{~{[}R}{2}{{]}}{~-\textgreater{}
+collegata all'uscita}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+\subsection{\texorpdfstring{{Comparatore con
+isteresi}}{Comparatore con isteresi}}\label{h.caqcz1f70il2}
+
+{Un circuito comparatore dotato di isteresi è un tipo di circuito che
 utilizza un amplificatore operazionale per confrontare due tensioni di
 ingresso e fornire un\textquotesingle uscita che cambia in modo definito
-e stabile tra due soglie specifiche.
+e stabile tra due soglie specifiche.}
 
-Questo tipo di circuito è utilizzato per rilevare la transizione di
+{}
+
+{Questo tipo di circuito è utilizzato per rilevare la transizione di
 tensione tra due stati, introducendo una regione di isteresi che
 impedisce commutazioni indesiderate dell\textquotesingle uscita in
 presenza di segnali rumorosi o fluttuanti vicino alle soglie di
-commutazione.
+commutazione.}
 
-Un esempio è il comparatore Schmitt Trigger.
+{}
 
-\section{DOMANDE SLIDES (da fare)}\label{domande-slides-da-fare}
+{Un esempio è il comparatore Schmitt Trigger.}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+\section{\texorpdfstring{{DOMANDE SLIDES (da
+fare)}}{DOMANDE SLIDES (da fare)}}\label{h.2fdulleeuzgg}
+
+{}
+
+\end{document}

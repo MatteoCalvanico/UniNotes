@@ -1,635 +1,913 @@
-I doppi - consecutivi dei comandi per via di come Google Documenti
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+{ATTENZIONE}
+
+{I doppi - consecutivi dei comandi per via di come Google Documenti
 gestisce i simboli sono mostrati come uno singolo, inoltre non è
-consigliato copiare direttamente i comandi da qui sulla bash
+consigliato copiare direttamente i comandi da qui sulla bash}
 
-Docker
+{}
 
-Per far partire un container tramite un'immagine (la cerca prima in
-locale e poi su Docker Hub), con un nome custom (univoco) e collegarlo
-alla rete del Docker host (-d per farlo partire in background
-{[}detached mode{]}):
+{}
 
-\emph{docker run -d --port portaEsterna:portaInterna --name
-nomeContainer nomeImmagine}
+{Docker}
 
-\textbf{Oppure}
+{Per far partire un container}{~}{tramite un'immagine (la cerca prima in
+locale e poi su Docker Hub)}{, }{con un nome custom (univoco)}{~e
+collegarlo alla rete del Docker host }{(-d per farlo partire in
+background {[}detached mode{]})}{:}
 
-\textbf{{[}}Non consigliato, perché sappiamo solo la porta
-interna\textbf{{]}}
+{}
 
-\emph{docker run -d --port portaInterna -- name nomeContainer
+{docker run}{~}{-d}{~--port }{portaEsterna:portaInterna}{~}{--name
+}{nomeContainer}{~}{nomeImmagine}
+
+{}
+
+{Oppure}
+
+{{[}}{Non consigliato, perché sappiamo solo la porta interna}{{]}}
+
+{}
+
+{docker run -d --port }{portaInterna}{~-- name }{nomeContainer
 nomeImmgina}
 
-\emph{Porta Esterna:} porta del container {[}accedibile da localhost{]}
+{}
 
-\emph{Porta Interna:} porta del server {[}data dal container, non è da
-cambiare{]}
+{}
 
-\textbf{Esempio:}
+{Porta Esterna:}{~porta del container {[}accedibile da localhost{]}}
 
-Se un Docker Engine (PC su cui è installato Docker) contiene un
+{Porta Interna:}{~porta del server {[}data dal container, non è da
+cambiare{]}}
+
+{}
+
+{Esempio:}
+
+{Se un Docker Engine (PC su cui è installato Docker) contiene un
 container che è un server HTTP (nginx) (in esecuzione sulla porta 80), e
 vogliamo che dalla rete locale (dove è collegato Docker Engine) si possa
-accedere al container devo:
+accedere al container devo:}
 
 \begin{itemize}
+\tightlist
 \item
-  avere l'indirizzo del Docker Engine;
+  {avere l'indirizzo del Docker Engine;}
 \item
-  avere la porta su dove gira nginx sul Docker Engine (8080)
+  {avere la porta su dove gira nginx sul Docker Engine (8080)}
 \end{itemize}
 
-Quindi:
+{}
 
-\emph{docker -run -d --port 8080:80 --name miohttp nginx}
+{Quindi:}
 
-Possiamo, dopo aver creato un container, creare un'immagine di esso in
-modo da poter \textbf{duplicare velocemente} lo stesso container
-{[}Utile all\textquotesingle esame per quando si chiede di creare tanti
-nodi{]}:
+{docker -run -d --port 8080}{:}{80 --name }{miohttp}{~nginx}
 
-\emph{docker commit idContainer nomeImmagine}
+{}
 
-Successivamente per farlo partire si fanno gli stessi comandi
-sopracitati.
+{}
 
-\section{Network}\label{network}
+{Possiamo, dopo aver creato un container, creare un'immagine di esso in
+modo da poter }{duplicare velocemente}{~lo stesso container {[}Utile
+all\textquotesingle esame per quando si chiede di creare tanti nodi{]}:}
 
-\emph{\textbf{{[}MACVLAN non sarà nell'esame{]}}}
+{}
 
-Ogni container viene linkato ad una rete {[}\emph{docker network ls}{]}
-che di default è \textbf{bridge}; c'è la possibilità di \textbf{creare}
-reti custom partendo da modelli base:
+{docker commit idContainer nomeImmagine}
 
-\emph{docker network create --driven bridge alpine-net}
+{}
 
-Per \textbf{visionare} nel dettaglio ogni rete (bridge in questo caso):
+{Successivamente per farlo partire si fanno gli stessi comandi
+sopracitati.}
 
-\emph{docker network inspect bridge}
+\section{\texorpdfstring{{Network}}{Network}}\label{h.74xtvd7lb557}
 
-Per esempio è possibile vedere i container al suo interno.
+{{[}MACVLAN non sarà nell'esame{]}}
 
-Per \textbf{connettere} un container ad una rete (colleghiamo alpine ad
-bridge):
+{Ogni container viene linkato ad una rete {[}}{docker network ls}{{]}
+che di default è }{bridge}{; c'è la possibilità di }{creare }{reti
+custom}{~}{partendo da modelli base}{:}
 
-\emph{docker network connect bridge alpine}
+{}
 
-Un container può collegarsi a più reti.
+{docker network create}{~}{--driven bridge}{~}{alpine-net}
 
-Per \textbf{far partire} un container in una rete specifica (host in
-questo caso), it serve per interfacciare il nostro container con il
-Docker Engine, con una immagine specifica che permette di eseguire un
-comando appena fatto partire:
+{}
 
-\emph{docker run -it -\/-network=host alpine:latest /bin/ash}
+{Per }{visionare }{nel dettaglio ogni rete (bridge in questo caso):}
 
-\textbf{Posso anche unire i flag, es: -dit (d per background, it per
+{}
+
+{docker network inspect bridge}
+
+{Per esempio è possibile vedere i container al suo interno.}
+
+{}
+
+{Per }{connettere }{un container ad una rete (colleghiamo alpine ad
+bridge):}
+
+{}
+
+{docker network connect bridge alpine}
+
+{Un container può collegarsi a più reti.}
+
+{}
+
+{}
+
+{Per }{far partire}{~un container in una rete specific}{a (host in
+questo caso)}{, }{it serve per interfacciare il nostro container con il
+Docker Engine}{, con una }{immagine specifica che permette di eseguire
+un comando appena fatto partire}{:}
+
+{}
+
+{docker run }{-it}{~-\/-network=host}{~}{alpine:latest /bin/ash}
+
+{Posso anche unire i flag, es: -dit (d per background, it per
 interfacciare)}
 
-Questa immagine se non gli si dà un comando all'avvio viene creata e
-distrutta subito, perché non ha nessun compito.
+{Questa immagine se non gli si dà un comando all'avvio viene creata e
+distrutta subito, perché non ha nessun compito.}
 
-Dopo la creazione se vogliamo \textbf{entrare} nel container interattivo
-(grazie ad \textbf{-it}) posso usare:
+{}
 
-\emph{docker attach alpine}
+{}
 
-Ricordarsi di usare \emph{CTRL + P + Q per uscire}.
+{Dopo la creazione se vogliamo }{entrare }{nel container interattivo
+(grazie ad }{-it}{) posso usare:}
 
-Se si usa \textbf{exit} o \textbf{CTRL+D} l'interprete dei comandi si
-spegne e così il container.
+{}
 
-\section{Mantenere stato}\label{mantenere-stato}
+{docker attach alpine}
 
-\subsection{Bind mount}\label{bind-mount}
+{Ricordarsi di usare }{CTRL + P + Q per uscire}{.}
 
-Collega una cartella/file della nostra macchina (Docker Engine) nel
-container.
+{Se si usa }{exit}{~o }{CTRL+D}{~l'interprete dei comandi si spegne e
+così il container.}
 
-Per fare mount di una cartella dalla nostra macchina sul container:
+\section{\texorpdfstring{{Mantenere
+stato}}{Mantenere stato}}\label{h.ho19oaw5gtik}
 
-\emph{docker run -dit -v \textbf{/percorso/macchina:/percorso/container}
-alpine:latest /bin/ash}
+\subsection{\texorpdfstring{{Bind
+mount}}{Bind mount}}\label{h.te5p8a1bf5ws}
 
-\textbf{Esempio:}
+{Collega una cartella/file della nostra macchina (Docker Engine) nel
+container.}
 
-\emph{docker run -dit -v
+{Per fare mount di una cartella dalla nostra macchina sul container:}
+
+{}
+
+{docker run -dit
+-v}{~/percorso/macchina:/percorso/container}{~alpine:latest /bin/ash}
+
+{}
+
+{Esempio:}
+
+{docker run -dit -v
 C:\textbackslash Users\textbackslash matte\textbackslash Desktop\textbackslash prova:/tmp
 alpine:latest /bin/ash}
 
-\emph{\textbf{RIcordarsi di mettere ``\,'' se il percorso ha spazi}}
+{RIcordarsi di mettere ``\,'' se il percorso ha spazi}
 
-Ora da dentro il container in /tmp sarà possibile accedere alla cartella
-\textbackslash prova e ai suoi file.
+{}
 
-\subsection{Volume}\label{volume}
+{Ora da dentro il container in /tmp sarà possibile accedere alla
+cartella \textbackslash prova e ai suoi file.}
 
-Salva sempre le cartelle/file su un'area della nostra macchina ma è
+\subsection{\texorpdfstring{{Volume}}{Volume}}\label{h.4cbnup7dn8k}
+
+{Salva sempre le cartelle/file su un'area della nostra macchina ma è
 gestito completamente da Docker ed hanno un ciclo di vita al di fuori e
-non dipendente dal container.
+non dipendente dal container.}
 
-Per \textbf{usare} un volume:
+{}
 
-\emph{docker run -dit -v \textbf{nomeVolume:/percorso/container}
-alpine:latest /bin/ash}
+{Per }{usare }{un volume:}
 
-\textbf{Esempio:}
+{}
 
-\emph{docker run -dit -v volumeEsempio:/tmp alpine:latest /bin/ash}
+{docker run -dit -v}{~}{nomeVolume:/percorso/container}{~alpine:latest
+/bin/ash}
 
-Sostanzialmente se non si mette un path specifico crea un volume con
-quel nome, possiamo \textbf{vedere} i volumi creati con:
+{}
 
-\emph{docker volume ls}
+{Esempio:}
 
-e per vederli nel \textbf{dettaglio}:
+{docker run -dit -v }{volumeEsempio:/tmp}{~alpine:latest /bin/ash}
 
-\emph{docker volume inspect nomeVolume}
+{}
 
-Per \textbf{eliminare} i container che non usano volumi facciamo:
+{Sostanzialmente se non si mette un path specifico crea un volume con
+quel nome, possiamo }{vedere }{i volumi creati con:}
 
-\emph{docker volume prune}
+{}
 
-Jenkins
+{docker volume ls}
 
-Automation server per creare delle pipeline in fase di sviluppo, in modo
-da automatizzare processi che vengono fatti in maniera ripetuta.
+{e per vederli nel }{dettaglio}{:}
 
-Per scaricare l'immagine di jenkins e la chiamiamo jenkinsMaster:
+{}
 
-\emph{docker run -\/-name jenkinsMaster -p 8080:8080 -p 50000:50000 -d
+{docker volume inspect nomeVolume}
+
+{}
+
+{Per }{eliminare }{i container che non usano volumi facciamo:}
+
+{}
+
+{docker volume prune}
+
+{}
+
+{}
+
+{Jenkins}
+
+{Automation server per creare delle pipeline in fase di sviluppo, in
+modo da automatizzare processi che vengono fatti in maniera ripetuta.}
+
+{}
+
+{Per scaricare l'immagine di jenkins e la }{chiamiamo
+}{jenkinsMaster}{:}
+
+{}
+
+{docker run }{-\/-name }{jenkinsMaster}{~-p 8080:8080 -p 50000:50000 -d
 -v jenkins\_home:/var/jenkins\_home jenkins/jenkins}
 
-Successivamente possiamo ottenere la password per accedere all'account
-admin tramite {[}da fare dopo averli fatto partire{]}:
+{}
 
-\emph{docker logs nomeContainer}
+{Successivamente possiamo ottenere la password per accedere all'account
+admin tramite {[}da fare dopo averli fatto partire{]}:}
 
-\section{Pipeline}\label{pipeline}
+{}
 
-La sintassi per le pipeline è:
+{docker logs nomeContainer}
 
-pipeline \{
+\section{\texorpdfstring{{Pipeline}}{Pipeline}}\label{h.wjsoppaj92od}
 
-agent any
+{La sintassi per le pipeline è:}
 
-stages \{
+{pipeline \{}
 
-stage(\textquotesingle Stage 1\textquotesingle) \{
+{~~~~~~~~agent any }
 
-steps \{
+{~~~~~~~~stages \{}
 
-echo \textquotesingle Hello world!\textquotesingle{}
+{~ ~ ~~~~~~~~stage(\textquotesingle Stage 1\textquotesingle) \{}
 
-\}
+{~ ~ ~ ~ ~~~~~~~~steps \{}
 
-\}
+{~ ~ ~ ~ ~ ~ ~~~~~~~~echo \textquotesingle Hello
+world!\textquotesingle{}}
 
-\}
+{~ ~ ~ ~ ~~~~~~~~\}}
 
-\}
+{~ ~ ~~~~~~~~\}}
 
-Dove \emph{any}, indica in quali nodi eseguire la pipeline, in questo
-caso tutti.
+{~~~~~~~~\}}
 
-\subsection{Git}\label{git}
+{\}}
 
-Per avviare uno script residente su GitHub possiamo seguire i seguenti
-passaggi:
+{}
+
+{Dove }{any}{, indica in quali nodi eseguire la pipeline, in questo caso
+tutti.}
+
+\subsection{\texorpdfstring{{Git}}{Git}}\label{h.y8xexhd28d10}
+
+{Per avviare uno script residente su GitHub possiamo seguire i seguenti
+passaggi:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Andiamo nella pagina di creazione;
+  {Andiamo nella pagina di creazione;}
 \item
-  Cliccare: \textbf{Pipeline Syntax}, collocato sotto la sezione di
-  inserimento della pipeline.
+  {Cliccare: }{Pipeline Syntax}{, collocato sotto la sezione di
+  inserimento della pipeline.}
 \item
-  In \emph{Sample Step} mettere \textbf{git: Git}.
+  {In }{Sample Step}{~mettere }{git: Git}{.}
 \item
-  Inserire l'URL, il nome del ramo e le credenziali.
+  {Inserire l'URL, il nome del ramo e le credenziali.}
 \item
-  Generare la pipeline e copiarla.
+  {Generare }{la pipeline}{~e copiarla.}
 \item
-  Creare uno script con diversi stage, uno con il comando copiato e uno
-  per avviare il file.
+  {Creare uno script con diversi stage, uno con il comando copiato e uno
+  per avviare il file.}
 \end{enumerate}
 
-Esempio:
+{}
 
-pipeline \{
+{Esempio:}
 
-agent any
+{pipeline \{}
 
-stages \{
+{~~~~~~~~agent any}
 
-stage(\textquotesingle inizio\textquotesingle) \{
+{~~~~~~~~stages \{}
 
-steps \{
+{~ ~ ~~~~~~~~stage(\textquotesingle inizio\textquotesingle) \{}
 
-echo \textquotesingle pipeline avviata correttamente\textquotesingle{}
+{~ ~ ~ ~ ~~~~~~~~steps \{}
 
-\}
+{~ ~ ~ ~ ~ ~ ~~~~~~~~echo \textquotesingle pipeline avviata
+correttamente\textquotesingle{}}
 
-\}
+{~ ~ ~ ~ ~~~~~~~~\}}
 
-stage(\textquotesingle fetch\textquotesingle) \{
+{~ ~ ~~~~~~~~\}}
 
-steps \{
+{~ ~ ~~~~~~~~stage(\textquotesingle fetch\textquotesingle) \{}
 
-git branch: \textquotesingle main\textquotesingle, credentialsId:
+{~ ~ ~ ~ ~~~~~~~~steps \{}
+
+{~ ~ ~ ~ ~ ~ ~~~~~~~~git branch: \textquotesingle main\textquotesingle,
+credentialsId:
 \textquotesingle c6d7c2d5-8649-4650-981c-c6b80e94d27e\textquotesingle,
 url:
-\textquotesingle https://github.com/scastagnoli/PythonDevOps.git\textquotesingle{}
+\textquotesingle https://github.com/scastagnoli/PythonDevOps.git\textquotesingle{}}
 
-\}
+{~ ~ ~ ~ ~~~~~~~~\}}
 
-\}
+{~ ~ ~~~~~~~~\}}
 
-stage(\textquotesingle esecuzione\textquotesingle) \{
+{~ ~ ~~~~~~~~stage(\textquotesingle esecuzione\textquotesingle) \{}
 
-steps \{
+{~ ~ ~ ~ ~~~~~~~~steps \{}
 
-sh \textquotesingle python3 liste.py\textquotesingle{}
+{~ ~ ~ ~ ~ ~ ~~~~~~~~sh \textquotesingle python3
+liste.py\textquotesingle{}}
 
-\}
+{~ ~ ~ ~ ~~~~~~~~\}}
 
-\}
+{~ ~ ~~~~~~~~\}}
 
-\}
+{~~~~~~~~\}}
 
-\}
+{\}}
 
-\subsection{Triggered pipeline}\label{triggered-pipeline}
+\subsection{\texorpdfstring{{Triggered
+pipeline}}{Triggered pipeline}}\label{h.bqv6f35zftl4}
 
-Esistono due modalità:
+{Esistono due modalità:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{cron}: come il daemon dentro Linux permette di eseguire la
-  pipeline ad intervalli regolari;
+  {cron}{: come il daemon dentro Linux permette di eseguire la pipeline
+  ad intervalli regolari;}
 \item
-  \textbf{pollSCM}: la pipeline controlla dal sorgente SCM (git o altro)
-  se ci sono modifiche, in caso viene eseguita.
+  {pollSCM}{:}{~la pipeline controlla dal sorgente SCM (git o altro) se
+  ci sono modifiche, in caso }{viene}{~eseguita.}
 \end{itemize}
 
-\emph{La pipeline deve essere \textbf{eseguita manualmente una volta}
-prima che il trigger venga preso in considerazione !!!}
+{}
 
-\textbf{Struttura generale:}
+{La pipeline deve essere }{eseguita manualmente una volta}{~prima che il
+trigger venga preso in considerazione !!!}
 
-pipeline \{
+{}
 
-agent any
+{Struttura generale:}
 
-triggers \{
+{pipeline \{}
 
-cron(\textquotesingle H * */4 * * 1-5\textquotesingle)
+{~~~~~~~~agent any}
 
-\}
+{~~~~~~~~triggers \{}
 
-stages \{
+{~ ~ ~~~~~~~~~~~~~~~~cron(\textquotesingle H * */4 * *
+1-5\textquotesingle)}
 
-\begin{quote}
-stage(\textquotesingle Example\textquotesingle) \{
+{~~~~~~~~\}}
 
-steps \{
+{~~~~~~~~stages \{}
 
-echo \textquotesingle Hello World\textquotesingle{}
+{~ ~ ~~~~~~~~stage(\textquotesingle Example\textquotesingle) \{}
 
-\}
+{~ ~ ~ ~ ~~~~~~~~steps \{}
 
-\}
-\end{quote}
+{~ ~ ~ ~ ~ ~ ~~~~~~~~echo \textquotesingle Hello
+World\textquotesingle{}}
 
-\}
+{~ ~ ~ ~ ~~~~~~~~\}}
 
-\}
+{~ ~ ~~~~~~~~\}}
 
-L'\textbf{H} indica un hash della pipeline corrente, che rende
-leggermente casuale l'esecuzione, così anche se ci sono tante pipeline
-che vengono eseguite con gli stessi intervalli evita conflitti.
+{~~~~~~~~\}}
 
-Esempi di trigger:
+{\}}
 
-\includegraphics[width=6.26772in,height=2.18056in]{media/image4.png}
+{}
 
-\emph{Si può controllare se la combinazione è giusta qui:
-\href{https://crontab.guru/}{\ul{https://crontab.guru/}}}
+{L'}{H}{~indica un hash della pipeline corrente, che rende leggermente
+casuale l'esecuzione, così anche se ci sono tante pipeline che vengono
+eseguite con gli stessi intervalli evita conflitti.}
 
-\section{Master-Slave}\label{master-slave}
+{}
 
-Dopo aver creato un nuovo nodo in \emph{Permanent Node} (Gestisci
-Jenkins -\textgreater{} Nodes -\textgreater{} New Node -\textgreater{}
-nome nodo e mode) e aver impostato l'ind. IP per URL di Jenkins
+{Esempi di trigger:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image3.png}}}
+
+{Si può controllare se la combinazione è giusta qui:
+}{\href{https://www.google.com/url?q=https://crontab.guru/&sa=D&source=editors&ust=1734629472341556&usg=AOvVaw1q70ETkRxj0q80m5Sc_yN4}{https://crontab.guru/}}
+
+{}
+
+\section{\texorpdfstring{{Master-Slave}}{Master-Slave}}\label{h.zfalbrkaqiwx}
+
+{Dopo aver creato un nuovo nodo in }{Permanent Node}{~(Gestisci Jenkins
+-\textgreater{} Nodes -\textgreater{} New Node -\textgreater{} nome nodo
+e mode) e aver impostato l'ind. IP per URL di Jenkins
 (dashboard-\textgreater gestisci
 Jenkins-\textgreater System-\textgreater URL di Jenkins) possiamo creare
-un container che ospiterà il nostro slave e scaricare al suo interno jdk
-(per compilare java), curl e git:
+un container che ospiterà il nostro slave e scaricare al suo interno
+}{jdk}{~(per compilare java), curl e git:}
 
-\begin{quote}
-\emph{•docker run -dit -\/-name nomeSlave debian}
+{•docker run -dit -\/-name }{nomeSlave}{~debian}
 
-\emph{•docker exec -it nomeSlave /bin/bash}
+{•docker exec -it nomeSlave /bin/bash}
 
-\emph{•apt update}
+{•apt update}
 
-\emph{•apt install default-jdk curl git}
-\end{quote}
+{•apt install default-jdk curl git}
 
-Questo container funge da nodo slave.
+{}
 
-Per connettersi a Jenkins eseguiamo i comandi che prendiamo dalla pagina
-del nodo direttamente da Jenkins.
+{Questo container funge da nodo slave.}
 
-Se tutto va come previsto nella bash dovrebbe uscire:
+{Per connettersi a Jenkins eseguiamo i comandi che prendiamo dalla
+pagina del nodo direttamente da Jenkins.}
 
-\emph{INFO: Connected}
+{Se tutto va come previsto nella bash dovrebbe uscire:}
 
-e come prova del nove se andiamo sulla pagina dei nodi in Jenkins
-notiamo che dice connesso e l'icona non è barrata.
+{INFO: Connected}
 
-In caso il nodo debba essere connesso nuovamente rifare i comandi dati
-da Jenkins (in particolare quello java con l'indirizzo ip).
+{e come prova del nove se andiamo sulla pagina dei nodi in Jenkins
+notiamo che dice connesso e l'icona non è barrata.}
 
-Ora possiamo eseguire pipeline sui diversi nodi slave, mettendo
-\emph{negli agent i nomi di Jenkins} \textbf{e NON} quello del
-container.
+{}
 
-Ansible
+{In caso il nodo debba essere connesso nuovamente rifare i comandi dati
+da Jenkins (in particolare quello java con l'indirizzo ip).}
 
-Permette di centralizzare e automatizzare la gestione e i processi su
-dei nodi e il controllo del loro stato.
+{}
 
-Gli elementi fondamentali di questa tecnologia sono:
+{}
 
-\begin{itemize}
-\item
-  \textbf{Control node}: nodo dove vengono eseguiti i comandi per
-  controllare gli altri nodi.
+{Ora possiamo eseguire pipeline sui diversi nodi slave, mettendo }{negli
+agent i nomi di Jenkins }{e NON}{~quello del container}{.}
 
-  \begin{itemize}
-  \item
-    \textbf{Inventory}: elenco dei nodi controllati, sta nel nodo di
-    controllo.
-  \end{itemize}
-\item
-  \textbf{Managed node}: nodi controllati dal Control node
-\end{itemize}
+{}
 
-\emph{\textbf{Da ricordare}: il Control Node NON è un server, anzi è lui
-che si collegherà ai vari nodi !!!}
+{}
 
-\section{Configurazione nodi/ssh}\label{configurazione-nodissh}
+{Ansible}
 
-Per preparare i nodi:
+{Permette di centralizzare e automatizzare la gestione e i processi su
+dei nodi e il controllo del loro stato.}
+
+{}
+
+{Gli elementi fondamentali di questa tecnologia sono:}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{docker run -dit --name nomeNodo debian}
-\item
-  \emph{apt update} {[}Dentro al container, per entrare usa \emph{docker
-  exec -it nome bash}{]}
-\item
-  \emph{apt install python3 openssh-server nano ansible}
+  {Control node}{: nodo dove vengono eseguiti i comandi per controllare
+  gli altri nodi.}
 \end{itemize}
-
-\begin{quote}
-\emph{Solo sul nodo di controllo (Control node)}
-\end{quote}
-
-Successivamente vanno generate le key pair (dentro al Control Node), la
-chiave privata rimarrà nel nodo di controllo e i managed node avranno
-quella pubblica:
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{{[}Control Node{]}} \emph{ssh-keygen}: successivamente verrà
-  chiesto -\textgreater{}
-
-  \begin{itemize}
-  \item
-    \textbf{nome:} \emph{/root/.ssh/nomeFile};
-  \item
-    \textbf{passphrase (da ricordare):} \emph{password}.
-  \end{itemize}
+  {Inventory}{: elenco dei nodi controllati, sta nel nodo di controllo.}
 \end{itemize}
-
-\includegraphics[width=4.06384in,height=2.25521in]{media/image2.png}
-
-Per salvare la passphrase per evitare che venga chiesta ad ogni
-connessione \textbf{{[}Facoltativo{]} {[}Control Node{]}}:
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{exec ssh-agent \$SHELL}
-\item
-  \emph{ssh-add /root/.ssh/nomeFile}
-\item
-  \textbf{{[}Comando di verifica{]}} \emph{ssh-add -l}
+  {Managed node}{: nodi controllati dal Control node}
 \end{itemize}
 
-Ora bisogna distribuire la chiave pubblica ai Managed node, per farlo
-dobbiamo modificare il file di configurazione di ssh :
+{}
+
+{Da ricordare}{: il Control Node NON è un server, anzi è lui che si
+collegherà ai vari nodi !!!}
+
+\section{\texorpdfstring{{Configurazione
+nodi/ssh}}{Configurazione nodi/ssh}}\label{h.2v0hix4n06lt}
+
+{Per }{preparare }{i nodi:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{{[}Managed Node{]}} \emph{nano /etc/ssh/sshd\_config}: e
-  modifichiamo le seguenti voci (cercale con CTRL + W):
-
-  \begin{itemize}
-  \item
-    \textbf{PermitRootLogin yes}
-  \item
-    \textbf{PubkeyAuthentication yes}
-  \item
-    \textbf{AuthorizedKeysFile .ssh/nomeFile.pub} {[}ricordarsi di
-    prendere la chiave dal control node (cat root/.ssh/nomeFile.pub),
-    copiarla, e inserirla nel file in questa posizione{]}
-  \item
-    \textbf{PasswordAuthentication no}
-  \end{itemize}
+  {docker run -dit --name }{nomeNodo}{~debian}
+\item
+  {apt update }{{[}Dentro al container, per entrare usa }{docker exec
+  -it nome bash}{{]}}
+\item
+  {apt install python3 openssh-server nano }{ansible}
 \end{itemize}
 
-Per poi \textbf{restartare} il server ssh \textbf{{[}Managed Node{]}}:
+{Solo sul nodo di controllo (Control node)}
+
+{}
+
+{Successivamente vanno }{generate le key pair}{~(dentro al Control
+Node), la chiave privata rimarrà nel nodo di controllo e i managed node
+avranno quella pubblica:}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{/etc/init.d/ssh restart}
-\item
-  \emph{/etc/init.d/ssh status}
+  {{[}Control Node{]}}{~}{ssh-keygen}{: successivamente verrà chiesto
+  -\textgreater{}}
 \end{itemize}
-
-Per verificare l'accessibilità dei nodi va fatto:
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{{[}Control Node{]}} \emph{ssh -i /root/.ssh/nomeFile
-  root@host}
+  {nome:}{~}{/root/.ssh/nomeFile}{;}
+\item
+  {passphrase (da ricordare):}{~}{password}{.}
 \end{itemize}
 
-\begin{quote}
-\emph{Si prende facendo \textbf{docker inspect bridge nomeContainer} sul
-Docker Engine (IP Address)}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image1.png}}}
 
-\textbf{NOTA BENE:} se si decide di usare docker commit, per duplicare i
-nodi velocemente, usare il comando:
-
-\emph{ssh-keygen -q -N ``\,'' -t ed25519 -f
-/etc/ssh/ssh\_host\_ed25519\_key}
-
-in modo da generare un nuovo fingerprint per il server ssh (ricordarsi
-di fare il restart).
-
-Altrimenti ssh non riuscirà a connettersi al host duplicato perché è
-settato per evitare un attacco di tipo Man in The Middle.
-
-\section{Funzionamento}\label{funzionamento}
-
-Ora che abbiamo creato i container e configurato SSH possiamo passare ad
-usare \textbf{Ansible}.
-
-Per iniziare bisogna creare l'\textbf{inventory}, quindi dentro il
-Control Node creiamo un file .ini dove inseriamo i gruppi con ciascun
-nodo, esempio:
-
-{[}gruppo1{]}
-
-172.17.0.4
-
-172.17.0.5
-
-{[}gruppo2{]}
-
-172.17.0.7
-
-{[}vm{]}
-
-192.168.178.123
-
-Possiamo vedere come sia possibile inserire anche VM oltre che host (non
-è necessario).
-
-Successivamente è possibile fare diversi comandi di Ansible, esempio:
+{Per salvare la passphrase per evitare che venga chiesta ad ogni
+connessione }{{[}Facoltativo{]} {[}Control Node{]}}{:}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{ansible gruppo1 -m ping -i gruppi.ini} =\textgreater{} dove
-  faccio ping a tutti i nodi del gruppo 1, prendendo le informazioni dal
-  file gruppo.ini.
+  {exec ssh-agent \$SHELL}
+\item
+  {ssh-add /root/.ssh/nomeFile}
+\item
+  {{[}Comando di verifica{]} }{ssh-add -l }
 \end{itemize}
 
-Esistono diversi pattern per far eseguire i comandi a diversi nodi:
+{}
 
-\includegraphics[width=6.27083in,height=1.45147in]{media/image1.png}
-
-In generale un comando \textbf{Ansible} è così strutturato:
-
-\emph{ansible \textbf{target} -i \textbf{inventory} {[}-m
-\textbf{module} {[}-a \textbf{``module options''}{]}{]}}
-
-Dove:
+{Ora bisogna }{distribuire la chiave pubblica}{~ai Managed }{node,}{~per
+farlo dobbiamo modificare il file di configurazione di ssh :}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{target}: i nodi destinatari del comando;
-\item
-  \textbf{inventory}: il file da dove prendere i target/gruppi/ecc;
-\item
-  \textbf{module}: nome del modulo da usare (il comando);
-\item
-  \textbf{module options}: dipende dal comando usato, se non uso
-  \emph{-m} posso inserire uno script da usare.
+  {{[}Managed Node{]} }{nano /etc/ssh/sshd\_config}{: e modifichiamo le
+  seguenti voci (cercale con CTRL + W):}
 \end{itemize}
-
-Ecco alcuni esempi:
-
-\includegraphics[width=6.26772in,height=2.88889in]{media/image3.png}
-
-\subsection{Playbook}\label{playbook}
-
-Servono per eseguire comandi Ansible in modo semplice e flessibile.
-
-I due formati sono:
 
 \begin{itemize}
+\tightlist
 \item
-  .ini: semplici ma meno flessibili;
+  {PermitRootLogin yes}
 \item
-  .yaml: usati praticamente sempre quando la complessità aumenta.
+  {PubkeyAuthentication yes}
+\item
+  {AuthorizedKeysFile}{~.ssh/nomeFile.pub }{{[}ricordarsi di prendere la
+  chiave dal control }{node}{~(cat root/.ssh/nomeFile.pub), copiarla, e
+  inserirla nel file in questa posizione{]}}
+\item
+  {PasswordAuthentication no}
 \end{itemize}
 
-Esempio di sintassi, ricordarsi che è necessario rispettare gli spazi:
+{Per poi }{restartare}{~}{il server ssh }{{[}Managed Node{]}}{:}
 
-\includegraphics[width=6.26772in,height=2.98611in]{media/image5.png}
+\begin{itemize}
+\tightlist
+\item
+  {/etc/init.d/ssh restart}
+\item
+  {/etc/init.d/ssh status}
+\end{itemize}
 
-Si possono avviare con il comando:
+{}
 
-\emph{ansible-playbook -i inventory.ini nomeFile.yaml}
+{Per }{verificare l'accessibilità}{~dei nodi va fatto:}
 
-Creare un VM con docker:
-\href{https://secgroup.dais.unive.it/teaching/vm-with-docker/}{\ul{https://secgroup.dais.unive.it/teaching/vm-with-docker/}}
+\begin{itemize}
+\tightlist
+\item
+  {{[}Control Node{]}}{~}{ssh -i /root/.ssh/nomeFile root@}{host}
+\end{itemize}
 
-Kubernetes
+{Si prende facendo }{docker inspect bridge }{nomeContainer}{~sul Docker
+Engine (IP Address)}
 
-Sistema di orchestrazione di container. Composto da Nodi (macchina che
+{}
+
+{NOTA BENE:}{~se si decide di usare docker commit, per duplicare i nodi
+velocemente, usare il comando:}
+
+{}
+
+{ssh-keygen -q -N ``\,'' -t ed25519 -f /etc/ssh/ssh\_host\_ed25519\_key}
+
+{}
+
+{in modo da generare un nuovo fingerprint per il server ssh (ricordarsi
+di fare il restart).}
+
+{Altrimenti ssh non riuscirà a connettersi al host duplicato perché è
+settato per evitare un attacco di tipo Man in The Middle.}
+
+\section{\texorpdfstring{{Funzionamento}}{Funzionamento}}\label{h.pnsfod1yrfx2}
+
+{Ora che abbiamo creato i container e configurato SSH possiamo passare
+ad usare }{Ansible}{.}
+
+{}
+
+{}
+
+{Per iniziare bisogna creare l'}{inventory}{, quindi dentro il Control
+Node creiamo un file .ini dove inseriamo i gruppi con ciascun nodo,
+esempio:}
+
+{{[}gruppo1{]}}
+
+{172.17.0.4}
+
+{172.17.0.5}
+
+{{[}gruppo2{]}}
+
+{172.17.0.7}
+
+{{[}vm{]}}
+
+{192.168.178.123}
+
+{Possiamo vedere come sia possibile inserire anche VM oltre che host
+(non è necessario).}
+
+{}
+
+{Successivamente è possibile fare diversi comandi di Ansible, esempio:}
+
+\begin{itemize}
+\tightlist
+\item
+  {ansible }{gruppo1}{~-m ping}{~}{-i gruppi.ini}{~=\textgreater{}
+  }{dove faccio ping a tutti i nodi del gruppo 1}{, }{prendendo le
+  informazioni dal file gruppo.ini.}
+\end{itemize}
+
+{}
+
+{Esistono diversi pattern per far eseguire i comandi a diversi nodi:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image5.png}}}
+
+{}
+
+{}
+
+{In generale un comando }{Ansible}{~è così strutturato:}
+
+{ansible }{target}{~-i }{inventory}{~{[}-m }{module}{~{[}-a }{``module
+options''}{{]}{]}}
+
+{}
+
+{Dove:}
+
+\begin{itemize}
+\tightlist
+\item
+  {target}{: i nodi destinatari del comando;}
+\item
+  {inventory}{: il file da dove prendere i target/gruppi/ecc;}
+\item
+  {module}{: nome del modulo da usare (il comando);}
+\item
+  {module options}{: dipende dal comando usato, se non uso
+  }{-m}{~posso}{~inserire uno script da usare.}
+\end{itemize}
+
+{}
+
+{Ecco alcuni esempi:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image2.png}}}
+
+{}
+
+\subsection{\texorpdfstring{{Playbook}}{Playbook}}\label{h.1mansw4tgcfr}
+
+{Servono per eseguire comandi Ansible in modo semplice e flessibile.}
+
+{}
+
+{I due formati sono:}
+
+\begin{itemize}
+\tightlist
+\item
+  {.ini: semplici ma meno flessibili;}
+\item
+  {.yaml: usati praticamente sempre quando la complessità aumenta.}
+\end{itemize}
+
+{}
+
+{Esempio di sintassi, ricordarsi che è necessario rispettare gli spazi:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image4.png}}}
+
+{Si possono avviare con il comando:}
+
+{ansible-playbook -i inventory.ini nomeFile.yaml}
+
+{}
+
+{Creare un VM con docker:
+}{\href{https://www.google.com/url?q=https://secgroup.dais.unive.it/teaching/vm-with-docker/&sa=D&source=editors&ust=1734629472347820&usg=AOvVaw00IuQ4t1iga6EA3ReVmFuZ}{https://secgroup.dais.unive.it/teaching/vm-with-docker/}}
+
+{}
+
+{Kubernetes}
+
+{Sistema di orchestrazione di container. Composto da Nodi (macchina che
 esegue attività), cluster (nodi logicamente correlati), pod (uno o più
 container distribuiti su un singolo nodo, con stesso IP, IPC, nome host
-ecc)) e Control plane (controlla i nodi e i cluster).
+ecc)) e Control plane (controlla i nodi e i cluster).}
 
-\section{Set up}\label{set-up}
+\section{\texorpdfstring{{Set up}}{Set up}}\label{h.fmovwu69nm6c}
 
-Per vedere come creare e settare la macchina virtuale:
-\href{https://unibo.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c51d7154-78e0-4816-a740-b22600f9d90f}{\ul{https://unibo.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c51d7154-78e0-4816-a740-b22600f9d90f}}
+{Per vedere come creare e settare la macchina virtuale:
+}{\href{https://www.google.com/url?q=https://unibo.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id\%3Dc51d7154-78e0-4816-a740-b22600f9d90f&sa=D&source=editors&ust=1734629472348207&usg=AOvVaw2s588O2jgrjtWScGe1O3bq}{https://unibo.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=c51d7154-78e0-4816-a740-b22600f9d90f}}
 
-\section{Comandi}\label{comandi}
+\section{\texorpdfstring{{Comandi}}{Comandi}}\label{h.q7ah8b4ndvw9}
 
-Per creare un namespace:
+{Per creare un namespace:}
 
-\emph{kubectl create namespace nomeNamespace}
+{kubectl create namespace nomeNamespace}
 
-Visualizzare i namespace;
+{}
 
-\emph{kubectl get namespace}
+{}
 
-Creare dei deployment di un'immagine in un namespace specifico:
+{Visualizzare i namespace;}
 
-\emph{kubectl create deployment nomeDeploy --image=nomeImage
+{kubectl get namespace}
+
+{}
+
+{}
+
+{Creare dei deployment di un'immagine in un namespace specifico:}
+
+{kubectl create deployment nomeDeploy --image=nomeImage
 -n=nomeNamespace}
 
-Visualizzare i deployment di un namespace:
+{}
 
-\emph{kubectl get deployment -n nomeNamespace}
+{}
 
-Visualizzare tutti i deployment di tutti i namespace:
+{Visualizzare i deployment di un namespace:}
 
-\emph{kubectl get deployment -A}
+{kubectl get deployment -n nomeNamespace}
 
-Cambiare namespace corrente:
+{}
 
-\emph{kubectl config set-context - -current - -namespace=nomeNamespace}
+{}
 
-per assicurarsi di essere nel giusto:
+{Visualizzare tutti i deployment di tutti i namespace:}
 
-\emph{kubectl config get-contexts}
+{kubectl get deployment -A}
 
-Ottenere informazioni su un deployment {[}\textbf{DA FARE DENTRO IL
-RISPETTIVO NAMESPACE}{]}:
+{}
 
-\emph{kubectl describe deployment nomeDeploy}
+{}
 
-Visualizzare il log di un deployment, utile in caso di errore
-{[}\textbf{DA FARE DENTRO IL RISPETTIVO NAMESPACE}{]}:
+{Cambiare namespace corrente:}
 
-\emph{kubectl logs deployment/nomeDeploy}
+{kubectl config set-context - -current - -namespace=nomeNamespace}
 
-Cancellare tutti i deployment di un namespace:
+{per assicurarsi di essere nel giusto:}
 
-\emph{kubectl delete deployment --all -n nomeNamespace}
+{kubectl config get-contexts}
 
-Visualizzare in quali nodi sono in esecuzione i pods:
+{}
 
-\emph{kubectl get pods -o wide}
+{}
 
-MQTT
+{Ottenere informazioni su un deployment {[}}{DA FARE DENTRO IL
+RISPETTIVO NAMESPACE}{{]}:}
+
+{kubectl describe deployment nomeDeploy}
+
+{}
+
+{}
+
+{Visualizzare il log di un deployment, utile in caso di errore {[}}{DA
+FARE DENTRO IL RISPETTIVO NAMESPACE}{{]}:}
+
+{kubectl logs deployment/nomeDeploy}
+
+{}
+
+{}
+
+{Cancellare tutti i deployment di un namespace:}
+
+{kubectl delete deployment --all -n nomeNamespace}
+
+{}
+
+{}
+
+{Visualizzare in quali nodi sono in esecuzione }{i pods:}
+
+{kubectl get pods -o wide}
+
+{}
+
+{MQTT}
+
+{}
+
+\end{document}

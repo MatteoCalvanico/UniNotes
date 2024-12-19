@@ -1,2043 +1,2773 @@
-\section{Problema}\label{problema}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-Quesito di cui si richieda ad altri o a sé stessi la soluzione, partendo
-di solito da elementi noti.
+\author{}
+\date{}
 
-Un problema computazionale: problema risolvibile mediante algoritmi,
-espresso in generale come corrispondenza tra input e output.
+\begin{document}
 
-\subsection{Istanza}\label{istanza}
+{Introduzione}
 
-particolare occorrenza del problema data da una specifica configurazione
-degli input
+{}
 
-\section{Algoritmo}\label{algoritmo}
+\section{\texorpdfstring{{Problema}}{Problema}}\label{h.x4gde96n6suz}
 
-\emph{\textbf{\ul{Def:}} Un insieme ordinato di operazioni/istruzioni
-elementari, non ambigue, ed effettivamente computabili che, quando
-eseguito su certi dati in ingresso (input), produce un risultato
-(output) arrestandosi in tempo finito.}
+{Q}{uesito di cui si richieda ad altri o a sé stessi la soluzione,
+partendo di solito da elementi noti.}
 
-Un modo per risolvere un problema. Esistono due diversi momenti relativi
-ad essi:
+{Un problema computazionale: problema risolvibile mediante algoritmi,
+espresso in generale come corrispondenza tra input e output.}
+
+\subsection{\texorpdfstring{{Istanza}}{Istanza}}\label{h.dcxaldq8mbhu}
+
+{particolare occorrenza del problema data da una specifica
+configurazione degli input}
+
+\section{\texorpdfstring{{Algoritmo}}{Algoritmo}}\label{h.n43i19gnahex}
+
+{Def:}{~Un insieme ordinato di operazioni/istruzioni elementari, non
+ambigue, ed effettivamente computabili che, quando eseguito su certi
+dati in ingresso (input), produce un risultato (output) arrestandosi in
+tempo finito.}
+
+{}
+
+{U}{n modo per risolvere un problema. Esistono due diversi momenti
+relativi ad essi:}
 
 \begin{itemize}
+\tightlist
 \item
-  specifica / rappresentazione
-
-  \begin{itemize}
-  \item
-    implementazione: algoritmo rappresentato in forma eseguibile
-    (programma)
-  \end{itemize}
-\item
-  esecuzione: un esecutore segue quanto indicato dall'algoritmo su
-  un'istanza del problema
-
-  \begin{itemize}
-  \item
-    L'esecuzione di un algoritmo è il processo di risoluzione del
-    problema
-  \end{itemize}
+  {specifica / rappresentazione}
 \end{itemize}
 
-Più algoritmi possono risolvere lo stesso problema, problema del
+\begin{itemize}
+\tightlist
+\item
+  {implementazione: algoritmo rappresentato in forma eseguibile
+  (programma)}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  {esecuzione: un esecutore segue quanto indicato dall'algoritmo su
+  un'istanza del problema}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  {L'esecuzione di un algoritmo è il processo di risoluzione del
+  problema}
+\end{itemize}
+
+{}
+
+{Più algoritmi possono risolvere lo stesso problema, problema del
 confronto e scelta dell'algoritmo migliore, e uno stesso algoritmo può
-essere rappresentato in modi diversi.
+essere rappresentato in modi diversi.}
 
-\textbf{L'informatica} è la disciplina che cerca di fornire il
-fondamento scientifico a vari argomenti, \textbf{l'algoritmo} è una
-sequenza finita di passi formali (non ambigui ed eseguibili dalla
-macchina) che trasformano un input in un output invece un
-\textbf{programma} è la rappresentazione di un algoritmo comprensibile
-dalla macchina.
+{}
 
-\subsection{\texorpdfstring{
-Requisiti/proprietà}{ Requisiti/proprietà}}\label{requisitiproprietuxe0}
+{L'informatica }{è la disciplina che cerca di fornire il fondamento
+scientifico a vari argomenti, }{l'algoritmo }{è una sequenza finita di
+passi formali (non ambigui ed eseguibili dalla macchina) che trasformano
+un input in un output invece un }{programma }{è la ~rappresentazione di
+un algoritmo comprensibile dalla macchina.}
 
-\begin{itemize}
-\item
-  \emph{Ordinamento delle operazioni}: un algoritmo dovrebbe avere una
-  struttura dove è chiaro l'ordine di esecuzione dei suoi passi.
-\item
-  \emph{Non ambiguità}: l'esecutore deve poter interpretare le
-  istruzioni in modo univoco.
-\item
-  \emph{Istruzioni effettivamente computabili:} l'esecutore deve essere
-  in grado di eseguire le operazioni indicate.
-\item
-  \emph{Finitezza:} l'algoritmo dovrebbe consistere in un numero finito
-  di passi, richiedere un numero finito di input/risorse, e terminare in
-  tempo finito.
-\end{itemize}
-
-\subsection{Programmazione imperativa}\label{programmazione-imperativa}
-
-In questo stile, gli algoritmi sono espressi come sequenze di istruzioni
-che il computer deve eseguire e che modificano lo stato del programma;
-coerente con l'architettura di von Neumann e con il modo con cui i
-computer funzionano a livello hardware.
-
-Questo tipo di paradigma si concentra sul ``come'' invece che sul
-``cosa'' (paradigmi dichiarativi).
-
-\subsection{Caratteristiche}\label{caratteristiche}
+\subsection{\texorpdfstring{{~Requisiti/proprietà}}{~Requisiti/proprietà}}\label{h.gnikcwz0r8qv}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{Correttezza}: un algoritmo è corretto se, per ogni istanza del
-  problema, termina con l'output corretto.
+  {Ordinamento delle operazioni}{: un algoritmo dovrebbe avere una
+  struttura dove è chiaro l'ordine di esecuzione dei suoi passi.}
 \item
-  \emph{Generalità}: un algoritmo dovrebbe applicarsi a una tipologia di
-  problemi, e non solamente a specifiche istanze.
+  {Non ambiguità}{: l'esecutore deve poter interpretare le istruzioni in
+  modo univoco.}
 \item
-  \emph{Determinismo}: partendo dagli stessi input, si dovrebbero
-  ottenere gli stessi output.
+  {Istruzioni effettivamente computabili:}{~l'esecutore deve essere in
+  grado di eseguire le operazioni indicate.}
 \item
-  \emph{Efficienza}: l'esecuzione dell'algoritmo dovrebbe avere un costo
-  accettabile.
+  {Finitezza: }{l}{'algoritmo dovrebbe consistere in un numero finito di
+  passi, richiedere un numero finito di input/risorse, e terminare in
+  tempo finito.}
 \end{itemize}
 
-\section{Programmazione strutturata}\label{programmazione-strutturata}
+{}
 
-Paradigma di programmazione basato sull'uso di costrutti di controllo
-del flusso e blocchi di codice.
+\subsection{\texorpdfstring{{Programmazione
+imperativa}}{Programmazione imperativa}}\label{h.uacwexl124zb}
 
-\textbf{Teorema di Böhm-Jacopini}: \emph{qualsiasi programma può essere
-scritto usando tre tipi di strutture di controllo: sequenza, selezione e
+{In questo stile, gli algoritmi sono espressi come sequenze di
+istruzioni che il computer deve eseguire e che modificano lo stato del
+programma; coerente con l'architettura di von Neumann e con il modo con
+cui i computer funzionano a livello hardware.}
+
+{}
+
+{Questo tipo di paradigma si concentra sul ``come'' invece che sul
+``cosa'' (paradigmi dichiarativi).}
+
+\subsection{\texorpdfstring{{Caratteristiche}}{Caratteristiche}}\label{h.c0qzu4ykbegs}
+
+\begin{itemize}
+\tightlist
+\item
+  {Correttezza}{: un algoritmo è corretto se, per ogni istanza del
+  problema, termina con l'output corretto.}
+\item
+  {Generalità}{: un algoritmo dovrebbe applicarsi a una tipologia di
+  problemi, e non solamente a specifiche istanze.}
+\item
+  {Determinismo}{: partendo dagli stessi input, si dovrebbero ottenere
+  gli stessi output.}
+\item
+  {Efficienza}{: l'esecuzione dell'algoritmo dovrebbe avere un costo
+  accettabile.}
+\end{itemize}
+
+{}
+
+\section{\texorpdfstring{{Programmazione
+strutturata}}{Programmazione strutturata}}\label{h.8aq165x5hqu2}
+
+{Paradigma di programmazione basato sull'uso di costrutti di controllo
+del flusso e blocchi di codice.}
+
+{}
+
+{Teorema di Böhm-Jacopini}{: }{qualsiasi programma può essere scritto
+usando tre tipi di strutture di controllo: sequenza, selezione e
 iterazione.}
 
-Si usa lo pseudo codice per astrarre da dettagli specifici dei linguaggi
-di programmazione e per semplificare la notazione e migliorare la
-leggibilità.
+{}
 
-\emph{Non esiste nessuno standard per la sintassi dello pseudocodice,
-ognuno può scriverselo come vuole.}
+{Si usa lo pseudo codice per astrarre da dettagli specifici dei
+linguaggi di programmazione e per semplificare la notazione e migliorare
+la leggibilità.}
 
-Algoritmi ricorsivi
+{}
 
-Un algoritmo viene detto ricorsivo quando nel suo corpo richiama se
-stesso.
+{Non esiste nessuno standard per la sintassi dello pseudocodice, ognuno
+può }{scriverselo}{~come vuole.}
 
-\textbf{Principio di induzione:}
+{}
 
-\emph{Data una proprietà P. Se P(0) è vera e P(n) ⇒ P(n + 1) per ogni n,
+{}
+
+{Algoritmi ricorsivi}
+
+{Un algoritmo viene detto ricorsivo quando nel suo corpo richiama se
+stesso.}
+
+{}
+
+{Principio di induzione:}
+
+{Data una proprietà P. Se P(0) è vera e P(n) -> P(n + 1) per ogni n,
 allora P(n) è vera per ogni n.}
 
-\emph{(∀P){[}P(0) ∧ (∀k ∈ N)(P(k) ⇒ P(k + 1)){]} ⇒ (∀n ∈ N){[}P(n){]}}
+{}
 
-Principio per dimostrazioni:
+{($\forall$ P){[}P(0) $\land$   ($\forall$ k $\in$  N)(P(k) -> P(k + 1)){]} -> ($\forall$ n $\in$  N){[}P(n){]}}
+
+{}
+
+{Principio per dimostrazioni:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \emph{caso base}: si dimostra che P(0) o P(1) è vera
+  {caso base}{: si dimostra che P(0) o P(1) è vera}
 \item
-  \emph{passo induttivo}: assumendo P(n) vera, si dimostra che anche P(n
-  + 1) lo è
+  {passo induttivo}{: assumendo P(n) vera, si dimostra che anche P(n +
+  1) lo è}
 \end{enumerate}
 
-\section{Funzioni ricorsive}\label{funzioni-ricorsive}
+\section{\texorpdfstring{{Funzioni
+ricorsive}}{Funzioni ricorsive}}\label{h.sb4u5goi2m76}
 
-Una funzione ricorsiva corretta ha le seguenti caratteristiche:
+{Una funzione ricorsiva corretta ha le seguenti caratteristiche: }
 
 \begin{itemize}
+\tightlist
 \item
-  include uno o più casi base in cui il valore della funzione viene
-  calcolato senza invocazione ricorsiva;
+  {include uno o più casi base in cui il valore della funzione viene
+  calcolato senza invocazione ricorsiva; }
 \item
-  includa una o più invocazioni ricorsive della funzione, tipicamente
-  con argomenti che progressivamente ``avvicinano'' ai casi base.
+  {includa una o più invocazioni ricorsive della funzione, tipicamente
+  con argomenti che progressivamente ``avvicinano'' ai casi base.}
 \end{itemize}
 
-\section{Divide-et-impera}\label{divide-et-impera}
+\section{\texorpdfstring{{Divide-et-impera}}{Divide-et-impera}}\label{h.d8xcg1dahtzr}
 
-Con questa tecnica dividiamo il problema in sottoproblemi più facili e
+{Con questa tecnica dividiamo il problema in sottoproblemi più facili e
 li risolviamo uno a uno e li combiniamo insieme per risolvere il
-problema iniziale.
+problema iniziale.}
 
-\emph{Nella creazione di un algoritmo ricorsivo bisogna pensare prima al
-caso base e successivamente al passo della ricorsione}
+{}
 
-\section{Tipi di ricorsione}\label{tipi-di-ricorsione}
+{Nella creazione di un algoritmo ricorsivo bisogna pensare prima al caso
+base e successivamente al passo della ricorsione}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \textbf{Diretta}: la procedura richiama direttamente se stessa;
-\item
-  \textbf{Indiretta}: la procedura invoca un'altra procedura che
-  richiama (direttamente o indirettamente) la procedura originaria;
-\item
-  \textbf{Lineare:} la procedura include una sola chiamata ricorsiva
-  (es. fattoriale);
-\item
-  \textbf{Multipla}: la procedura include più di una chiamata ricorsiva
-  (es. Fibonacci) se ci sono solo due chiamate è detta \emph{binaria};
-\item
-  \textbf{Mutua}: caso particolare di ricorsione indiretta dove la
-  procedura A chiama una procedura B che chiama nuovamente la procedura
-  A in modo diretto (es. pari/dispari);
-\item
-  \textbf{Coda}: caso particolare di ricorsione lineare in cui la
-  chiamata ricorsiva è l'ultima istruzione della procedura;
-\item
-  \textbf{Annidata (innestata)}: la chiamata ricorsiva ha come argomento
-  un'ulteriore chiamata ricorsiva (es. funzione di Ackermann);
-\item
-  \textbf{Infinita}: : quando non vi è (riduzione del problema che porta
-  a) caso base gestito senza ricorsione.
-\end{enumerate}
-
-\subsection{Esempi}\label{esempi}
-
-Lineare:
-
-\includegraphics[width=5.08854in,height=2.17909in]{media/image54.png}
-
-Multipla
-
-\includegraphics[width=6.26772in,height=1.59722in]{media/image63.png}
-
-Mutua
-
-\includegraphics[width=6.26772in,height=1.36111in]{media/image74.png}
-
-Efficienza degli algoritmi
-
-Caratterizzare l'efficienza è un aspetto importante dell'analisi e
-progettazione di algoritmi, esistono due nozioni fondamentali:
-
-\begin{itemize}
-\item
-  efficienza in tempo
-\item
-  efficienza in spazio
-\end{itemize}
-
-\section{Tempi di esecuzione}\label{tempi-di-esecuzione}
-
-τ (Tau) è la funzione che serve per identificare il tempo di esecuzione,
-determinata dalla natura e struttura dell'algoritmo.
-
-La τ dipende dalla dimensione n dell'input, dalle istanze dell'input (se
-dobbiamo valutare un algoritmo di ordinamento il modo in cui l'array ci
-arriva è essenziale) e dall'esecutore.
-
-In sostanza:
-
-\emph{\textbf{`\,'}La variazione del tempo d'esecuzione al variare della
-dimensione n dell'input può essere caratterizzata da una funzione τ
-(n)\textbf{`\,'}}
-
-Alcune forme frequenti di τ(n) sono:
-
-\begin{itemize}
-\item
-  \textbf{meno che lineare:} \(\log_{e}(n),\log_{2}(n),\ \ \)
-  --\textgreater{} all'aumento di n il tempo di esecuzione aumenta
-  lentamente
-\item
-  \textbf{lineare}: \(k \cdot \ n\)
-\item
-  \textbf{più che lineare}:
-  \({n*log(n),\ n}^{k}(polinomiale),\ k^{n}(esponenziale),\ n!,\ n^{n}\)
-  --\textgreater{} all'aumento di n il tempo di esecuzione aumenta
-  velocemente
-\end{itemize}
-
-\includegraphics[width=6.26772in,height=4.55556in]{media/image64.png}
-
-Per una dimensione n esistono tre casi:
+\section{\texorpdfstring{{Tipi di
+ricorsione}}{Tipi di ricorsione}}\label{h.z1x5cub3xoqy}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \textbf{Best case}: le configurazioni della struttura dati di ingresso
-  \(d\) che danno luogo al tempo minimo;
+  {Diretta}{: ~la procedura richiama direttamente se stessa;}
 \item
-  \textbf{Average case}: le configurazioni della struttura dati di
-  ingresso \(d\) ritenute ``normali'' (e.g., più frequenti in pratica);
+  {Indiretta}{: ~la procedura invoca un'altra procedura che richiama
+  (direttamente o indirettamente) la procedura originaria;}
 \item
-  \textbf{Worst case}: le configurazioni della struttura dati di
-  ingresso \(d\) che danno luogo al tempo massimo.
+  {Lineare:}{~ la procedura include una sola chiamata ricorsiva (es.
+  fattoriale);}
+\item
+  {Multipla}{: la procedura include più di una chiamata ricorsiva (es.
+  Fibonacci) se ci sono solo due chiamate è detta }{binaria}{;}
+\item
+  {Mutua}{: caso particolare di ricorsione indiretta dove la procedura A
+  chiama una procedura B che chiama nuovamente la procedura A in modo
+  diretto (es. pari/dispari);}
+\item
+  {Coda}{: caso particolare di ricorsione lineare in cui la chiamata
+  ricorsiva è l'ultima istruzione della procedura;}
+\item
+  {Annidata (innestata)}{: ~la chiamata ricorsiva ha come argomento
+  un'ulteriore chiamata ricorsiva (es. funzione di Ackermann);}
+\item
+  {Infinita}{: : quando non vi è (riduzione del problema che porta a)
+  caso base gestito senza ricorsione.}
 \end{enumerate}
 
-La prima casistica non è rilevante, invece:
+\subsection{\texorpdfstring{{Esempi}}{Esempi}}\label{h.feuiyq5m1p88}
+
+{Lineare:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image222.png}}}
+
+{}
+
+{Multipla}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image257.png}}}
+
+{}
+
+{Mutua}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image261.png}}}
+
+{}
+
+{}
+
+{Efficienza degli algoritmi}
+
+{Caratterizzare l'efficienza è un aspetto importante dell'analisi e
+progettazione di algoritmi, esistono due nozioni fondamentali:}
 
 \begin{itemize}
+\tightlist
 \item
-  la \emph{complessità worst-case} serve per capire i limiti di
+  {efficienza in tempo}
+\item
+  {efficienza in spazio}
+\end{itemize}
+
+\section{\texorpdfstring{{Tempi di
+esecuzione}}{Tempi di esecuzione}}\label{h.wvdfqf8q2ihk}
+
+{$\tau$  (Tau) è la funzione che serve per identificare il tempo di
+esecuzione, determinata dalla natura e struttura dell'algoritmo.}
+
+{La $\tau$  dipende dalla dimensione n dell'input, dalle istanze dell'input
+(se dobbiamo valutare un algoritmo di ordinamento il modo in cui l'array
+ci arriva è essenziale) e dall'esecutore.}
+
+{In sostanza:}
+
+{}
+
+{`\,'}{La variazione del tempo d'esecuzione al variare della dimensione
+n dell'input può essere caratterizzata da una funzione $\tau$  (n)}{`\,'}
+
+{}
+
+{Alcune forme frequenti di $\tau$ (n) sono:}
+
+\begin{itemize}
+\tightlist
+\item
+  {meno che
+  lineare:}{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image1.png}}{~}{--\textgreater{}
+  }{all'aumento di n il tempo di esecuzione aumenta lentamente}
+\item
+  {lineare}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image2.png}}
+\item
+  {più che lineare}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image3.png}}{~--\textgreater{}
+  }{all'aumento di n il tempo di esecuzione aumenta velocemente}
+\end{itemize}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image252.png}}}
+
+{Per una dimensione n esistono tre casi:}
+
+\begin{enumerate}
+\tightlist
+\item
+  {Best case}{: le configurazioni della struttura dati di ingresso
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image4.png}}{~che
+  danno luogo al tempo minimo;}
+\item
+  {Average case}{: le configurazioni della struttura dati di ingresso
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image4.png}}{~ritenute
+  ``normali'' (e.g., più frequenti in pratica);}
+\item
+  {Worst case}{: le configurazioni della struttura dati di }{ingresso
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image4.png}}{~che}{~danno
+  luogo al tempo massimo.}
+\end{enumerate}
+
+{}
+
+{La prima casistica non è rilevante, invece:}
+
+\begin{itemize}
+\tightlist
+\item
+  {la }{complessità worst-case}{~serve per capire i limiti di
   applicabilità pratica permettendo di fare ragionamenti sulla safety
-  (controlli real-time);
+  (controlli real-time);}
 \item
-  la \emph{complessità average-case} è difficile da valutare essendo non
-  semplice caratterizzare input tipici.
+  {la }{complessità average-case}{~è difficile da valutare essendo non
+  semplice caratterizzare input tipici.}
 \end{itemize}
 
-\section{Andamento asintotico}\label{andamento-asintotico}
+\section{\texorpdfstring{{Andamento
+asintotico}}{Andamento asintotico}}\label{h.k8awz8fg85mc}
 
-Essendo che τ(n) è influenzato dal hardware o dal linguaggio di
-programmazione si vuole astrarre da questi aspetti, infatti non ci
+{Essendo che $\tau$ (n) è influenzato dal hardware o dal linguaggio di
+programmazione si vuole }{astrarre}{~da questi aspetti, infatti non ci
 interessa quanto tempo ci mette un determinato computer rispetto ad un
 altro ma bisogna capire l'andamento del tempo asintoticamente quindi al
-crescere dell'input.
+crescere dell'input.}
 
-Anche con tre tempi di esecuzione differenti (essendo fatti su hardware
-diversi) essi potrebbero essere accomunati dallo stesso andamento.
+{Anche con tre tempi di esecuzione differenti (essendo fatti su hardware
+diversi) essi potrebbero essere accomunati dallo stesso andamento.}
 
-\section{Modello di calcolo}\label{modello-di-calcolo}
+\section{\texorpdfstring{{Modello di
+calcolo}}{Modello di calcolo}}\label{h.acnckxax5on2}
 
-Durante lo studio degli algoritmi si considera un modello di calcolo
-standard chiamato \textbf{RAM} \emph{(Random Access Machine)}, cioè un
-sistema mono-processore (istruzioni in sequenza) dove le istruzioni
-semplici richiedono tempo costante.
+{Durante lo studio degli algoritmi si considera un modello di calcolo
+standard chiamato }{RAM }{(Random Access Machine)}{, cioè un sistema
+}{mono-processore}{~(istruzioni in sequenza) dove le istruzioni semplici
+richiedono tempo costante.}
 
-Con \(T(n)\) denotiamo il tempo stimato per l'esecuzione dell'algoritmo
-nella RAM (stima tempo effettivo τ(n)).
+{Con
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image5.png}}{~denotiamo
+il tempo stimato per l'esecuzione dell'algoritmo nella RAM (stima tempo
+effettivo $\tau$ (n)).}
 
-\section{\texorpdfstring{Complessità computazionale
-}{Complessità computazionale }}\label{complessituxe0-computazionale}
+\section{\texorpdfstring{{Complessità computazionale
+}}{Complessità computazionale }}\label{h.iscgqksqr7yi}
 
-È l'ordine di grandezza della funzione T(n)
+{È l'ordine di grandezza della funzione T(n)}
 
-\section{Ordini di infiniti}\label{ordini-di-infiniti}
+{}
 
-Una funzione \(f(n)\) tale che \(\lim_{n \rightarrow c}f(n) = \infty\) è
-infinita per \(n\  \rightarrow \ c\).
+\section{\texorpdfstring{{Ordini di
+infiniti}}{Ordini di infiniti}}\label{h.ejv96cbyxkh9}
 
-Due funzioni \(f(n)\) e \(g(n)\) sono \textbf{infiniti simultanei} se
-entrambe sono infinite per \(n\  \rightarrow \ c\).
+{Una funzione
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~tale
+che
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image7.png}}{~è
+infinita per
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image8.png}}{.}
 
-Quindi se abbiamo funzioni con dei tempi di esecuzione \(nlog(n)\) o
-\(n^{3}\) con \(n\) che tende all'infinito avremo solo funzioni tendenti
-ad esso e non saremo in grado di capire quale ha tempi di esecuzione
-migliori. Quindi per confrontare diversi infiniti dobbiamo determinare
-quale ``\emph{tende all\textquotesingle infinito più rapidamente}''
-andando a studiare il limite del rapporto \(\infty/\infty\) (forma
-indeterminata).
+{Due funzioni
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{~sono
+}{infiniti simultanei}{~se entrambe sono infinite per
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image8.png}}{.}
 
-Le casistiche sono:
+{}
 
-\includegraphics[width=4.34401in,height=1.78234in]{media/image60.png}
+{Quindi se abbiamo funzioni con dei tempi di esecuzione
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image10.png}}{~o
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image11.png}}{~con
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{~che
+tende all'infinito avremo solo funzioni tendenti ad esso e non saremo in
+grado di capire quale ha tempi di esecuzione migliori. Quindi per
+confrontare diversi infiniti dobbiamo determinare quale ``}{tende
+all\textquotesingle infinito più rapidamente}{'' andando a studiare il
+limite del rapporto
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image13.png}}{~(forma
+indeterminata).}
 
-\section{Analisi asintotica}\label{analisi-asintotica}
+{Le casistiche sono:}
 
-Abbiamo capito che il tasso di crescita del tempo stimato di esecuzione
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image251.png}}}
+
+\section{\texorpdfstring{{Analisi
+asintotica}}{Analisi asintotica}}\label{h.vqbdamxhmamw}
+
+{Abbiamo capito che il tasso di crescita del tempo stimato di esecuzione
 T(n) di un algoritmo da una semplice caratterizzazione della relativa
 efficienza e calcolare il tempo esatto non serve visto che per input
 grandi le costanti moltiplicative e i termini di ordine inferiore del
 tempo effettivo di esecuzione sono trascurabili ed solo la forma della
-funzione di n che definisce l'andamento.
+funzione di n che definisce l'andamento.}
 
-\textbf{Efficienza asintotica \textbar{} Def:}
+{}
 
-\emph{È quella che si studia per dimensioni di n tali per cui solo
-l'ordine del tasso di crescita è rilevante}
+{Efficienza asintotica \textbar{} Def: }
 
-\textbf{Tempo di esecuzione asintotico \textbar{} Def:}
+{È quella che si studia per dimensioni di n tali per cui solo l'ordine
+del tasso di crescita è rilevante}
 
-\emph{Approssimazione del tempo d'esecuzione di un algoritmo mediante
-una ``più semplice'' funzione di simile ordine di crescita}
+{Tempo di esecuzione asintotico \textbar{} Def: }
 
-\includegraphics[width=3.82686in,height=2.84896in]{media/image51.png}
+{Approssimazione del tempo d'esecuzione di un algoritmo mediante una
+``più semplice'' funzione di simile ordine di crescita}
 
-\subsection{Notazione asintotica}\label{notazione-asintotica}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image243.png}}}
 
-Notazione standard per caratterizzare l'efficienza in tempo di un
-algoritmo
+\subsection{\texorpdfstring{{Notazione
+asintotica}}{Notazione asintotica}}\label{h.9566r1d59a7c}
 
-\includegraphics[width=4.48053in,height=1.52604in]{media/image35.png}
+{Notazione standard per caratterizzare l'efficienza in tempo di un
+algoritmo}
 
-Si suddividono in altre 3 notazioni che sono:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image225.png}}}
 
-\begin{itemize}
-\item
-  \(O\) \textbf{{[}O-grande{]}}: data una funzione (di confronto)
-  \(g(n)\):
-\end{itemize}
+{Si suddividono in altre 3 notazioni che sono:}
 
-\begin{quote}
-\(O(g(n))\) individua tutte le funzioni \(f(n)\) tale per cui esiste una
-costante reale maggiore di 0 (\(c\), \(n_{0}\)) tale per cui questa
-condizione è verificata:
-\(0 \leq f(n) \leq c \cdot g(n),\forall n \geq n_{0}\) \emph{(}\(f(n)\)
-\emph{compresa tra 0 e} \(c \cdot g(n)\) \emph{per tutti i valori di}
-\(n > n_{0}\)\emph{).}
-
-Quindi possiamo individuare un certo valore \(n_{0}\) di dimensioni del
-problema e una certa costante moltiplicativa tale per cui dal punto
-\(n_{0}\) individuato, la funzione \(g(n)\) (moltiplicata per un fattore
-a scelta) va a dominare dall'alto la nostra funzione.
-
-In sostanza:
-
-\(g(n)\) \emph{è un limite superiore o upper bound asintotico per}
-\(f(n)\)
-
-\emph{e}
-
-\(f(n)\) \emph{asintoticamente cresce come o meno di} \(g(n)\)
-
-\textbf{Esempio:}
-
-Dimostrare che \(n^{2} \in O(n^{3})\)
-
-\(\downarrow\) \(\  \downarrow\)
-
-\(\ f(n)\ \ \ \ \ \ \ \ \ \ g(n)\ \ \)
-
-Dobbiamo usare la definizione di \(O\)\textbf{,} quindi esiste una
-costante \(c,\)\(n_{0}\) tale per cui \(f(n)\) è maggiorata da
-\(c \cdot g(n)\) e questa cosa è valida per ogni
-\(n \geq n_{0}\)\emph{.}
-
-Applichiamo la disequazione che la formula ci da:
-
-\(0 \leq f(n) \leq cg(n)\) \(\Rightarrow\)
-\(0 \leq n^{2} \leq c \cdot n^{3}\)
-
-\(\Downarrow\)
-
-\(0 \leq 1 \leq c \cdot n\) \(\Rightarrow\) \(c \geq \frac{1}{n}\)
-\end{quote}
+{}
 
 \begin{itemize}
+\tightlist
 \item
-  \(\Omega\) \textbf{{[}Omega-grande{]}}: data una funzione \(g(n)\):
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image14.png}}{~{[}O-grande{]}}{:
+  data una funzione (di confronto)
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{:}
 \end{itemize}
 
-\begin{quote}
-\(\Omega(g(n))\) individua tutte le funzioni \(f(n)\) tale per cui
-esiste una costante reale maggiore di 0 (\(c\), \(n_{0}\)) tale per cui
-questa condizione è verificata:
-
-\(0 \leq g(n) \leq f(n),\forall n \geq n_{0}\) \emph{(}\(g(n)\)
-\emph{compresa tra 0 e} \(f(n)\) \emph{per tutti i valori di}
-\(n > n_{0}\)\emph{).}
-
-In sostanza:
-
-\(g(n)\) \emph{è un limite inferiore o lower bound asintotico per}
-\(f(n)\)
-
-\emph{e}
-
-\(f(n)\) \emph{asintoticamente cresce come o più di} \(g(n)\)
-\end{quote}
-
-\begin{itemize}
-\item
-  \(\Theta\) \textbf{{[}Theta-grande{]}}: data una funzione \(g(n)\):
-\end{itemize}
-
-\begin{quote}
-\(\Theta(g(n))\) individua tutte le funzioni \(f(n)\) tale per cui
-esiste una costante reale maggiore di 0 (\(c_{1}\),\(c_{2}\), \(n_{0}\))
+{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image15.png}}{~individua
+tutte le funzioni
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~tale
+per cui esiste una costante reale maggiore di 0
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image16.png}}{,
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image17.png}}{)
 tale per cui questa condizione è verificata:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image18.png}}{~(}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~compresa
+tra 0 e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image19.png}}{~per
+tutti i valori di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image20.png}}{).}
 
-\(0 \leq c_{1} \cdot g(n) \leq f(n) \leq c_{2} \cdot g(n),\forall n \geq n_{0}\)
+{Quindi possiamo individuare un certo valore
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image17.png}}{~di
+dimensioni del problema e una certa costante moltiplicativa tale per cui
+dal punto
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image17.png}}{~individuato,
+la funzione
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{~(moltiplicata
+per un fattore a scelta) va a dominare dall'alto la nostra funzione.}
 
-Quindi \(f(n)\) da un certo punto in poi (\(n_{0}\)) è compresa tra
-\(c_{1} \cdot g(n)\) e \(c_{2} \cdot g(n)\)
+{In sostanza:}
 
-In sostanza:
+\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{~è
+un limite superiore o upper bound asintotico per
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}
 
-\(g(n)\) \emph{è un limite asintotico stretto o tight bound per}
-\(f(n)\)
+{e}
 
-\emph{e}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~asintoticamente
+cresce come o meno di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}
 
-\(g(n)\) \emph{e} \(f(n)\) \emph{hanno lo stesso ordine di grandezza}
+{}
 
-\textbf{NB}: \hl{se} \(f(n)\) \hl{appartiene a \textbf{O-grande} di}
-\(n^{2}\) \hl{allora sicuramente apparterrà anche a \textbf{O-grande}}
-\(n^{3}\), se invece \(f(n)\) appartiene a \textbf{Theta-grande} di
-\(n^{2}\) sicuramente \emph{\ul{non}} apparterrà ne a
-\textbf{Theta-grande} di \(n\) ne a \textbf{Theta-grande} di \(n^{3}\) .
-\end{quote}
+{Esempio:}
 
-\subsubsection{Proprietà e
-osservazioni}\label{proprietuxe0-e-osservazioni}
+{Dimostrare che
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image21.png}}
+
+{~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ }{~
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image22.png}}{~
+~ ~ ~ ~
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image23.png}}
+
+{~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~}\pandocbounded{\includegraphics[keepaspectratio]{images/image24.png}}
+
+{Dobbiamo usare la definizione di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image14.png}}{,
+}{quindi esiste una costante
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image25.png}}\pandocbounded{\includegraphics[keepaspectratio]{images/image17.png}}{~tale
+per cui
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~è
+maggiorata da
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image19.png}}{~e
+questa cosa è valida per ogni
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image26.png}}{.}
+
+{Applichiamo la disequazione che la formula ci da:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image27.png}}{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image28.png}}{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image29.png}}
+
+{~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~}\pandocbounded{\includegraphics[keepaspectratio]{images/image30.png}}
+
+{~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~}\pandocbounded{\includegraphics[keepaspectratio]{images/image31.png}}{~
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image28.png}}{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image32.png}}
+
+{}
+
+{}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Relazioni}: una funzione \(f\) appartiene a \(\Theta(g(n)\))
-  se solo se la funzione appartiene anche a \(O(g(n))\) e
-  \(\Omega(g(n))\);
-\item
-  \textbf{Regola della somma:} se una funzione \(T(n)\) appartiene a
-  \(\Theta(f(n)) + \Theta(g(n))\) allora possiamo semplificare
-  considerando Theta-grande come il massimo delle due funzioni
-  {[}\(\Theta(max(f(n),g(n)))\){]};
-\item
-  \textbf{I termini di grado inferiore non interessano}: se abbiamo
-  \(T(n) = n^{3} + 999n^{2}\) ci interessa valutare solo quello con il
-  grado maggiore, essendo gli altri ``contenuti'' in esso;
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image33.png}}{~{[}Omega-grande{]}}{:
+  data una funzione
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{:}
 \end{itemize}
 
-\section{Complessità costrutti}\label{complessituxe0-costrutti}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image34.png}}{~individua
+tutte le funzioni
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~tale
+per cui esiste una costante reale maggiore di 0
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image16.png}}{,
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image17.png}}{)
+tale per cui questa condizione è verificata:}
 
-Per ogni costrutto semplice abbiamo le seguenti complessità:
+\pandocbounded{\includegraphics[keepaspectratio]{images/image35.png}}{~(}\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{~compresa
+tra 0 e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~per
+tutti i valori di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image20.png}}{).}
+
+{In sostanza:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{~è
+un limite inferiore o lower bound asintotico per
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}
+
+{e}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~asintoticamente
+cresce come o più di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}
+
+{}
+
+{}
+
+{}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Istruzioni semplici\emph{: }}qui ci sono assegnamenti e
-  operazioni aritmetiche/logiche/relazionali; tutti hanno \(\Theta(1)\).
-\item
-  \textbf{Sequenza di istruzioni semplici}: uguale a sopra
-  (\(\Theta(1)\)).
-\item
-  \textbf{Costrutti selettivi}: con condizione pari a \(\Theta(1)\):
-
-  \begin{itemize}
-  \item
-    \(O(max(T_{then},T_{else}))\);
-  \item
-    \(\Omega(min(T_{then},T_{else}))\);
-  \item
-    Caso peggiore: \(\Theta(max(T_{then},T_{else}))\);
-  \item
-    Caso maggiore: \(\Theta(min(T_{then},T_{else}))\).
-  \end{itemize}
-\item
-  \textbf{Costrutti iterativi}:
-
-  \begin{itemize}
-  \item
-    \emph{for} per \(k(n)\) iterazioni e contando che
-    \(T_{init} = T_{cond} = T_{inc} = O(1)\)
-
-    \begin{itemize}
-    \item
-      \(O(T_{init} + k(n) \cdot (T_{cond} + T_{body} + T_{inc}) + T_{cond}) = O(k(n)T_{body})\);
-    \item
-      \(\Omega(T_{init} + k(n) \cdot (T_{cond} + T_{body} + T_{inc}) + T_{cond}) = \Omega(k(n)T_{body})\);
-    \item
-      Caso peggiore: \(\Theta({k_{worst}(n)}_{}T_{body,worst})\);
-    \item
-      Caso maggiore: \(\ \Theta({k_{best}(n)}_{}T_{body,best})\).
-    \end{itemize}
-  \item
-    \emph{while} e in funzione del numero min e max di iterazioni
-    (\(k_{\min}\),\(k_{\max}\))
-
-    \begin{itemize}
-    \item
-      \(O(k_{\max}T_{body})\) e \(\Omega(k_{\min}T_{body})\);
-    \item
-      Caso peggiore: \(\Theta({k_{\max} \cdot}_{}T_{body,worst})\);
-    \item
-      Caso maggiore: \(\ \Theta({k_{\min} \cdot}_{}T_{body,best})\).
-    \end{itemize}
-  \end{itemize}
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image36.png}}{~{[}Theta-grande{]}}{:
+  data una funzione
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{:}
 \end{itemize}
 
-\subsection{Esempio}\label{esempio}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image37.png}}{~individua
+tutte le funzioni
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~tale
+per cui esiste una costante reale maggiore di 0
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image38.png}}{,}\pandocbounded{\includegraphics[keepaspectratio]{images/image39.png}}{,
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image17.png}}{)
+tale per cui questa condizione è verificata: }
 
-\includegraphics[width=6.26772in,height=3.59722in]{media/image47.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image40.png}}
 
-Ricorrenze
+{Quindi
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~da
+un certo punto in poi
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image17.png}}{)
+è compresa tra
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image41.png}}{~}{e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image42.png}}
 
-Il modo di calcolare la complessità degli algoritmi visto
+{In sostanza:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{~è
+un limite asintotico stretto o tight bound per
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}
+
+{e}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image9.png}}{~e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~hanno
+lo stesso ordine di grandezza}
+
+{}
+
+{}
+
+{NB}{: }{se
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~appartiene
+a }{O-grande}{~di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image43.png}}{~allora
+sicuramente apparterrà anche a
+}{O-grande}{~}\pandocbounded{\includegraphics[keepaspectratio]{images/image11.png}}{,
+}{se invece
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{~appartiene
+a }{Theta-grande}{~di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image43.png}}{~sicuramente
+}{non }{apparterrà ne a ~}{Theta-grande}{~di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{~ne
+a ~}{Theta-grande}{~di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image11.png}}{~.}
+
+{}
+
+\subsubsection{\texorpdfstring{{Proprietà e
+osservazioni}}{Proprietà e osservazioni}}\label{h.m9cfkuaj2xoy}
+
+\begin{itemize}
+\tightlist
+\item
+  {Relazioni}{: una funzione
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image44.png}}{~appartiene
+  a
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image45.png}}{)
+  se solo se la funzione appartiene anche a
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image15.png}}{~e
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image34.png}}{;}
+\item
+  {Regola della somma:}{~se una funzione
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image5.png}}{~appartiene
+  a
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image46.png}}{~allora
+  possiamo semplificare considerando Theta-grande come il massimo delle
+  due funzioni
+  {[}}\pandocbounded{\includegraphics[keepaspectratio]{images/image47.png}}{{]};}
+\item
+  {I termini di grado inferiore non interessano}{: se abbiamo
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image48.png}}{~}{ci
+  interessa}{~valutare solo quello con il grado maggiore, essendo gli
+  altri ``contenuti'' in esso;}
+\end{itemize}
+
+\section{\texorpdfstring{{Complessità
+costrutti}}{Complessità costrutti}}\label{h.un2ps9tq1l7k}
+
+{Per ogni costrutto semplice abbiamo le seguenti complessità:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Istruzioni semplici}{: }{qui ci sono assegnamenti e operazioni
+  aritmetiche/logiche/relazionali; tutti hanno
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}{.}
+\item
+  {Sequenza di istruzioni semplici}{: uguale a sopra
+  (}\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}{).}
+\item
+  {Costrutti selettivi}{: con condizione pari a
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}{:}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image50.png}}{;}
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image51.png}}{;}
+\item
+  {Caso peggiore:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image52.png}}{;}
+\item
+  {Caso maggiore:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image53.png}}{.}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  {Costrutti iterativi}{: }
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  {for}{~per
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image54.png}}{~iterazioni
+  e contando che
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image55.png}}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image56.png}}{;}
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image57.png}}{;}
+\item
+  {Caso peggiore:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image58.png}}{;}
+\item
+  {Caso maggiore:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image59.png}}{.}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  {while}{~e in funzione del numero min e max di iterazioni
+  (}\pandocbounded{\includegraphics[keepaspectratio]{images/image60.png}}{,}\pandocbounded{\includegraphics[keepaspectratio]{images/image61.png}}{)}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image62.png}}{~e
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image63.png}}{;}
+\item
+  {Caso peggiore:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image64.png}}{;}
+\item
+  {Caso maggiore:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image65.png}}{.}
+\end{itemize}
+
+\subsection{\texorpdfstring{{Esempio}}{Esempio}}\label{h.x799yxcvntk0}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image219.png}}}
+
+{}
+
+{Ricorrenze}
+
+{Il modo di calcolare la complessità degli algoritmi visto
 precedentemente non è applicabile alle funzioni ricorsive, infatti per
 calcolare la complessità, dobbiamo considerare anche il costo della
-chiamata ricorsiva andando a ottenere \textbf{equazioni ricorrenti}.
+chiamata ricorsiva andando a ottenere }{equazioni ricorrenti}{.}
 
-Ora distinguiamo due contributi:
+{}
+
+{Ora distinguiamo due contributi:}
 
 \begin{itemize}
+\tightlist
 \item
-  \(f(n)\): tempo di tutte le istruzioni che \emph{\textbf{non}
-  contengono} chiamate ricorsive;
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image6.png}}{:
+  tempo di tutte le istruzioni che }{non }{contengono}{~chiamate
+  ricorsive;}
 \item
-  \(T(k)\): tempo derivante dalle chiamate ricorsive, invocate su k
-  \textless{} n (istanze più piccole del problema---cf.
-  divide-et-impera).
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image66.png}}{:
+  tempo derivante dalle chiamate ricorsive, invocate su k \textless{} n
+  (istanze più piccole del problema---cf. divide-et-impera).}
 \end{itemize}
 
-\section{Metodi di risoluzione delle
-ricorrenze}\label{metodi-di-risoluzione-delle-ricorrenze}
+{}
 
-Esistono tre metodi principali:
+\section{\texorpdfstring{{Metodi di risoluzione delle
+ricorrenze}}{Metodi di risoluzione delle ricorrenze}}\label{h.dt5t05khniu5}
+
+{Esistono tre metodi principali:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \textbf{Metodo iterativo:} si espande l'equazione fino ad arrivare a
-  una espressione in funzione di \(n\) e costanti;
+  {Metodo iterativo:}{~si espande l'equazione fino ad arrivare a una
+  espressione in funzione di
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{~e
+  costanti;}
 \end{enumerate}
 
-\begin{quote}
-\includegraphics[width=5.25886in,height=3.52467in]{media/image17.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image199.png}}}
 
-\includegraphics[width=5.30466in,height=3.29023in]{media/image32.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image205.png}}}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
+\tightlist
 \item
-  \textbf{Metodo della sostituzione}: in questo caso: \(T(n)\)
-  appartiene a \(O(f(n))\) quindi si effettua un ``guess'' sulla
-  possibile soluzione e si utilizza l'induzione matematica per
-  dimostrare la correttezza della soluzione;
+  {~Metodo della sostituzione}{: in questo caso:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image5.png}}{~appartiene
+  a
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image67.png}}{~quindi
+  si effettua un ``guess'' sulla possibile soluzione e si utilizza
+  l'induzione matematica per dimostrare la correttezza della soluzione;}
 \end{enumerate}
 
-\begin{quote}
-\includegraphics[width=5.07646in,height=2.4539in]{media/image22.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image201.png}}}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
+\tightlist
 \item
-  \textbf{Metodo dell'esperto}: basato sul Master Theorem, per algoritmi
-  della forma T(n) = aT(n/b) + f(n) (divide-et-impera).
+  {Metodo dell'esperto}{: basato sul Master Theorem, per algoritmi della
+  forma T(n) = aT(n/b) + f(n) (divide-et-impera).}
 \end{enumerate}
 
-\subsection{Esempi}\label{esempi-1}
+{}
 
-\includegraphics[width=6.26772in,height=3.76389in]{media/image61.png}
+\subsection{\texorpdfstring{{Esempi}}{Esempi}}\label{h.mvrj1crn0xfl}
 
-Problema della ricerca
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image238.png}}}
 
-In molte applicazioni è necessario ricercare un elemento all'interno di
-una struttura dati senza saperne la posizione, o non potendovi accedere
-direttamente.
+{}
 
-La formulazione del problema della ricerca si basa su:
+{Problema della ricerca}
 
-\begin{itemize}
-\item
-  \textbf{modalità di accesso} (casuale,sequenziale,...);
-\item
-  \textbf{rappresentazione della posizione dell'elemento} (es. indice,
-  puntatore, ...);
-\item
-  \textbf{rappresentazione della proprietà dell'elemento} (es. valore,
-  predicato sul valore, posizione...);
-\end{itemize}
+{In molte applicazioni è necessario ricercare un elemento all'interno di
+una struttura dati senza saperne la posizione, o non
+}{potendovi}{~accedere direttamente.}
 
-Usando un accesso di tipo \textbf{casuale} l'\emph{\ul{accesso}} ad un
-elemento è \emph{\ul{costante}} indipendentemente dall posizione
-{[}\(\Theta(1)\){]} invece usando l'accesso \textbf{sequenziale} tutto
-\emph{\ul{dipende dalla distanza}} tra l'elemento desiderato e l'ultimo
-elemento acceduto (tra \(x_{i}\) e \(x_{j}\) è \(\Theta(|i - j|)\).
+{}
 
-Negli esempi successivi si userà un \textbf{array} quindi una struttura
-dati con le seguenti proprietà:
+{La formulazione del problema della ricerca si basa su:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{modalità d'accesso}: accesso casuale;
+  {modalità di accesso}{~(casuale,sequenziale,...);}
 \item
-  \textbf{rappresentazione posizione}: attraverso indice
+  {rappresentazione della posizione dell'elemento}{~(es. indice,
+  puntatore, ...);}
 \item
-  \textbf{rappresentazione proprietà}: mediante una nozione di
-  uguaglianza \emph{equal} che deve essere:
-
-  \begin{itemize}
-  \item
-    \textbf{riflessiva}: \emph{equal(a,a)};
-  \item
-    \textbf{simmetrica}: \emph{equal(a,b)} \(\Rightarrow\)
-    \emph{equal(b,a)\textbf{;}}
-  \item
-    \textbf{transitica}: \emph{equal(a,b)} \(\land\) \emph{equal(b,c)}
-    \(\Rightarrow\) \emph{equal(a,c)}.
-  \end{itemize}
+  {rappresentazione della proprietà dell'elemento}{~(es. valore,
+  predicato sul valore, posizione...);}
 \end{itemize}
 
-\textbf{Def \textbar{} Ricerca su sequenza indicizzata}
+{}
 
-Data una sequenza indicizzata di elementi \(a_{1}....a_{n}\) e un valore
-\(x\) da ricercare, si vuole trovare un indice i tale che
-\emph{equal}(\(a_{i},x\)) è vera.
+{Usando un accesso di tipo }{casuale }{l'}{accesso}{~}{ad un elemento
+è}{~}{costante}{~}{indipendentemente dall posizione
+{[}}\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}{{]}
+invece usando l'accesso }{sequenziale }{tutto }{dipende dalla
+distanza}{~tra l'elemento desiderato e l'ultimo elemento acceduto (tra
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image68.png}}{~e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image69.png}}{~è
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image70.png}}{.}
 
-\section{Tipi di ricerca}\label{tipi-di-ricerca}
+{}
 
-\subsection{Lineare}\label{lineare}
-
-l'idea è quella di esaminare in sequenza tutti gli elementi della
-struttura dati, confrontandoli con l'elemento desiderato:
-
-\includegraphics[width=6.26772in,height=1.34722in]{media/image48.png}
-
-Questo algoritmo ha una crescita lineare nel caso medio/peggiore, per
-quanto riguarda l'analisi della complessità:
+{Negli esempi successivi si userà un }{array}{~quindi una struttura dati
+con le seguenti proprietà:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Caso migliore}:
-  \(k\  = \ 1:\ T_{best}(n) = \Theta(1) + \Theta(1) = \Theta(1)\)
+  {modalità d'accesso}{: accesso casuale;}
 \item
-  \textbf{Caso peggiore}:
-  \(k\  = \ n:\ T_{worst}(n) = \Theta(n) + \Theta(1) = \Theta(n)\)
+  {rappresentazione posizione}{: attraverso indice}
 \item
-  \textbf{Caso medio}:
-  \(k\  = \ n/2:\ T_{avg}(n) = \frac{n}{2}\Theta(1) + \Theta(1) = \Theta(\frac{n}{2}) + \Theta(1) = \Theta(n)\)
+  {rappresentazione proprietà}{: mediante una nozione di uguaglianza
+  }{equal}{~che deve essere:}
 \end{itemize}
 
-\subsubsection{Minimo/massimo}\label{minimomassimo}
+\begin{itemize}
+\tightlist
+\item
+  {riflessiva}{: }{equal(a,a)}{;}
+\item
+  {simmetrica}{: }{equal(a,b)
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image28.png}}{~equal(b,a)}{;}
+\item
+  {transitica}{: }{equal(a,b)
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image71.png}}{~equal(b,c)
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image28.png}}{~equal(a,c)}{.}
+\end{itemize}
 
-Adattando l'algoritmo precedente, in quanto la proprietà non è più
+{}
+
+{}
+
+{Def \textbar{} Ricerca su sequenza }{indicizzata}{~}
+
+{Data una sequenza }{indicizzata}{~di elementi
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image72.png}}{~e
+un valore
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image73.png}}{~da
+ricercare, si vuole trovare un indice i tale che
+}{equal}{(}\pandocbounded{\includegraphics[keepaspectratio]{images/image74.png}}{)
+è vera. }
+
+\section{\texorpdfstring{{Tipi di
+ricerca}}{Tipi di ricerca}}\label{h.rq59z6qkkgr}
+
+\subsection{\texorpdfstring{{Lineare}}{Lineare}}\label{h.z3vimw7ty6l9}
+
+{l'idea è quella di esaminare in sequenza tutti gli elementi della
+struttura dati, confrontandoli con l'elemento desiderato:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image240.png}}}
+
+{Questo algoritmo ha una crescita lineare nel caso medio/peggiore, per
+quanto riguarda l'analisi della complessità:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Caso migliore}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image75.png}}
+\item
+  {Caso peggiore}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image76.png}}
+\item
+  {Caso medio}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image77.png}}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{{Minimo/massimo}}{Minimo/massimo}}\label{h.z2y10qkdgb72}
+
+{Adattando l'algoritmo precedente, in quanto la proprietà non è più
 verificabile in modo indipendente per ogni elemento, possiamo fare una
 ricerca del minimo/massimo in una lista non ordinata di numeri; l'idea
-dietro è quella di tenere traccia del risultato parziale.
+dietro è quella di tenere traccia del risultato parziale.}
 
-\includegraphics[width=6.26772in,height=1.65278in]{media/image37.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image224.png}}}
 
-\emph{Per qualunque coppia di oggetti x e y dev'essere definita una
-relazione Booleana better (x, y) che dice se x dev'essere preferito a y}
+{Per qualunque coppia di oggetti }{x e y}{~dev'essere definita una
+relazione Booleana better (x, y) che dice se x dev'essere preferito a y
+}
 
-\subsection{Binaria}\label{binaria}
+\subsection{\texorpdfstring{{Binaria}}{Binaria}}\label{h.bg4jjz5xisrc}
 
-in alcuni casi la struttura dati d'ingresso può essere già ordinata,
+{in alcuni casi la struttura dati d'ingresso può essere già ordinata,
 quindi possiamo assumere che gli elementi dell'array siano ordinati
-rispetto a una relazione d'ordine \emph{less}, dove il primo elemento è
-minore rispetto al successivo, o \emph{equal} dove due elementi
-adiacenti sono uguali.
+rispetto a una relazione d'ordine }{less}{, dove il primo elemento è
+minore rispetto al successivo, o }{equal}{~dove due elementi adiacenti
+sono uguali.}
 
-\emph{Utile per il gioco guess a number o un dizionario}
+{Utile per il gioco guess a number o un dizionario}
 
-In questo algoritmo per trovare un numero all'interno della struttura
+{}
+
+{In questo algoritmo per trovare un numero all'interno della struttura
 dati (ordinata) servirà tenere traccia della porzione dell'array da
-esaminare usando due indici, \emph{from} e \emph{to}, che tengono
-traccia del primo e ultimo elemento utile. In questo modo si andrà a
-scartare la porzione di array che non ci interessa.
+esaminare usando due indici, }{from}{~e }{to}{, che tengono traccia del
+primo e ultimo elemento utile. In questo modo si andrà a scartare la
+porzione di array che non ci interessa.}
 
-Ad ogni iterazione scegliamo un elemento utile, detto \textbf{pivot}
-(\(x_{m}\)), contenuto fra from e to, verifichiamo se il pivot è
-l'elemento da ricercare, se \emph{sì} terminiamo altrimenti restringiamo
-il campo:
+{}
+
+{Ad ogni iterazione scegliamo un elemento utile, detto
+}{pivot}{~(}\pandocbounded{\includegraphics[keepaspectratio]{images/image78.png}}{),
+contenuto fra from e to, verifichiamo se il pivot è l'elemento da
+ricercare, se }{sì}{~terminiamo altrimenti restringiamo il campo:}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{less(elem,} \(x_{m}\)\emph{)}: poniamo to = m − 1;
+  {less(elem,
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image78.png}}{)}{:
+  poniamo to = m - 1;}
 \item
-  \emph{¬less(elem,}\({\ x}_{m}\)\emph{)}: poniamo from = m + 1.
+  {¬less(elem,}\pandocbounded{\includegraphics[keepaspectratio]{images/image79.png}}{)}{:
+  poniamo from = m + 1.}
 \end{itemize}
 
-Dobbiamo anche considerare che, se l'elemento desiderato non è contenuto
-nell'array, la riduzione della porzione da esaminare si ridurrà
-all'insieme vuoto.
+{}
 
-E per scegliere un elemento utile nella porzione \emph{from..to}
-conviene usare la seguente formula: \emph{(from + to)/2 = from/2 +
-to/2}.
+{Dobbiamo anche considerare che, se l'elemento desiderato non è
+contenuto nell'array, la riduzione della porzione da esaminare si
+ridurrà all'insieme vuoto.}
 
-\emph{Visualizzazione del procedimento}
+{E per scegliere un elemento utile nella porzione }{from..to}{~conviene
+usare la seguente formula: }{(from + to)/2 = from/2 + to/2}{.}
 
-\includegraphics[width=6.26772in,height=3.01389in]{media/image9.png}
+{}
 
-L'algoritmo in pseudocodice è il seguente:
+{Visualizzazione del procedimento}
 
-\includegraphics[width=6.26772in,height=2.19444in]{media/image72.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image189.png}}}
 
-L'analisi della complessità denota che nel caso generale
-\(T(n) = k\Theta(1)\) e nel migliore \(T_{best}(n) = \Theta(1)\). Il
-caso peggiore è quando l'elemento non viene trovato quindi
-\(T_{worst} = \log_{2}(n)\Theta(1) = \Theta(\log_{2}(n))\) con una
-crescita logaritmica.
+{}
 
-\section{Per interpolazione / Interpolation
-search}\label{per-interpolazione-interpolation-search}
+{L'algoritmo in pseudocodice è il seguente:}
 
-La ricerca per interpolazione è una variante migliorata della ricerca
-binaria, che si basa sull'interpolazione \emph{{[}metodo per individuare
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image262.png}}}
+
+{L'analisi della complessità denota che nel caso generale
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image80.png}}{~e
+nel migliore
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image81.png}}{.
+Il caso peggiore è quando l'elemento non viene trovato quindi
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image82.png}}{~con
+una crescita logaritmica.}
+
+\section{\texorpdfstring{{Per interpolazione /
+}{Interpolation}{~search}}{Per interpolazione / Interpolation~search}}\label{h.kzaw6w94yuiu}
+
+{La ricerca per interpolazione è una variante migliorata della ricerca
+binaria, che si basa sull'interpolazione }{{[}metodo per individuare
 nuovi punti del piano cartesiano a partire da set finito di punti
-dati{]}}.
+dati{]}}{.}
 
-In questo algoritmo, per cercare di indovinare dove sarà l'elemento da
-ricercare, si usa la formula:
+{In questo algoritmo, per cercare di indovinare dove sarà l'elemento da
+ricercare, si usa la formula:}
 
-\(x = x_{0} + \frac{(x_{1} - x_{0}) \cdot ({y - y}_{0})}{y_{1} - y_{0}}\)
+\pandocbounded{\includegraphics[keepaspectratio]{images/image83.png}}
 
-Dove:
+{}
 
-\begin{itemize}
-\item
-  Gli indici da considerare sono quelli dell'intervallo {[}\(x_{0}\),
-  \(x_{1}\){]}
-\item
-  La formula offre una ``stima'' di dove è plausibile si possa trovare
-  il target da trovare considerando:
-
-  \begin{itemize}
-  \item
-    \((x_{1} - x_{0})\): la grandezza dell'intervallo considerato;
-  \item
-    \((y - y_{0})\): la differenza tra il target da trovare e il più
-    piccolo esaminato;
-  \item
-    \((y_{1} - y_{0})\): la differenza tra il più grande e il più
-    piccolo nell'intervallo esaminato;
-  \end{itemize}
-\end{itemize}
-
-\emph{Esempio di esecuzione {[}caso sfortunato{]}}
-
-\includegraphics[width=6.01563in,height=3.18171in]{media/image33.png}
-
-L'algoritmo in pseudocodice è il seguente:
-
-\includegraphics[width=6.26772in,height=2.43056in]{media/image14.png}
-
-Per quanto riguarda l'analisi della complessità:
+{Dove:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Caso migliore}: \(O(1)\)
+  {Gli indici da considerare sono quelli dell'intervallo
+  {[}}\pandocbounded{\includegraphics[keepaspectratio]{images/image84.png}}{,
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image85.png}}{{]}}
 \item
-  \textbf{Caso medio}: \(O(log\ log\ n)\)
-\item
-  \textbf{Caso peggiore}: \(O(n)\)
+  {La formula offre una ``stima'' di dove è plausibile si possa trovare
+  il target da trovare considerando:}
 \end{itemize}
 
-Strutture dati di base
+\begin{itemize}
+\tightlist
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image86.png}}{:
+  la grandezza dell'intervallo considerato;}
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image87.png}}{:
+  ~la differenza tra il target da trovare e il più piccolo esaminato;}
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image88.png}}{:
+  la differenza tra il più grande e il più piccolo nell'intervallo
+  esaminato;}
+\end{itemize}
 
-\section{Array dinamici}\label{array-dinamici}
+{}
 
-Si superano i problemi degli array classici come l'impossibilità di
+{}
+
+{Esempio di esecuzione {[}caso sfortunato{]}}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image220.png}}}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{L'algoritmo in pseudocodice è il seguente:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image197.png}}}
+
+{Per quanto riguarda l'analisi della complessità:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Caso migliore}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image89.png}}
+\item
+  {Caso medio}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image90.png}}
+\item
+  {Caso peggiore}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image91.png}}
+\end{itemize}
+
+{}
+
+{Strutture dati di base}
+
+\section{\texorpdfstring{{Array
+dinamici}}{Array dinamici}}\label{h.1smvnpk2qxek}
+
+{Si superano i problemi degli array classici come l'impossibilità di
 modificarlo a run-time o operazioni simili che hanno complessità
-\(\Theta(n)\).
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}{.}
 
-L'allocazione in memoria può essere:
+{}
+
+{L'allocazione ~in memoria può essere:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Statica}: il ciclo di vita del programma e dell'oggetto è
-  uguale (creati/distrutti insieme);
+  {Statica}{: il ciclo di vita del programma e dell'oggetto è uguale
+  (creati/distrutti insieme);}
 \item
-  \textbf{Automatica}: l'oggetto viene de/allocato automaticamente
-  all'uscita/entrata di un contesto;
+  {Automatica}{: ~l'oggetto viene de/allocato automaticamente
+  all'uscita/entrata di un contesto;}
 \item
-  \textbf{Dinamica}: l'oggetto viene allocato e deallocato su richiesta
-  (malloc, free).
+  {Dinamica}{: l'oggetto viene allocato e }{deallocato}{~su richiesta
+  (malloc, free).}
 \end{itemize}
 
-In maniera simile una \textbf{struttura dati è} \emph{statica} se ha
-\ul{dimensione fissa} o \emph{dinamica} se \ul{varia a run time}.
+{In maniera simile una }{struttura dati è}{~}{statica }{se ha
+}{dimensione fissa}{~o }{dinamica }{se }{varia a run time}{.}
 
-\emph{Recap C:}
+{}
 
-\includegraphics[width=4.79186in,height=2.10938in]{media/image15.png}
+{Recap C:}
 
-In linguaggi nuovi come Python gli array dinamici sono già presenti
-sotto forma di liste, in C questo non è vero.
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image203.png}}}
 
-Per realizzarle abbiamo bisogno di funzioni per gestire dinamicamente la
-memoria, la cosiddetta \textbf{riallocazione}, e tenere traccia della
-dimensione corrente.
+{}
 
-La riallocazione è un'operazione costosa (\(\Theta(n)\)) e quindi
-evitiamo di farla ogni cambio di dimensione, a questo punto distinguiamo
-tra:
+{In linguaggi nuovi come Python gli array dinamici sono già presenti
+sotto forma di liste, in C questo non è vero.}
+
+{Per realizzarle abbiamo bisogno di funzioni per gestire dinamicamente
+la memoria, la cosiddetta }{riallocazione}{, e tenere traccia della
+dimensione corrente. }
+
+{}
+
+{La riallocazione è un'operazione costosa
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}{)
+e quindi evitiamo di farla ogni cambio di dimensione, a questo punto
+distinguiamo tra:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Capacità}: numero max di elementi contenuti;
+  {Capacità}{: numero max di elementi contenuti;}
 \item
-  \textbf{Dimensione/Lunghezza}: numero di elementi correnti all'interno
-  della struttura dati.
+  {Dimensione/Lunghezza}{: numero di elementi correnti all'interno della
+  struttura dati.}
 \end{itemize}
 
-\includegraphics[width=6.26772in,height=1.19444in]{media/image20.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image213.png}}}
 
-Per lavorare sulle due variabili distinguiamo fra:
+{}
+
+{Per lavorare sulle due variabili distinguiamo fra:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Ridimensionamento}: lavora sulla size;
+  {Ridimensionamento}{: lavora sulla size;}
 \item
-  \textbf{Riallocazione}: lavora sulla capacity, operazione che viene
-  fatta meno di frequente e solo quando la size è piena.
+  {Riallocazione}{: lavora sulla capacity, operazione che viene fatta
+  meno di frequente e solo quando la size è piena.}
 \end{itemize}
 
-Se abbiamo una \textbf{espansione} vuol dire che:
-\(size\  < \ newSize\), ma c'è bisogno di ridimensionare con
-riallocazione solo se: \(capacity\  < \ newSize\). Con una
-\textbf{contrazione} invece abbiamo che: \(newSize\  < \ size\) e la
-riallocazione è necessaria.
+{Se abbiamo una }{espansione}{~vuol dire che:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image93.png}}{,
+ma c'è bisogno di ridimensionare con riallocazione solo se:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image94.png}}{.
+Con una }{contrazione }{invece abbiamo che:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image95.png}}{~e
+la riallocazione è necessaria.}
 
-Ora però dobbiamo capire quanta capacità supplementare va allocata o
-tollerata in queste due fasi.
+{Ora però dobbiamo capire quanta capacità supplementare va allocata o
+tollerata in queste due fasi.}
 
-\subsection{Ridimensionamento con espansione
-lineare}\label{ridimensionamento-con-espansione-lineare}
+\subsection{\texorpdfstring{{Ridimensionamento con espansione
+lineare}}{Ridimensionamento con espansione lineare}}\label{h.h6ue9oz0kdt3}
 
-Distinguiamo in riallocazione e contrazione:
+{Distinguiamo in riallocazione e contrazione:}
 
 \begin{itemize}
+\tightlist
 \item
-  in caso di necessità di \emph{riallocazione}
-  (\(capacity\  < \ newSize\)), riserviamo un numero fisso di elementi
-  in più \(\Delta_{grow}\) rispetto alla dimensione richiesta:
+  {in caso di necessità di }{riallocazione
+  }{(}\pandocbounded{\includegraphics[keepaspectratio]{images/image94.png}}{),
+  riserviamo un numero fisso di elementi in più
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image96.png}}{~rispetto
+  alla dimensione richiesta:}
 \end{itemize}
 
-\begin{quote}
-\(capacity\  < \ newSize \Rightarrow newCapacity \leftarrow newSize + \Delta_{grow}\)
-\end{quote}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image97.png}}
+
+{}
 
 \begin{itemize}
+\tightlist
 \item
-  in caso di contrazione, riduciamo la capacità solo se la differenza
+  {in caso di contrazione, riduciamo la capacità solo se la differenza
   tra la capacità attuale e la nuova lunghezza richiesta supera una
-  soglia \(\Delta_{shrink}\):
+  soglia
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image98.png}}{:}
 \end{itemize}
 
-\begin{quote}
-\(capacity - newSize > \Delta_{shrink} \Rightarrow newCapacity \leftarrow newSize + \Delta_{grow}\)
+\pandocbounded{\includegraphics[keepaspectratio]{images/image99.png}}
 
-\emph{Ricordarsi di controllare che}
-\(\Delta_{grow} \leq\)\(\Delta_{shrink}\)
-\end{quote}
+{Ricordarsi di controllare che
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image100.png}}\pandocbounded{\includegraphics[keepaspectratio]{images/image98.png}}
 
-\includegraphics[width=6.26772in,height=1.36111in]{media/image5.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image194.png}}}
 
-\subsection{Ridimensionamento con espansione
-geometrica}\label{ridimensionamento-con-espansione-geometrica}
+\subsection{\texorpdfstring{{Ridimensionamento con espansione
+geometrica}}{Ridimensionamento con espansione geometrica}}\label{h.jvs3vttw93vb}
 
-In questo caso invece di usare una capacità supplementare fissa
-\(\Delta_{grow}\) si usa una capacità supplementare che è proporzionale
-alla lunghezza richiesta \(newSize\) di un fattore \(\phi_{grow} > 1\).
+{In questo caso invece di usare una capacità supplementare fissa
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image96.png}}{~si
+usa una capacità supplementare che è proporzionale alla lunghezza
+richiesta
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image101.png}}{~di
+un fattore
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image102.png}}{.}
 
-In caso di contrazione riduciamo la capacità quando:
-\((capacity/newSize) > \phi_{shrink} > 1\), quindi i possibili frangenti
-sono:
+{}
+
+{In caso di contrazione riduciamo la capacità quando:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image103.png}}{,
+quindi i possibili frangenti sono:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Se \(capacity\  < \ newsize\) allora
-  \(newCapacity \leftarrow \phi_{grow} \cdot newSize\)
+  {Se
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image104.png}}{~allora
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image105.png}}
 \item
-  Se \((capacity/newSize) > \phi_{shrink}\) e con
-  \(\phi_{shrink} \geq \phi_{grow}\ \) allora
-  \(newCapacity \leftarrow \phi_{grow} \cdot newSize\)
+  {Se
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image106.png}}{~}{e
+  con
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image107.png}}{~allora
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image105.png}}
 \item
-  nessuna riallocazione
+  {nessuna riallocazione}
 \end{enumerate}
 
-\includegraphics[width=6.26772in,height=1.22222in]{media/image53.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image245.png}}}
 
-\subsection{Complessità}\label{complessituxe0}
+\subsection{\texorpdfstring{{Complessità}}{Complessità}}\label{h.s1ly2x73jpem}
 
-\includegraphics[width=4.95313in,height=1.64556in]{media/image88.png}\includegraphics[width=4.97493in,height=2.85108in]{media/image50.png}\includegraphics[width=4.97087in,height=2.86527in]{media/image21.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image275.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image228.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image198.png}}}
 
-\section{Pile / Stack}\label{pile-stack}
+\section{\texorpdfstring{{Pile /
+Stack}}{Pile / Stack}}\label{h.xjbwfhafeawp}
 
-Struttura dati con accesso di tipo LIFO, l'ultimo elemento che entra è
-il primo ad uscire. Le operazioni possibili sono:
+{Struttura dati con accesso di tipo LIFO, l'ultimo elemento che entra è
+il primo ad uscire. Le operazioni possibili sono:}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{create} e \emph{destroy};
+  {create}{~}{e }{destroy}{;}
 \item
-  \emph{push}: metti in cima;
+  {push}{: metti in cima;}
 \item
-  \emph{pop}: togli dalla cima;
+  {pop}{: togli dalla cima;}
 \item
-  \emph{top}: vedi cosa c'è in cima;
+  {top}{: vedi cosa c'è in cima;}
 \item
-  \emph{isempty} e \emph{isfull}: controllo vuota/piena.
+  {isempty}{~e }{isfull}{: controllo vuota/piena.}
 \end{itemize}
 
-Per implementare una pila è sufficiente tenere traccia del numero di
+{}
+
+{Per implementare una pila è sufficiente tenere traccia del numero di
 elementi presenti e da questo dato si ricava anche la posizione di
 inserimento o prelievo. L'implementazione risulta facile tramite array
-(statico o dinamico):
+(statico o dinamico):}
 
-\includegraphics[width=3.7843in,height=2.04302in]{media/image44.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image237.png}}}
 
-Dove \emph{n} tiene traccia del numero di elementi e allo stesso tempo
-della prossima posizione di inserimento
+{Dove }{n}{~tiene traccia del numero di elementi e allo stesso tempo
+della prossima posizione di inserimento}
 
-\section{Code / Queue}\label{code-queue}
+\section{\texorpdfstring{{Code /
+Queue}}{Code / Queue}}\label{h.7jhc8mivm8lm}
 
-Struttura dati con modalità di accesso FIFO, il primo elemento che entra
-è il primo ad uscire.
+{Struttura dati con modalità di accesso FIFO, ~il primo elemento che
+entra è il primo ad uscire.}
 
-Utile se vogliamo processare una sequenza di richieste in base
+{Utile se vogliamo processare una sequenza di richieste in base
 all\textquotesingle ordine di arrivo e con un'attesa non infinita,
-possiamo usare i \textbf{buffer} se o il tasso di arrivo di richieste
-(producer speed) non corrisponde alla capacità di soddisfarle (consumer
-speed)o il tasso di arrivo di richieste (producer speed) non corrisponde
-alla capacità di soddisfarle (consumer speed).
+possiamo usare i }{buffer}{~se o il tasso di arrivo di richieste
+(producer speed) non corrisponde alla capacità di
+}{soddisfarle}{~(consumer speed)o il tasso di arrivo di richieste
+(producer speed) non corrisponde alla capacità di
+}{soddisfarle}{~(consumer speed).}
 
-Le operazioni possibili sono:
+{}
+
+{Le operazioni possibili sono:}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{create} e \emph{destroy};
+  {create}{~}{e }{destroy}{;}
 \item
-  \emph{add} o \emph{enqueue}: metti in coda o accodamento;
+  {add}{~o }{enqueue}{: metti in coda o accodamento;}
 \item
-  \emph{remove} o \emph{dequeue}: togli dalla coda;
+  {remove}{~o }{~dequeue}{: togli dalla coda;}
 \item
-  \emph{front}: vedi cosa c'è in cima (1° elemento);
+  {front}{: vedi cosa c'è in cima (1° elemento);}
 \item
-  \emph{isempty} e \emph{isfull}: controllo vuota/piena.
+  {isempty}{~e }{isfull}{: controllo vuota/piena.}
 \end{itemize}
 
-Per implementare una coda è sufficiente tenere traccia del numero di
+{}
+
+{Per implementare una coda è sufficiente tenere traccia del numero di
 elementi presenti e da questo dato si ricava anche la posizione di
-inserimento o prelievo.
+inserimento o prelievo. }
 
-Tenendo traccia della testa (\(f\)), il prelievo si attua semplicemente
-con lo spostamento in avanti di \(f\).
+{Tenendo traccia della testa
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image44.png}}{),
+il prelievo si attua semplicemente con lo spostamento in avanti di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image44.png}}{.}
 
-Si può sempre usare un array statico o dinamico e \emph{per evitare
-problemi di complessità} la soluzione è implementare una \textbf{coda
-circolare} dove \emph{l'array viene interpretato come struttura ciclica}
-(dove la posizione successiva all'ultima è quella di indice 0) e per
-incrementare gli indici è comodo usare la capacity:
+{}
 
-Enqueue: \(b = (b + 1)\% capacity\) \textbar{} Dequeue:
-\(f = (f + 1)\% capacity\)
+{Si può sempre usare un array statico o dinamico e }{per evitare
+problemi di complessità}{~la soluzione è implementare una }{coda
+circolare}{~}{dove }{l'array viene interpretato come struttura
+ciclica}{~(dove la posizione successiva all'ultima è quella di indice 0)
+e per incrementare gli indici è comodo usare la capacity:}
 
-\includegraphics[width=3.77604in,height=0.94715in]{media/image66.png}
+{}
 
-Liste dinamiche
+{Enqueue:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image108.png}}{~\textbar{}
+Dequeue:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image109.png}}
 
-Utili per rappresentare collezioni di elementi organizzati linearmente e
-per lavorare con collezioni che consentano di svolgere in modo
-efficiente le operazioni di ricerca, inserimento, e cancellazione.
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image256.png}}}
 
-\textbf{Def \textbar{} Lista}: \emph{struttura dati che immagazzina un
-insieme di elementi in ordine}
+{Liste dinamiche}
 
-Esistono diversi tipi di liste:
+{Utili per rappresentare collezioni di elementi organizzati linearmente
+e per lavorare con collezioni che consentano di svolgere in modo
+efficiente le operazioni di ricerca, inserimento, e cancellazione.}
+
+{}
+
+{Def \textbar{} Lista}{: }{struttura dati che immagazzina un insieme di
+elementi in ordine }
+
+{}
+
+{Esistono diversi tipi di liste:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Linked list}: formata da nodi, ogni nodo contiene
-  l'informazione e il riferimento all'elemento successivo.
+  {Linked list}{: formata da nodi, ogni nodo contiene l'informazione e
+  il riferimento all'elemento successivo.}
 \end{itemize}
 
-\begin{quote}
-\includegraphics[width=4.52604in,height=0.4511in]{media/image16.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image215.png}}}
 
-L'ordine degli elementi è dato dai collegamenti esistenti fra gli
+{L'ordine degli elementi è dato dai collegamenti esistenti fra gli
 elementi e non dal piazzamento in memoria, il primo elemento è la
-\emph{testa} e l'ultimo è la \emph{coda}.
-\end{quote}
+}{testa}{~e l'ultimo è la }{coda}{.}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Doubly-linked list}: ogni nodo contiene anche un collegamento
+  {Doubly-linked list}{: ogni nodo contiene anche un collegamento
   all'elemento precedente; tipicamente sono noti sia il riferimento alla
-  testa sia il riferimento alla coda.
+  testa sia il riferimento alla coda.}
 \end{itemize}
 
-\begin{quote}
-\includegraphics[width=4.59531in,height=0.72065in]{media/image75.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image269.png}}}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Circular list}: una linked list dove l'elemento in coda è
-  collegato all'elemento in testa, il collegamento può essere singolo o
-  doppio.
+  {Circular list}{: una linked list dove l'elemento in coda è collegato
+  all'elemento in testa, il collegamento può essere singolo o doppio.}
 \end{itemize}
 
-\begin{quote}
-\includegraphics[width=4.41218in,height=0.93814in]{media/image28.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image230.png}}}
 
-Possiamo distinguere tre nozioni di ordinamento nelle liste:
+{}
+
+{}
+
+{Possiamo distinguere tre nozioni di ordinamento nelle liste:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \emph{Ordine strutturale:} l'ordine risultante dai collegamenti fra i
-  nodi;
+  {Ordine strutturale:}{~ l'ordine risultante dai collegamenti fra i
+  nodi;}
 \item
-  \emph{Ordine logico:} l'ordine esistente tra gli elementi sulla base
-  di una relazione d'ordine;
+  {Ordine logico:}{~ l'ordine esistente tra gli elementi sulla base di
+  una relazione d'ordine;}
 \item
-  \emph{Ordine fisico}: l'ordine degli elementi in memoria.
+  {Ordine fisico}{: ~l'ordine degli elementi in memoria.}
 \end{enumerate}
 
-\textbf{Def \textbar{} Lista ordinata}: \emph{una lista dove l'ordine
-strutturale corrisponde all'ordine logico}
+{}
 
-\section{Implementazione}\label{implementazione}
+{Def \textbar{} Lista ordinata}{: }{una lista dove l'ordine strutturale
+corrisponde all'ordine logico}
 
-L'implementazione può avvenire su array statici o dinamici dove ogni
+\section{\texorpdfstring{{Implementazione}}{Implementazione}}\label{h.uwpmwwnk9p6k}
+
+{L'implementazione può avvenire su array statici o dinamici dove ogni
 elemento dell'array è un nodo della lista e il collegamento è dato
 dall'indice dell'elemento successivo. Con gli array statici c'è il
 problema di quanta memoria allocare e nei dinamici della rimozione dei
 nodi e della frammentazione della memoria contigua associata all'array
-dinamico.
+dinamico.}
 
-Normalmente l'implementazione avviene tramite allocazione dinamica dei
-nodi, si definisce la lista come struttura dati ricorsivamente definita:
+{}
 
-\includegraphics[width=6.26772in,height=0.70833in]{media/image84.png}
+{Normalmente l'implementazione avviene tramite allocazione dinamica dei
+nodi, si definisce la lista come struttura dati ricorsivamente
+definita:}
 
-Una \emph{list} può essere \textbf{NULL}, se è vuota, oppure un nodo che
-contiene un \textbf{value} e il collegamento \textbf{next} alla
-sottolista rimanente:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image270.png}}}
 
-\includegraphics[width=6.26772in,height=0.94444in]{media/image68.png}
+{Una }{list}{~può essere }{NULL}{, se è vuota, oppure un nodo che
+contiene un }{value }{e il collegamento }{next }{alla sottolista
+rimanente:}
 
-\includegraphics[width=6.43311in,height=3.58207in]{media/image80.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image263.png}}}
 
-Ora vediamo una carrellata di operazioni utili per lavorare con le
-liste:
+{}
 
-\includegraphics[width=5.99688in,height=2.87276in]{media/image73.png}\includegraphics[width=5.94427in,height=2.91944in]{media/image87.png}\includegraphics[width=5.7763in,height=2.53646in]{media/image67.png}\includegraphics[width=5.9026in,height=1.65192in]{media/image86.png}
+{}
 
-L\textquotesingle inserimento ha complessità \(\Theta(1)\) nel caso
-migliore e \(\Theta(n)\) nel peggiore/medio. Le stesse complessità
-valgono per rimozione e ricerca.
+{}
 
-\section{Liste vs Array dinamici}\label{liste-vs-array-dinamici}
+{}
 
-\includegraphics[width=6.26772in,height=1.80556in]{media/image81.png}
+{}
 
-Tabelle hash
+{}
 
-Create per supportare ricerche con complessità \(\Theta(1)\), ecco la
-definizione:
+{}
 
-\emph{Una tabella (anche chiamata mappa o dizionario o array
-associativo) è un insieme di coppie chiave-valore (elementi)}
-\(E_{i} = (K_{i},V_{i})\)\emph{. Le chiavi sono prese da un insieme}
-\(U\) \emph{(universo delle chiavi), gli elementi da un insieme V.}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image250.png}}}
 
-In questo caso la chiave identifica un certo elemento, ma esistono
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{Ora vediamo una carrellata di operazioni utili per lavorare con le
+liste:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image246.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image267.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image247.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image274.png}}}
+
+{L\textquotesingle inserimento ha complessità
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}{~nel
+caso migliore}{~e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}{~nel
+peggiore/medio}{. Le stesse complessità valgono per rimozione e
+ricerca.}
+
+\section{\texorpdfstring{{Liste vs Array
+dinamici}}{Liste vs Array dinamici}}\label{h.dtknvj2lzak8}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image266.png}}}
+
+{}
+
+{Tabelle hash}
+
+{Create per supportare ricerche con complessità
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}{,
+ecco la definizione:}
+
+{}
+
+{Una tabella (anche chiamata mappa o dizionario o array associativo) è
+un insieme di coppie chiave-valore (elementi)
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image110.png}}{.
+Le chiavi sono prese da un insieme
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image111.png}}{~(universo
+delle chiavi), gli elementi da un insieme V.}
+
+{}
+
+{In questo caso la chiave identifica un certo elemento, ma esistono
 strutture dati dove ad ogni chiave può corrispondere più di un elemento,
-la \textbf{multi-mappa}.
+la }{multi-mappa}{.}
 
-Operazioni possibili:
+{}
+
+{Operazioni possibili:}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{insert(key, elem)}: inserimento della coppia (k,e) alla mappa;
+  {insert(key, elem)}{: inserimento della coppia (k,e) alla mappa;}
 \item
-  \emph{get(k)}: restituzione dell'elemento associato alla chiave k;
+  {get(k)}{: restituzione dell'elemento associato alla chiave k;}
 \item
-  \emph{delete(k)}: rimozione elemento associato alla chiave.
+  {delete(k)}{: rimozione elemento associato alla chiave.}
 \end{itemize}
 
-\section{A indirizzamento diretto}\label{a-indirizzamento-diretto}
+\section{\texorpdfstring{{A indirizzamento
+diretto}}{A indirizzamento diretto}}\label{h.81xa85tplaex}
 
-\emph{Si fa uso di} un \textbf{vettore} e usa \textbf{chiavi numeriche}
-il cui valore è da interpretarsi come indice del vettore.
+{Si fa uso di}{~un }{vettore }{e usa }{chiavi numeriche}{~il cui valore
+è da interpretarsi come indice del vettore. }
 
-\includegraphics[width=5.36979in,height=1.68587in]{media/image59.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image248.png}}}
 
-\emph{Fattore di carico}: \(n = n/m\) per \(n\) chiavi/elementi
-memorizzati, un esempio:
+{Fattore di carico}{:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image112.png}}{~per
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{~chiavi/elementi
+memorizzati, un esempio:}
 
-Se usiamo un codice da 4 cifre possiamo usare un array di 10000 elementi
-e usare il codice come chiave.
+{}
 
-Avendo 500 elementi, il fattore di carico è:
-\(n = 500/10000 = 0.05 = 5\%\)
+{Se usiamo un codice da 4 cifre possiamo usare un array di 10000
+elementi e usare il codice come chiave.}
 
-\section{A indirizzamento indiretto}\label{a-indirizzamento-indiretto}
+{Avendo 500 elementi, }{il fattore di carico è:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image113.png}}
 
-Riduce l'occupazione di memoria avendo comunque un accesso efficiente.
+\section{\texorpdfstring{{A indirizzamento
+indiretto}}{A indirizzamento indiretto}}\label{h.33v2t3s5pu5p}
+
+{Riduce l'occupazione di memoria avendo comunque un accesso efficiente.
 la strategia è usare la funzione di hash
-\(h:U \rightarrow \lbrack 0,1,...,m - 1\rbrack\) che fa corrispondere ad
-ogni chiave \emph{k} appartenente a \emph{U} la posizione nell'array in
-cui l'informazione associata è memorizzata.
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image114.png}}{~che
+fa corrispondere ad ogni chiave }{k}{~appartenente a }{U}{~la posizione
+nell'array in cui l'informazione associata è memorizzata.}
 
-\emph{La dimensione m può non coincidere con} \(|U|.\)
+{}
 
-Quando due chiavi (\(k_{1}e{\ k}_{2}\)) hanno lo stesso valore hash
-(\(h(k_{1}) = h(k_{2})\)) si verifica una \textbf{collisione}.
+{La dimensione m può non coincidere con
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image115.png}}
 
-Se una funzione (\emph{h}) non causa collisioni, cioè è iniettiva, si
-chiama \textbf{hash perfetto}.
+{}
 
-\(\forall k_{1},k_{2} \in U,\ k_{1} \neq k_{2} \Rightarrow h(k_{1}) \neq h(k_{2})\)
+{Quando due chiavi
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image116.png}}{)
+hanno lo stesso valore hash
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image117.png}}{)
+si verifica una }{collisione}{.}
 
-Si dice \textbf{hash perfetto minimale} un hash (\emph{h}) con immagine
-da 0 a \((|U| - 1)\).
+{Se una funzione (}{h}{) non causa collisioni, cioè è iniettiva, si
+chiama }{hash perfetto}{.}
 
-Per la gestione delle collisioni esistono due metodi:
+\pandocbounded{\includegraphics[keepaspectratio]{images/image118.png}}
 
-\includegraphics[width=6.26772in,height=3.31944in]{media/image18.png}
+{Si dice }{hash perfetto minimale}{~un hash (}{h}{) con immagine da 0 a
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image119.png}}{.}
 
-Una buona funzione di hash deve essere facile da calcolare e distribuire
-in modo uniforme le chiavi sulle posizioni della tabella.
+{}
 
-Con la distribuzione uniforme le liste di collisione devono avere
-lunghezza \(n/m = 2\), con complessità di accesso worst-case:
-\(\Theta(n/m)\); senza si avrebbe \(\Theta(l_{\max})\) con \(l_{\max}\)
-= lunghezza della lista di collisione più lunga.
+{Per la gestione delle collisioni esistono due metodi:}
 
-Ogni chiave, secondo l'\textbf{uniformità semplice,} deve avere la
-stessa probabilità di vedersi assegnata una qualsiasi posizione
-ammissibile indipendentemente da altri valori hash già assegnati; il
-requisito di uniformità semplice è difficile da verificare.
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image192.png}}}
 
-\subsection{Funzioni di hash}\label{funzioni-di-hash}
+{}
 
-Il \textbf{metodo della divisione} è semplice e veloce, la formula è la
-seguente:
+{Una buona funzione di hash deve essere facile da calcolare e
+distribuire in modo uniforme le chiavi sulle posizioni della tabella.}
 
-\(h(k) = k \cdot mod \cdot m\)
+{Con la distribuzione uniforme le liste di collisione devono avere
+lunghezza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image120.png}}{,
+~con complessità di accesso worst-case:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image121.png}}{;
+senza si avrebbe
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image122.png}}{~con
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image123.png}}{~=
+lunghezza della lista di collisione più lunga.}
 
-Conviene evitare certi valori di \emph{m}, come le potenze di 2, occorre
-rendere \emph{h} dipendente da tutti i bit della chiave per questo
-\emph{m} dovrebbe essere un numero primo non troppo vicino ad una
-potenza del due.
+{Ogni chiave, secondo l'}{uniformità semplice, }{deve avere la stessa
+probabilità di vedersi assegnata una qualsiasi posizione ammissibile
+indipendentemente da altri valori hash già assegnati; il requisito di
+uniformità semplice è difficile da verificare.}
 
-Il \textbf{metodo della moltiplicazione} ha la seguente formula:
+\subsection{\texorpdfstring{{Funzioni di
+hash}}{Funzioni di hash}}\label{h.sp2xmykq2k2d}
 
-\(h(k) = \lfloor m \cdot (k \cdot A - \lfloor k \cdot A\rfloor)\rfloor\)
+{Il }{metodo della divisione}{~è semplice e veloce, la formula è la
+seguente:}
 
-Per sapere cosa vuol dire il simbolo:
-\href{https://it.wikipedia.org/wiki/Parte_intera}{⌊}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image124.png}}
 
-Consiste in due passi:
+{Conviene evitare certi valori di }{m}{, come le potenze di 2, occorre
+rendere }{h}{~dipendente da tutti i bit della chiave per questo
+}{m}{~dovrebbe}{~essere un numero primo non troppo vicino ad una potenza
+del due.}
+
+{}
+
+{Il }{metodo della moltiplicazione}{~ha la seguente formula:}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image125.png}}
+
+{Per sapere cosa vuol dire il simbolo:
+}{\href{https://www.google.com/url?q=https://it.wikipedia.org/wiki/Parte_intera&sa=D&source=editors&ust=1734625885323696&usg=AOvVaw0BG9G01FJnTpBdAe7kEwpJ}{$\\lfloor$ }}
+
+{Consiste in due passi:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  si moltiplica la chiave \(k\) per una certa costante \(A\),
-  \(0 < A < 1\), estraendo la parte frazionaria \(k \cdot A\);
+  {si moltiplica la chiave
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image126.png}}{~per
+  una certa costante
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image127.png}}{,
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image128.png}}{,
+  estraendo la parte frazionaria
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image129.png}}{;}
 \item
-  moltiplico la parte frazionaria per \(m\) e prendo la parte intera
-  inferiore del risultato.
+  {moltiplico la parte frazionaria per
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image130.png}}{~e
+  prendo la parte intera inferiore del risultato.}
 \end{enumerate}
 
-\(k \cdot A -\)\(\lfloor k \cdot A\rfloor\) è la parte frazionaria di
-\(k \cdot A\) (si suggerisce: \(A \approx ( - 1)/2\))
+\pandocbounded{\includegraphics[keepaspectratio]{images/image131.png}}\pandocbounded{\includegraphics[keepaspectratio]{images/image132.png}}{~è
+la parte frazionaria di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image129.png}}{~}{(si
+suggerisce:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image133.png}}{)}
 
-In questo metodo \emph{m} non è critico.
+{In questo metodo }{m}{~non}{~è critico.}
 
-\section{Implementazione hashtable}\label{implementazione-hashtable}
+\section{\texorpdfstring{{Implementazione
+hashtable}}{Implementazione hashtable}}\label{h.mohzdcy6q4xh}
 
-\subsection{Chained hashtable}\label{chained-hashtable}
+\subsection{\texorpdfstring{{C}{hained
+}{hashtable}}{Chained hashtable}}\label{h.rwjhktol5txx}
 
-Una \textbf{chained hashtable} (aka separate chaining o closed
-addressing hash table) è una impl. di tabelle ad indirizzamento
-indiretto che usa liste di collisione.
+{Una }{chained }{hashtable}{~(aka separate chaining o closed addressing
+hash table) è una impl. di tabelle ad indirizzamento indiretto che usa
+liste di collisione.}
 
-Per implementarli si usa un vettore di bucket, dove ogni bucket vi è una
-linked list:
+{Per implementarli si usa un vettore di bucket, dove ogni bucket vi è
+una linked list:}
 
-\includegraphics[width=6.26772in,height=2.84722in]{media/image52.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image236.png}}}
 
-\includegraphics[width=6.26772in,height=3.34722in]{media/image77.png}\includegraphics[width=6.26772in,height=1.41667in]{media/image3.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image260.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image196.png}}}
 
-Per quanto riguarda la complessità tutte le operazioni sono
-\(\Theta(1)\) tranne la \emph{list\_search} con complessità \(O(k)\)
-(\emph{k} sta per la lunghezza della lista di collisione).
+{Per quanto riguarda la complessità tutte le operazioni sono
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}{~tranne
+la }{list\_search}{~con complessità
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image134.png}}{~(}{k}{~sta
+per la lunghezza della lista di collisione).}
 
-Se la funzione di hash produce una distribuzione uniforme delle chiave,
-si avrà una lunghezza media della lista \(n/m\) e avramo
-\(\Theta_{avg}(n) = \Theta(n/m)\) (\emph{n}: numero elementi in tabella,
-\emph{m}: numero bucket).
+{}
 
-Con un numero di bucket proporzionale al massimo numero di elementi
+{Se la funzione di hash produce una distribuzione uniforme delle chiave,
+si avrà una lunghezza media della lista
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image135.png}}{~e
+avramo
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image136.png}}{~(}{n}{:
+numero elementi in tabella, }{m}{: numero bucket).}
+
+{}
+
+{Con un numero di bucket proporzionale al massimo numero di elementi
 previsti:
-\(\Theta_{avg}(n) = \Theta(n/m) = \Theta(n/(cn)) = \Theta(c) = \Theta(1)\).
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image137.png}}{.}
 
-\includegraphics[width=6.26772in,height=2.25in]{media/image62.png}
+{}
 
-Anche qui abbiamo \(\Theta_{avg}(n/m)\) e \(\Theta_{worst}(n)\) della
-ricerca.
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image239.png}}}
 
-\includegraphics[width=6.26772in,height=1.97222in]{media/image10.png}
+{Anche qui abbiamo
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image138.png}}{~e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image139.png}}{~della
+ricerca.}
 
-La complessità per \(T_{avg} = T_{worst} = \Theta(n)\), ma se
-\(m \gg n\) allora avremo; \(T_{worst} = \Theta(m + n)\)
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image188.png}}}
 
-Ora vediamo diverse funzioni di hash per diversi tipi:
+{La complessità per
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image140.png}}{,
+ma se
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image141.png}}{~allora
+avremo;
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image142.png}}
 
-\includegraphics[width=6.26772in,height=0.54167in]{media/image7.png}\includegraphics[width=6.26772in,height=1.51389in]{media/image8.png}
+{}
 
-Per tipi arbitrari conviene interpretare la struttura dati come sequenza
-di byte, e di applicare un algoritmo simile a quello mostrato per le
-stringhe; \textbf{però} per valori concettualmente equivalenti occorre
+{Ora vediamo diverse funzioni di hash per diversi tipi:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image190.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image202.png}}}
+
+{Per tipi arbitrari conviene interpretare la struttura dati come
+sequenza di byte, e di applicare un algoritmo simile a quello mostrato
+per le stringhe; }{però}{~per valori concettualmente equivalenti occorre
 produrre lo stesso hashcode e si interpreti tutto il contenuto della
 struttura dati: se questa usa puntatori, si consideri il contenuto
-dell'area puntata (e non il puntatore).
+dell'area puntata (e non il puntatore).}
 
-\subsection{\texorpdfstring{Probing }{Probing }}\label{probing}
+\subsection{\texorpdfstring{{P}{robing
+}}{Probing }}\label{h.qw72af69wa2r}
 
-Una \textbf{probing / open addressing hashtable} è una implementazione
-di tabelle ad indirizzamento indiretto che memorizza le coppie
+{Una }{probing / open addressing }{hashtable}{~è una implementazione di
+tabelle ad indirizzamento indiretto che memorizza le coppie
 chiave-valore direttamente nei bucket dell'array sottostante e usa la
-tecnica dell' ispezione/probing lineare per risolvere le collisioni.
+tecnica dell' ispezione/probing lineare per risolvere le collisioni.}
 
-\includegraphics[width=6.26772in,height=2.09722in]{media/image76.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image255.png}}}
 
-Quando \(n \approx m\) il probing causa collisioni aggiuntive e si
-raccomanda che il fattore di carico sia sotto una soglia di carico
-\(\lambda:n/m < \lambda < 1\), se si supera \(\lambda\) la tabella va
-ridimensionata e ricalcolare l'hash di tutti gli elementi
-(\emph{re-hasing}).
+{Quando
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image143.png}}{~il
+probing causa collisioni aggiuntive e si raccomanda che il fattore di
+carico sia sotto una soglia di carico
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image144.png}}{,
+se si supera
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image145.png}}{~la
+tabella va ridimensionata e }{ricalcolare}{~l'hash di tutti gli elementi
+(}{re-hasing}{).}
 
-\section{Set}\label{set}
+\section{\texorpdfstring{{Set}}{Set}}\label{h.drnn72g5ucu}
 
-È una struttura dati che memorizza una collezione di elementi distinti;
-quindi senza duplicati e senza un ordine particolare.
+{È una struttura dati che memorizza una collezione di elementi distinti;
+quindi senza duplicati e senza un ordine particolare.}
 
-Sono mutabili e ogni elemento del set deve essere hashable.
+{Sono mutabili e ogni elemento del set deve essere hashable. }
 
-{[}RECAP{]}
+{}
 
-\includegraphics[width=6.26772in,height=3.22222in]{media/image42.png}
+{{[}RECAP{]}}
 
-Algoritmi di ordinamento
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image223.png}}}
 
-\textbf{Def \textbar{} Sorting:} \emph{Data una sequenza}
-\(x_{1},x_{2},....,x_{n}\)\emph{, l'ordinamento di tale sequenza
-consiste nel determinare una sua permutazione}
-\(x_{1}^{'},x_{2}^{'},\ ....\ ,x_{n}^{'}\) \emph{tale che}
-\(x_{1}^{'} \leq x_{2}^{'} \leq \ ....\  \leq x_{n}^{'}\)
+{}
 
-L'ordinamento può essere \textbf{interno}, la struttura è interamente
-contenuta in memoria centrale, \textbf{esterno}, la struttura è
-memorizzata in memoria secondaria.
+{Algoritmi di ordinamento}
 
-Un'ulteriore suddivisione è:
+{Def \textbar{} }{Sorting:}{~}{Data una sequenza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image146.png}}{,
+l'ordinamento di tale sequenza consiste nel determinare una sua
+permutazione
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image147.png}}{~tale
+che
+~}\pandocbounded{\includegraphics[keepaspectratio]{images/image148.png}}
+
+{}
+
+{L'ordinamento può essere }{interno}{, la struttura è interamente
+contenuta in memoria centrale, }{esterno}{, la struttura è memorizzata
+in memoria secondaria.}
+
+{Un'ulteriore suddivisione è:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{ord. sul posto}: detto anche \emph{in-place}, l'output
-  consiste in una modifica della struttura in input(complessità spaziale
-  di strutture dati aggiuntive al \(max\ O(log(n))\));
+  {ord. sul posto}{: detto anche }{in-place}{, l'output consiste in una
+  modifica della struttura in input(complessità spaziale di strutture
+  dati aggiuntive al
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image149.png}}{);}
 \item
-  \textbf{ord. fuori posto:} detto anche \emph{out-of-place}, si produce
-  una nuova struttura in output (complessità spaziale strutture dati
-  aggiuntive \(\Omega(n)\)).
+  {ord. fuori posto:}{~detto anche }{out-of-place}{, si produce una
+  nuova struttura in output (complessità spaziale strutture dati
+  aggiuntive
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image150.png}}{).}
 \end{itemize}
 
-L'\textbf{ordinamento stabile} è : quando nella sequenza finale gli
-elementi equivalenti mantengono lo stesso ordine relativo.
+{L'}{ordinamento stabile}{~è : quando nella sequenza finale gli elementi
+equivalenti mantengono lo stesso ordine relativo.}
 
-L'\textbf{ordinamento per confronti}: l'ordinamento è basato sul
-confronto di coppie di elementi.
+{L'}{ordinamento per }{confronti}{:}{~l'ordinamento è basato sul
+confronto di coppie di elementi.}
 
-\section{Selection sort}\label{selection-sort}
+\section{\texorpdfstring{{Selection
+sort}}{Selection sort}}\label{h.qnfex9dkqb41}
 
-Si cerca il minimo nell'array da ordinare, e si scambia con quello alla
+{Si cerca il minimo nell'array da ordinare, e si scambia con quello alla
 prima posizione; si seleziona il minimo nell'array restante, e si
-scambia con quello alla seconda posizione; e così via.
+scambia con quello alla seconda posizione; e così via. }
 
-Bastano \(n - 1\) iterazioni, l\textquotesingle ultimo sarà ordinato per
-forza, vediamo un esempio:
+{Bastano
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image151.png}}{~iterazioni,
+l\textquotesingle ultimo sarà ordinato per forza, vediamo un esempio:}
 
-\includegraphics[width=6.26772in,height=1.58333in]{media/image79.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image271.png}}}
 
-In pseudo codice:
+{In pseudo codice:}
 
-\includegraphics[width=6.26772in,height=0.80556in]{media/image34.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image227.png}}}
 
-La complessità è \(\Theta(n^{2})\), ma vediamo perchè:
+{La complessità è
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image152.png}}{,
+ma vediamo perchè:}
 
-\(T(n) = \sum_{i = 0}^{n - 2}T^{i}(n)\)
+{}
 
-dove \(T^{i}(n)\) è la complessità di una singola iterazione in funzione
-della var. i del ciclo
+\pandocbounded{\includegraphics[keepaspectratio]{images/image153.png}}
 
-ed essendo che \emph{minIndex} è \(\Theta(n)\) e all'iterazione \emph{i}
-lavora su \(n - i\) elementi abbiamo:
+{dove
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image154.png}}{~è
+la complessità di una singola iterazione in funzione della var. i del
+ciclo}
 
-\(T(n) = \sum_{i = 0}^{n - 2}\Theta(n - i) = \Theta(\sum_{i = 0}^{n - 2}\Theta(n - i)) = \Theta(\frac{(n - 1)(n + 2)}{2}) = \Theta(n^{2})\)
+{ed essendo che }{minIndex}{~è
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}{~e
+all'iterazione }{i}{~lavora su
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image155.png}}{~elementi
+abbiamo:}
 
-Alcune osservazioni sul seguente algoritmo possono essere:
+\pandocbounded{\includegraphics[keepaspectratio]{images/image156.png}}
+
+{}
+
+{Alcune osservazioni sul seguente algoritmo possono essere:}
 
 \begin{itemize}
+\tightlist
 \item
-  Essendo che lo swap può invertire l'ordine relativo di elem. uguali,
-  \textbf{non è stabile!};
+  {Essendo che lo swap può invertire l'ordine relativo di elem. uguali,
+  }{non è stabile!}{;}
 \item
-  La complessità calcolata precedentemente vale anche per il caso
-  migliore.
+  {La complessità calcolata precedentemente vale anche per il caso
+  migliore.}
 \end{itemize}
 
-\section{Insertion sort}\label{insertion-sort}
+\section{\texorpdfstring{{Insertion
+sort}}{Insertion sort}}\label{h.9ojs2hm0krgb}
 
-Data una sequenza \(a_{0}....,a_{n - 1}\) già ordinata e un nuovo valore
-\(x\), si vuole ottenere una nuova sequenza ordinata di \(n + 1\)
-elementi che contenga gli elementi iniziali e \(x\).
+{Data una sequenza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image157.png}}{~già
+ordinata e un nuovo valore
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image73.png}}{,
+si vuole ottenere una nuova sequenza ordinata di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image158.png}}{~elementi
+che contenga gli elementi iniziali e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image73.png}}{.}
 
-Per semplicità dividiamo il problema in due parti
+{}
 
-\(\Downarrow\)
+{Per semplicità dividiamo il problema in due parti}
+
+\pandocbounded{\includegraphics[keepaspectratio]{images/image30.png}}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \emph{Si inizia riducendo il problema
-  all\textquotesingle{}\textbf{inserimento in ordine}:}
+  {Si inizia riducendo il problema all\textquotesingle{}}{inserimento in
+  ordine}{:}
 \end{enumerate}
 
-\begin{quote}
-Lo scopo è trovare la posizione dove mettere \emph{x}, per farlo
-troviamo la posizione dove si trova il primo elemento più grande, poi
-spostiamo tutti i numeri da quella posizione a destra di uno e inseriamo
-il nuovo valore nel posto che si è liberato.
-\end{quote}
+{Lo scopo è trovare la posizione dove mettere }{x}{, per farlo troviamo
+la posizione dove si trova il primo elemento più grande, poi spostiamo
+tutti i numeri da quella posizione a destra di uno e inseriamo il nuovo
+valore nel posto che si è liberato.}
 
-\includegraphics[width=5.38539in,height=1.49395in]{media/image78.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image272.png}}}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
+\tightlist
 \item
-  \emph{L'algoritmo in se invece lavora nel seguente modo:}
+  {L'algoritmo in se invece lavora nel seguente modo:}
 \end{enumerate}
 
-\begin{quote}
-Si tiene traccia di due porzioni dell'array:
-\end{quote}
+{Si tiene traccia di due porzioni dell'array:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  la parte iniziale, che è già ordinata;
+  {la parte iniziale, che è già ordinata;}
 \item
-  la parte finale, da ordinare.
+  {la parte finale, da ordinare.}
 \end{enumerate}
 
-\begin{quote}
-Si fa un ciclo che itera sulla seconda parte ed ogni volta prende il
-prossimo elemento della parte non ordinata e tramite
-\emph{l\textbf{'inserimento in ordine}} lo mette nella parte ordinata
-nel posto giusto.
-\end{quote}
+{Si fa un ciclo che itera sulla seconda parte ed ogni volta prende il
+prossimo elemento della parte non ordinata e tramite }{l}{'inserimento
+in ordine}{~lo mette nella parte ordinata nel posto giusto. }
 
-\includegraphics[width=6.26772in,height=0.30556in]{media/image56.png}\includegraphics[width=6.26772in,height=2.01389in]{media/image71.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image254.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image258.png}}}
 
-Un'altra implementazione utilizza due indici: uno punta
-all\textquotesingle elemento da ordinare e l\textquotesingle altro
-all\textquotesingle elemento immediatamente precedente. Se
-l\textquotesingle elemento puntato dal secondo indice è maggiore di
-quello a cui punta il primo indice, i due elementi vengono scambiati di
-posto; altrimenti il primo indice avanza. Il procedimento è ripetuto
-finché si trova nel punto in cui il valore del primo indice deve essere
-inserito. Il \emph{primo indice punta inizialmente al secondo}
-\emph{elemento dell\textquotesingle array, il secondo inizia dal primo}.
-L\textquotesingle algoritmo così tende a spostare man mano gli elementi
-maggiori verso destra.
+{}
 
-\includegraphics[width=2.50156in,height=1.31481in]{media/image2.png}
+{Un'altra implementazione utilizza due indici: uno punta
+all\textquotesingle{}}{elemento da ordinare}{~e l\textquotesingle altro
+all\textquotesingle elemento }{immediatamente precedente}{. Se
+l\textquotesingle elemento puntato dal }{secondo indice}{~è maggiore di
+quello a cui punta il }{primo indice}{, i due elementi vengono scambiati
+di posto; altrimenti il }{primo indice}{~avanza. Il procedimento è
+ripetuto finché si trova nel punto in cui il valore del }{primo
+indice}{~deve essere inserito. Il }{primo indice punta inizialmente al
+secondo}{~}{elemento dell\textquotesingle array, il secondo inizia dal
+primo}{. L\textquotesingle algoritmo così tende a spostare man mano gli
+elementi maggiori verso destra.}
 
-L'implementazione, dentro il \emph{while}, sposta a destra di uno il
-valore che è in posizione \emph{j} (maggiore dell'elemento da swappare)
-e poi diminuisce \emph{j}, in questo modo sposta tutti fino a che non
-abbiamo un posto libero per la variabile da swappare (il ciclo si
-interrompe o se arriviamo in fondo o finchè non siamo arrivato in un
-punto dove il valore di sinistra non è maggiore).
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image207.png}}}
 
-Prima dello swap ci sarà un elemento ripetuto poi in quella posizione
-mettiamo l'elemento minore.
+{L'implementazione, dentro il }{while}{, sposta a destra di uno il
+valore che è in posizione }{j}{~(maggiore dell'elemento da swappare) e
+poi diminuisce }{j}{, in questo modo sposta tutti fino a che non abbiamo
+un posto libero per la variabile da swappare (il ciclo si interrompe o
+se arriviamo in fondo o finchè non siamo arrivato in un punto dove il
+valore di sinistra non è maggiore).}
 
-La complessità varia nei due algoritmi:
+{Prima dello swap ci sarà un elemento ripetuto poi in quella posizione
+mettiamo l'elemento minore.}
+
+{}
+
+{La complessità varia nei due algoritmi:}
 
 \begin{itemize}
+\tightlist
 \item
-  \emph{insert-in-order}: con \emph{p} la posizione di inserimento
-
-  \begin{itemize}
-  \item
-    \(T_{iio} = T_{while} + T_{for} = (n - p)\Theta(1) + (n - p)\Theta(1) = \Theta(n - p)\)
-  \item
-    \textbf{Best case} \emph{{[}}\(p = n\)\emph{{]}}: \(\Theta(1)\);
-  \item
-    \textbf{Worst case}\emph{{[}}\(p = 0\)\emph{{]}}:\(\Theta(n)\).
-  \end{itemize}
-\item
-  \emph{insertion-sort}:
-
-  \begin{itemize}
-  \item
-    \(T_{is} = (n - 1)T_{iio}\)
-  \item
-    \textbf{Best case}: \(\Theta(n)\);
-  \item
-    \textbf{Worst case}: \(\Theta(n^{2})\).
-  \end{itemize}
+  {insert-in-order}{: con }{p}{~la posizione di inserimento}
 \end{itemize}
 
-\section{Bubble sort}\label{bubble-sort}
+\begin{itemize}
+\tightlist
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image159.png}}
+\item
+  {Best case
+  }{{[}}\pandocbounded{\includegraphics[keepaspectratio]{images/image160.png}}{{]}}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image49.png}}{;}
+\item
+  {Worst
+  case}{{[}}\pandocbounded{\includegraphics[keepaspectratio]{images/image161.png}}{{]}}{:}\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}{.}
+\end{itemize}
 
-L'idea è di spostare verso la fine dell'array gli elementi che hanno
+\begin{itemize}
+\tightlist
+\item
+  {insertion-sort}{: }
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image162.png}}
+\item
+  {Best case}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}{;}
+\item
+  {Worst case}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image152.png}}{.}
+\end{itemize}
+
+\section{\texorpdfstring{{Bubble
+sort}}{Bubble sort}}\label{h.izb4m6mxrmxm}
+
+{L'idea è di spostare verso la fine dell'array gli elementi che hanno
 valore più alto di quelli adiacenti, si esaminano tutte le coppie
 adiacenti e se non sono localmente ordinati si scambiano di posto, lo
 scambio va registrato e si interrompe il ciclo solo quando non si
-registrano più scambi.
+registrano più scambi.}
 
-Si produrrà un array ordinato in al massimo \(n - 1\) scansioni e per
-produrre un ordinamento stabile basta non scambiare i valori adiacenti
-con ugual valore.
+{Si produrrà un array ordinato in al massimo
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image151.png}}{~scansioni
+e per produrre un ordinamento stabile basta non scambiare i valori
+adiacenti con ugual valore.}
 
-Visualizzazione del procedimento:
+{}
 
-\includegraphics[width=6.26772in,height=2.83333in]{media/image39.png}
+{Visualizzazione del procedimento:}
 
-Traducendolo in pseudo codice otteniamo:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image231.png}}}
 
-\includegraphics[width=6.26772in,height=1.66667in]{media/image58.png}
+{Traducendolo in pseudo codice otteniamo:}
 
-Il ciclo interno produce una complessità di \(\Theta(n - i)\), invece
-con il ciclo esterno eseguito \emph{k} volte:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image242.png}}}
 
-\(T(n) = \sum_{i = 0}^{k - 1}\Theta(n - 1) = \Theta(\sum_{i = 0}^{k - 1}n - \sum_{i = 0}^{k - 1}i) = \Theta(nk - \frac{k(k - 1)}{2}) = \Theta(\frac{k(2n - k + 1)}{2})\)
+{Il ciclo interno produce una complessità di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image163.png}}{,
+invece con il ciclo esterno eseguito }{k}{~volte:}
 
-Con il \textbf{caso migliore} (array ordinato e \(k = 1\)) abbiamo
-\(\Theta(n)\) e con il \textbf{peggiore} (\(k = n - 1)\) abbiamo
-\(\Theta(n^{2})\).
+\pandocbounded{\includegraphics[keepaspectratio]{images/image164.png}}
 
-Esiste la variante \textbf{bidirectional bubble sort} che alterna
-scansioni verso l'alto a scansioni verso il basso per evitare che
-rimangano elementi piccoli alla fine che rallentano l'algoritmo.
+{Con il }{caso migliore}{~(array ordinato e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image165.png}}{)
+abbiamo
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}{~e
+con il
+}{peggiore}{~(}\pandocbounded{\includegraphics[keepaspectratio]{images/image166.png}}{~abbiamo
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image152.png}}{.}
 
-\section{Merge sort}\label{merge-sort}
+{}
 
-Riduzione ricorsiva del problema dell\textquotesingle ordinamento al
-problema della fusione di array ordinati.
+{Esiste la variante }{bidirectional bubble sort}{~che alterna scansioni
+verso l'alto a scansioni verso il basso per evitare che rimangano
+elementi piccoli alla fine che rallentano l'algoritmo.}
 
-\textbf{Def \textbar{} Fusione array ordinati:} \emph{date due sequenze
-ordinate di n e m elementi rispettivamente,} \(a_{0},...,a_{n - 1}\)
-\emph{e} \(a_{0},...,a_{m - 1}\)\emph{, si vuole produrre una nuova
-sequenza ordinata di} \(n + m\) \emph{elementi,}
-\(c_{0},...,c_{n + m - 1}\)\emph{, che contenga tutti gli elementi delle
-due sequenze di partenza.}
+\section{\texorpdfstring{{Merge
+sort}}{Merge sort}}\label{h.62bauhw43ubd}
 
-Per funzionare si procede per decomposizione ricorsiva, quindi:
+{Riduzione ricorsiva del problema dell\textquotesingle ordinamento al
+problema della fusione di array ordinati.}
+
+{}
+
+{Def \textbar{} Fusione array ordinati:}{~}{date ~due sequenze ordinate
+di n e m elementi rispettivamente,
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image167.png}}{~e
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image168.png}}{,
+si vuole produrre una nuova sequenza ordinata di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image169.png}}{~elementi,
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image170.png}}{,
+che contenga tutti gli elementi delle due sequenze di partenza.}
+
+{}
+
+{Per funzionare si procede per decomposizione ricorsiva, quindi:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \textbf{divide}: dividiamo la sequenza da ordinare in due parti;
+  {divide}{: dividiamo la sequenza da ordinare in due parti;}
 \item
-  \textbf{impera}: ad ogni parte si applica ricorsivamente
-  l'ordinemento;
+  {impera}{: ad ogni parte si applica ricorsivamente l'ordinemento;}
 \item
-  \textbf{combine}. si fa il merge delle due parti.
+  {combine}{. si fa il merge delle due parti.}
 \end{enumerate}
 
-Visualizzato:
+{Visualizzato:}
 
-\includegraphics[width=6.26772in,height=1.72222in]{media/image13.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image195.png}}}
 
-Lo pseudocodice derivante è:
+{}
 
-\includegraphics[width=6.26772in,height=2.59722in]{media/image85.png}
+{Lo pseudocodice derivante è:}
 
-\emph{Merge}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image264.png}}}
 
-Dentro il primo while controllo le due parti con due contatori, chi è
+{Merge}
+
+{Dentro il primo while controllo le due parti con due contatori, chi è
 minore lo metto nell'array che poi sarà quello finale e aumento il
 contatore solo di quella parte (e quello dell'array finale ovviamente).
-Guardando la figura sotto, nella penultima fila verde faccio così:
+Guardando la figura sotto, nella penultima fila verde faccio così:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Fra 3 e 9 chi è minore? 3 quindi lo metto nell'array e aumento il
-  contatore del suo array;
+  {Fra 3 e 9 chi è minore? 3 quindi lo metto nell'array e aumento il
+  contatore del suo array;}
 \item
-  Fra 27 e 9? 9, lo metto nell'array finale e aumento il suo contatore;
+  {Fra 27 e 9? 9, lo metto nell'array finale e aumento il suo
+  contatore;}
 \item
-  Fra 27 e 10?
+  {Fra 27 e 10?}
 \item
-  E così via.
+  {E così via.}
 \end{enumerate}
 
-Per finire riempio le caselle dell'array finale non toccate perchè fuori
-dal conteggio dei sotto array con il resto degli elementi.
+{Per finire }{riempio}{~le caselle dell'array finale non toccate perchè
+fuori dal conteggio dei sotto array con il resto degli elementi.}
 
-La complessità sarà: \(\Theta(n_{a} + n_{b})\)
+{La complessità sarà:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image171.png}}
 
-\includegraphics[width=6.26772in,height=2.09722in]{media/image40.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image232.png}}}
 
-\emph{Merge sort}
+{Merge sort}
 
-Ricordarsi che l'algoritmo lavora in \emph{out-of-place} (array di
-appoggio), come complessità si parla di: \(\Theta(nlogn)\).
+{Ricordarsi che l'algoritmo lavora in }{out-of-place}{~(array di
+appoggio), come complessità si parla di:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image172.png}}{.}
 
-Visualizzando i passaggi:
+{}
 
-\includegraphics[width=2.69962in,height=2.61681in]{media/image69.png}
+{Visualizzando i passaggi:}
 
-\section{Quick sort}\label{quick-sort}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image259.png}}}
 
-Vogliamo le performance del \emph{merge-sort} lavorando
-\textbf{in-place}, per farlo dividiamo in due sottosequenze indipendenti
-in modo da ordinarle indipendentemente l'un l'altra.
+\section{\texorpdfstring{{Quick
+sort}}{Quick sort}}\label{h.7v3dq74irj8w}
 
-\textbf{Def \textbar{} Problema del partizionamento:} \emph{data una
-sequenza} \(a_{0},...,a_{n - 1}\) \emph{e scelto un pivot (x) vogliamo
-ottenere una sequenza dove tutti gli elementi che precedono x sono
-minori o uguali di x, e dove tutti gli elementi che seguono x sono
-maggiori o uguali di x.}
+{Vogliamo le performance del }{merge-sort}{~lavorando }{in-place}{, per
+farlo dividiamo in due sottosequenze indipendenti in modo da ordinarle
+indipendentemente l'un l'altra.}
 
-Prima definiamo l'algoritmo che divide l'array in due in base al pivot
-scelto:
+{}
 
-\includegraphics[width=6.26772in,height=1.80556in]{media/image31.png}
+{Def \textbar{} Problema del partizionamento:}{~}{data una sequenza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image167.png}}{~e
+scelto un pivot (x) vogliamo ottenere una sequenza dove tutti gli
+elementi che precedono x sono minori o uguali di x, e dove tutti gli
+elementi che seguono x sono maggiori o uguali di x.}
 
-Complessità \(\Theta(n)\), visualizzando i passaggi:
+{}
 
-\includegraphics[width=3.99143in,height=1.01345in]{media/image23.png}
+{Prima definiamo l'algoritmo che divide l'array in due in base al pivot
+scelto:}
 
-Ora passiamo all'algoritmo vero e proprio:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image221.png}}}
 
-\includegraphics[width=6.26772in,height=1in]{media/image36.png}
+{Complessità
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}{,
+visualizzando i passaggi:}
 
-La complessità si divide in:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image211.png}}}
+
+{}
+
+{Ora passiamo all'algoritmo vero e proprio:}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image235.png}}}
+
+{La complessità si divide in:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{best case}: \(\Theta(nlogn)\);
+  {best case}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image172.png}}{;}
 \item
-  \textbf{worst case}: \(\Theta(n^{2})\  \Rightarrow\) se il pivot è il
-  min/max.
+  {worst case}{:
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image173.png}}{~se
+  il pivot è il min/max.}
 \end{itemize}
 
-Il \emph{quick sort} prima partizione e poi ricorre (contrario rispetto
-al \emph{merge sort})
+{}
 
-\section{Complessità a confronto}\label{complessituxe0-a-confronto}
+{Il }{quick sort}{~prima partizione e poi ricorre (contrario rispetto al
+}{merge sort}{)}
 
-Nel caso generale, nessun algoritmo di ordinamento per confronto può
+\section{\texorpdfstring{{Complessità a
+confronto}}{Complessità a confronto}}\label{h.7zdl5ixwdt6t}
+
+{Nel caso generale, nessun algoritmo di ordinamento per confronto può
 avere complessità computazionale nel caso peggiore inferiore a
-\(\Theta(nlogn)\).
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image172.png}}{.
+}
 
-Esistono algoritmi di ordinamenti che non si basano sul confronto tra
+{}
+
+{Esistono algoritmi di ordinamenti che non si basano sul confronto tra
 coppie, ma su altre operazioni. Spesso sfruttano proprietà specifiche
 della rappresentazione del tipo di dato degli elementi della sequenza, e
-quindi non sono di applicabilità generale.
+quindi non sono di applicabilità generale.}
 
-Scegliamo un algoritmo rispetto ad un altro in base a:
+{}
 
-\begin{itemize}
-\item
-  \textbf{Necessità ordinamento sul posto};
-\item
-  \textbf{Complessità spaziale;}
-\item
-  \textbf{Efficienza effettiva;}
-\item
-  Certi algoritmi potrebbero funzionare bene per \textbf{specifiche
-  istanze del problema};
-\item
-  La complessità asintotica è rappresentativa dell'onere per
-  \(n \rightarrow \infty\), ma per bassi valori di \(n\), un algoritmo
-  \(\Theta(n^{2})\) potrebbe essere più veloce di uno \(\Theta(nlogn)\).
-\end{itemize}
-
-\includegraphics[width=6.26772in,height=1.72222in]{media/image82.png}
-
-Grafi e alberi
-
-\section{Grafi}\label{grafi}
-
-Un grafo è un insieme di nodi (o vertici, node) e collegamenti (o archi,
-edge) tra nodi, formalmente:
-
-Grafo è \(G = (V,E)\) con \(V\) che è l'insieme dei nodi ed \(E\) è
-l\textquotesingle insieme di archi (\(V \times V\))
-
-I grafi possono essere:
+{Scegliamo un algoritmo rispetto ad un altro in base a:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{non orientato}: un arco è equivalente ad un altro, non ci sono
-  versi, i collegamenti sono detti edge;
+  {Necessità ordinamento sul posto}{;}
+\item
+  {Complessità spaziale;}
+\item
+  {Efficienza effettiva;}
+\item
+  {Certi algoritmi potrebbero funzionare bene per }{specifiche istanze
+  del problema}{;}
+\item
+  {La complessità asintotica è rappresentativa dell'onere per
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image174.png}}{,
+  ~ma per bassi valori di
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{,
+  un algoritmo
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image152.png}}{~potrebbe
+  essere più veloce di uno
+  }\pandocbounded{\includegraphics[keepaspectratio]{images/image172.png}}{.}
 \end{itemize}
 
-\begin{quote}
-\includegraphics[width=1.0276in,height=0.6606in]{media/image4.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image268.png}}}
+
+{}
+
+{Grafi e alberi}
+
+\section{\texorpdfstring{{Grafi}}{Grafi}}\label{h.nr77i0gasx6b}
+
+{Un grafo è un insieme di nodi (o vertici, node) e collegamenti (o
+archi, edge) tra nodi, formalmente:}
+
+{Grafo è
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image175.png}}{~con
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image176.png}}{~che
+è l'insieme dei nodi ed
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image177.png}}{~è
+l\textquotesingle insieme di archi
+(}\pandocbounded{\includegraphics[keepaspectratio]{images/image178.png}}{)}
+
+{}
+
+{I grafi possono essere:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{orientato}: un arco non è equivalente ad un altro, c'è un
-  verso, i collegamenti sono detti arc.
+  {non orientato}{: un arco è equivalente ad un altro, non ci sono
+  versi, i collegamenti sono detti edge;}
 \end{itemize}
 
-\begin{quote}
-\includegraphics[width=1.13772in,height=0.6949in]{media/image30.png}
-
-\emph{se è presente una doppia freccia vuol dire che la coppia è
-presente due volte}
-\end{quote}
-
-\textbf{Esempio di rappresentazione:}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image191.png}}}
 
 \begin{itemize}
+\tightlist
 \item
-  \(V = \{ 1,3,7,6\}\)
-\item
-  \(E = \{(1,1),(1,7),....\}\)
+  {orientato}{: un arco non è equivalente ad un altro, c'è un verso, i
+  collegamenti sono detti arc.}
 \end{itemize}
 
-\subsection{Definizioni}\label{definizioni}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image233.png}}}
 
-Un nodo (\emph{u}) si dice \textbf{adiacente} ad un altro nodo
-(\emph{v}) se esiste un arco che li collega (\emph{u,v}).
+{se è presente una doppia freccia vuol dire che la coppia è presente due
+volte}
 
-Il \textbf{grado} di un nodo prende due diverse definizioni, se il grafo
-è orientato, il grado, è il numero dei suoi archi incidenti altrimenti è
-il numero di archi entranti e uscenti ad esso.
+{}
 
-Il \textbf{cammino} è una sequenza di nodi tali che esiste un arco tra
-ogni coppia consecutiva di nodi, dove la sua lunghezza è data dal numero
-di archi percorsi per raggiungere il nodo finale partendo da quello
-iniziale.
-
-Esiste anche il \textbf{ciclo} ovvero un cammino che torna al punto di
-inizio; un grafo senza cicli è detto \textbf{aciclico}.
-
-Se ogni coppia di un grafo è collegata si dice \textbf{grafo connesso};
-un sottografo massimale in cui ogni coppia di nodi è connessa da un
-cammino è detto \textbf{componente connessa}.
-
-\subsection{Rappresentazione}\label{rappresentazione}
-
-\begin{quote}
-\includegraphics[width=1.13772in,height=0.6949in]{media/image30.png}
-\end{quote}
-
-I grafi possono essere rappresentati tramite:
+{Esempio di rappresentazione:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{liste di adiacenza}: per ogni nodo, si elencano i nodi
-  adiacenti:
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image179.png}}
+\item
+  \pandocbounded{\includegraphics[keepaspectratio]{images/image180.png}}
 \end{itemize}
 
-\begin{quote}
-\(1:\lbrack 1,7\rbrack\) \(6:\lbrack 7\rbrack\)
+\subsection{\texorpdfstring{{Definizioni}}{Definizioni}}\label{h.vkezti32p329}
 
-\(3:\lbrack 1,6\rbrack\) \(7:\lbrack 3\rbrack\)
+{Un nodo (}{u}{) si dice }{adiacente }{ad un altro nodo (}{v}{) se
+esiste un arco che li collega (}{u,v}{). }
 
-Utile per rappresentare i grafi \textbf{sparsi} (quando i numeri di
-archi sono minori del numero di coppie possibili).
-\end{quote}
+{Il }{grado }{di un nodo prende due diverse definizioni, se il grafo è
+orientato, il grado, è il numero dei suoi archi incidenti altrimenti è
+il numero di archi entranti e uscenti ad esso.}
+
+{}
+
+{Il }{cammino}{~è una sequenza di nodi tali che esiste un arco tra ogni
+coppia consecutiva di nodi, dove la sua lunghezza è data dal numero di
+archi percorsi per raggiungere il nodo finale partendo da quello
+iniziale. }
+
+{Esiste anche il }{ciclo}{~ovvero un cammino che torna al punto di
+inizio; un grafo senza cicli è detto }{aciclico}{.}
+
+{}
+
+{Se ogni coppia di un grafo è collegata si dice }{grafo connesso}{; un
+sottografo massimale in cui ogni coppia di nodi è connessa da un cammino
+è detto }{componente connessa}{.}
+
+\subsection{\texorpdfstring{{Rappresentazione}}{Rappresentazione}}\label{h.5gof37tebmxy}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image233.png}}}
+
+{I grafi possono essere rappresentati tramite:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{matrice di adiacenza}:usiamo una matrice per indicare se è
-  presente un arco per ogni coppia di nodi:
+  {liste di adiacenza}{: ~per ogni nodo, si elencano i nodi adiacenti:}
 \end{itemize}
 
-\begin{quote}
-\includegraphics[width=1.28563in,height=0.97396in]{media/image6.png}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image181.png}}{~
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image182.png}}
 
-Utile per rappresentare i grafi densi (quando i numeri di archi sono
-circa lo stesso numero delle coppie possibili).
-\end{quote}
+\pandocbounded{\includegraphics[keepaspectratio]{images/image183.png}}{~
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image184.png}}
 
-\subsection{Graph traversal}\label{graph-traversal}
+{Utile per rappresentare i grafi }{sparsi}{~(quando i numeri di archi
+sono minori del numero di coppie possibili).}
 
-Il problema della visita sistematica di tutti i nodi di un grafo.
+{}
 
-\textbf{Def \textbar{} Graph traversal:} Dato un grafo \(G = (V,E)\) e
-un nodo \(r \in V\) (chiamato sorgente o radice), si visiti ogni nodo
-del grafo raggiungibile da r, con il vincolo che ogni nodo deve essere
-visitato una sola volta.
+\begin{itemize}
+\tightlist
+\item
+  {matrice di adiacenza}{:usiamo una matrice per indicare se è presente
+  un arco per ogni coppia di nodi:}
+\end{itemize}
 
-Per ovviare a questo problema sono nati due algoritmi principali:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image208.png}}}
 
-\subsubsection{Breadth-First Visit (BFV)}\label{breadth-first-visit-bfv}
+{Utile per rappresentare i grafi densi (quando i numeri di archi sono
+circa lo stesso numero delle coppie possibili).}
 
-Si inizia visitando i vicini del sorgente, poi i vicini dei vicini, e
-così via; praticamente si fanno prima tutti quelli vicini ad un nodo,
-poi si passa ad un altro.
+\subsection{\texorpdfstring{{Graph
+traversal}}{Graph traversal}}\label{h.97kl2z85jwyp}
 
-\includegraphics[width=2.1335in,height=2.08981in]{media/image24.png}
+{Il problema della visita sistematica di tutti i nodi di un grafo.}
 
-Per implementarlo teniamo traccia dei nodi già visitati e del loro
+{}
+
+{Def \textbar{} Graph traversal:}{~Dato un grafo
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image175.png}}{~e
+un nodo
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image185.png}}{~(chiamato
+sorgente o radice), si visiti ogni nodo del grafo raggiungibile da r,
+con il vincolo che ogni nodo deve essere visitato una sola volta.}
+
+{}
+
+{Per ovviare a questo problema sono nati due algoritmi principali:}
+
+\subsubsection{\texorpdfstring{{Breadth-First Visit
+(BFV)}}{Breadth-First Visit (BFV)}}\label{h.q5lsxd27gx8k}
+
+{Si inizia visitando i vicini }{del}{~sorgente, poi i vicini dei vicini,
+e così via; praticamente si fanno prima tutti quelli vicini ad un nodo,
+poi si passa ad un altro.}
+
+{}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image212.png}}}
+
+{}
+
+{Per implementarlo teniamo traccia dei nodi già visitati e del loro
 padre, possiamo usare un coda (FIFO) e accodare i nodi adiacenti non
-ancora visitati.
+ancora visitati.}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{INPUT}: un grafo (\emph{G}) e un nodo radice \emph{root};
+  {INPUT}{: un grafo (}{G}{) e un nodo radice }{root}{;}
 \item
-  \textbf{OUTPUT}: possiamo ritornare un nodo che soddisfa un predicato
-  (passato in input {[}\emph{f}{]}) e si parla di \textbf{BFS} o
+  {OUTPUT}{: possiamo ritornare un nodo che soddisfa un predicato
+  (passato in input {[}}{f}{{]}) e si parla di }{BFS}{~o
   un\textquotesingle annotazione e dei nodi visitati e del loro
-  rispettivo parent.
+  rispettivo parent.}
 \end{itemize}
 
-\includegraphics[width=6.26772in,height=1.98611in]{media/image38.png}
+{}
 
-\subsubsection{Depth-First Visit (DFV)}\label{depth-first-visit-dfv}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image218.png}}}
 
-Prima di passare a un secondo vicino, si attraversano tutti i nodi
-raggiungibili dal primo vicino
+{}
 
-\includegraphics[width=2.08526in,height=1.96848in]{media/image49.png}
+{}
 
-Per implementarlo dobbiamo fare in modo che prima di completare la
+{}
+
+\subsubsection{\texorpdfstring{{Depth-First Visit
+(DFV)}}{Depth-First Visit (DFV)}}\label{h.py44qclecjui}
+
+{Prima di passare a un secondo vicino, si attraversano tutti i nodi
+raggiungibili dal primo vicino}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image241.png}}}
+
+{}
+
+{Per implementarlo dobbiamo fare in modo che prima di completare la
 visita del nodo corrente, ricorsivamente si visiti in ordine ogni nodo
-adiacente non ancora visitato.
+adiacente non ancora visitato.}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{INPUT}: un grafo (\emph{G}) e un nodo radice \emph{root};
+  {INPUT}{: un grafo (}{G}{) e un nodo radice }{root}{;}
 \item
-  \textbf{OUTPUT}: possiamo ritornare un nodo che soddisfa un predicato
-  (passato in input {[}\emph{f}{]}) e si parla di \textbf{DFS} o
+  {OUTPUT}{: possiamo ritornare un nodo che soddisfa un predicato
+  (passato in input {[}}{f}{{]}) e si parla di }{DFS}{~o
   un\textquotesingle annotazione e dei nodi visitati e del loro
-  rispettivo parent.
+  }{rispettiv}{o parent.}
 \end{itemize}
 
-\includegraphics[width=6.26772in,height=1.06944in]{media/image26.png}
+{}
 
-\subsection{Dijkstra}\label{dijkstra}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image209.png}}}
 
-Un algoritmo per risolvere il problema a del cammino di costo minimo,
-cioè:
+\subsection{\texorpdfstring{{Dijkstra}}{Dijkstra}}\label{h.71f1r9n1jng8}
 
-\emph{dato un grafo pesato e un nodo sorgente, determinare per ogni nodo
-il cammino a costo minimo di percorrenza (dove il costo di un cammino è
+{Un algoritmo per risolvere il problema a del cammino di costo minimo,
+cioè:}
+
+{~dato un grafo pesato e un nodo sorgente, determinare per ogni nodo il
+cammino a costo minimo di percorrenza (dove il costo di un cammino è
 dato dalla somma dei pesi degli archi percorsi).}
 
-\includegraphics[width=2.67193in,height=1.46354in]{media/image45.png}
+{}
 
-Implementazione in pseudo codice:
+{~}{\pandocbounded{\includegraphics[keepaspectratio]{images/image244.png}}}
 
-\includegraphics[width=6.26772in,height=2.45833in]{media/image19.png}
+{}
 
-Procedimento visualizzato:
+{Implementazione in pseudo codice:}
 
-\includegraphics[width=6.26772in,height=3.18056in]{media/image55.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image206.png}}}
 
-\includegraphics[width=6.26772in,height=3.08333in]{media/image25.png}
+{Procedimento visualizzato:}
 
-\includegraphics[width=6.26772in,height=3.13889in]{media/image11.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image226.png}}}
 
-\section{Alberi binari di ricerca
-{[}BST{]}}\label{alberi-binari-di-ricerca-bst}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image204.png}}}
 
-Per i grafi indiretti un albero è un grafo indiretto connesso aciclico,
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image200.png}}}
+
+\section{\texorpdfstring{{Alberi binari di ricerca
+{[}BST{]}}}{Alberi binari di ricerca {[}BST{]}}}\label{h.5qv083koc}
+
+{Per i grafi indiretti un albero è un grafo indiretto connesso aciclico,
 e per i grafi diretti un albero è un grafo diretto aciclico dove vi è un
 nodo radice senza archi entranti (nessun nodo padre) e tutti gli altri
-nodi hanno un singolo arco entrante (un solo nodo padre).
+nodi hanno un singolo arco entrante (un solo nodo padre).}
 
-Una foresta è un insieme di alberi.
+{Una foresta è un insieme di alberi.}
 
-\subsection{Definizioni}\label{definizioni-1}
+\subsection{\texorpdfstring{{Definizioni}}{Definizioni}}\label{h.x2tcphoy3fob}
 
-\textbf{Radice}: unico nodo dell'albero senza archi entranti (ovvero,
-senza padre) (A)
+{Radice}{: unico nodo dell'albero senza archi entranti (ovvero, senza
+padre) (A)}
 
-\textbf{Foglia}: nodo senza archi uscenti (D,I,J,G,H)
+{Foglia}{: nodo senza archi uscenti (D,I,J,G,H)}
 
-\textbf{Padre}: nodo con un arco uscente verso un altro nodo (figlio)
-oppure nodo che non è foglia o nodo radice di un sottoalbero non vuoto
-(A,B,C,E)
+{Padre}{: nodo con un arco uscente verso un altro nodo (figlio) oppure
+nodo che non è foglia o nodo radice di un sottoalbero non vuoto
+(A,B,C,E)}
 
-\textbf{Figlio}: nodo con un arco entrante (B,C,D,E,F,G,H,I,J)
+{Figlio}{: nodo con un arco entrante (B,C,D,E,F,G,H,I,J)}
 
-\textbf{Discendente:} nodo figlio, o il figlio di un discendente
+{Discendente:}{~ nodo figlio, o il figlio di un discendente}
 
-\textbf{Antenato}: nodo padre, o il padre di un antenato
+{Antenato}{: nodo padre, o il padre di un antenato}
 
-\textbf{Nodo interno}: nodo che non è né radice né foglia (B,C,E)
+{Nodo interno}{: ~nodo che non è né radice né foglia (B,C,E) }
 
-\includegraphics[width=2.81885in,height=1.94635in]{media/image12.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image210.png}}}
 
-\textbf{Profondità di un nodo {[}D(n){]}}: numero di archi tra la radice
-e il nodo, ovviamente la radice ha profondità 0;
+{Profondità di un nodo {[}D(n){]}}{: numero di archi tra la radice e il
+nodo, ovviamente la radice ha profondità 0;}
 
-\textbf{Altezza di un nodo H(n)}: num di archi del percorso più lungo
-tra un nodo e una foglia;
+{Altezza di un nodo H(n)}{: num di archi del percorso più lungo tra un
+nodo e una foglia;}
 
-\textbf{Profondità/altezza di un albero}: l'altezza del nodo radice, o
-equivalentemente, la profondità massima raggiunta dai nodi dell'albero.
+{Profondità/altezza di un albero}{: l'altezza del nodo radice, o
+equivalentemente, la profondità massima raggiunta dai nodi dell'albero.}
 
-Un albero con al massimo due figli è detto \textbf{binario}, si dice
-\textbf{ordinato} se, per ogni nodo \(n\), il suo valore \(x\) non è
-minore del valore di tutti i nodi del sottoalbero sinistro, e non è
-maggiore del valore di tutti i nodi del sottoalbero destro.
+{}
 
-Un livello si dice \textbf{completo} se il livello precedente è completo
-e ogni nodo del livello precedente ha entrambi i figli.
+{Un albero con al massimo due figli è detto }{binario}{, si dice
+}{ordinato }{se, per ogni nodo
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{,
+il suo valore
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image73.png}}{~
+non è minore del valore di tutti i nodi del sottoalbero sinistro, e non
+è maggiore del valore di tutti i nodi del sottoalbero destro.}
 
-Invece parlando di albero binario, si dice che è:
+{}
+
+{Un livello si dice }{completo}{~se il livello precedente è completo e
+ogni nodo del livello precedente ha entrambi i figli.}
+
+{}
+
+{Invece parlando di albero binario, si dice che è:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{bilanciato}: se per ogni nodo le altezze dei due sottoalberi
-  differiscono al più di 1;
+  {bilanciato}{: se per ogni nodo le altezze dei due sottoalberi
+  differiscono al più di 1;}
 \item
-  \textbf{perfettamente bilanciato}: se tutte le foglie hanno la stessa
-  profondità;
-\item
-  \textbf{completo}: se è perfettamente bilanciato e tutti i nodi
-  interni hanno grado 2;
-\item
-  \textbf{quasi completo}: se tutti i livelli tranne al più l'ultimo
-  sono completi, quindi è bilanciato e tutti i nodi interni hanno grado
-  2.
+  {perfettamente bilanciato}{: se tutte le foglie hanno la stessa
+  profondità;}
 \end{itemize}
 
-\emph{Un albero binario di} \(n\) \emph{nodi si dice ottimo se ha
-altezza} \(h = \lfloor\log_{2}n\rfloor\)
-
-\emph{e}
-
-\emph{un albero binario ottimo ha altezza minima rispetto a tutti gli
-alberi che possono rappresentare lo stesso insieme di dati}
-
-\subsection{Implementazione}\label{implementazione-1}
-
-\includegraphics[width=6.26772in,height=1.22222in]{media/image27.png}\includegraphics[width=2.64874in,height=1.43442in]{media/image1.png}\includegraphics[width=6.26772in,height=2.59722in]{media/image70.png}
-
-Abbiamo varie tipologie di \textbf{visita} di un BST:
+{}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Depth-First Visit (DFV)}: visita simmetrica in ordine
+  {completo}{: se è perfettamente bilanciato e tutti i nodi interni
+  hanno grado 2;}
+\item
+  {quasi completo}{: se tutti i livelli tranne al più l'ultimo sono
+  completi, quindi è bilanciato e tutti i nodi interni hanno grado 2.}
 \end{itemize}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Visita simmetrica del sottoalbero sinistro;
-\item
-  Visita del nodo radice;
-\item
-  Visita simmetrica del sottoalbero destro;
-\end{enumerate}
+{}
+
+{Un albero binario di
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image12.png}}{~nodi
+si dice ottimo se ha altezza
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image186.png}}{~}
+
+{e}
+
+{un albero binario ottimo ha altezza minima rispetto a tutti gli alberi
+che possono rappresentare lo stesso insieme di dati}
+
+{}
+
+\subsection{\texorpdfstring{{Implementazione}}{Implementazione}}\label{h.osdei5qbwjyw}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image216.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image193.png}}}{\pandocbounded{\includegraphics[keepaspectratio]{images/image249.png}}}
+
+{}
+
+{Abbiamo varie tipologie di }{visita}{~di un BST:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Depth-First Visit (DFV)}: Visita in pre-ordine
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Visita del nodo radice;
-\item
-  Visita in pre-ordine del sottoalbero sinistro;
-\item
-  Visita in pre-ordine del sottoalbero destro;
-\end{enumerate}
-
-\begin{itemize}
-\item
-  \textbf{Depth-First Visit (DFV):} Visita in post-ordine
+  {Depth-First Visit (DFV)}{: visita simmetrica in ordine}
 \end{itemize}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  Visita in post-ordine del sottoalbero sinistro;
+  {Visita simmetrica del sottoalbero sinistro;}
 \item
-  Visita in post-ordine del sottoalbero destro;
+  {Visita del nodo radice; }
 \item
-  Visita del nodo radice;
+  {Visita simmetrica del sottoalbero destro;}
 \end{enumerate}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Breadth-First Visit (BFV)}
+  {Depth-First Visit (DFV)}{: Visita in pre-ordine}
 \end{itemize}
 
-\includegraphics[width=6.26772in,height=3.5in]{media/image46.png}
-
-\includegraphics[width=6.26772in,height=1.22222in]{media/image41.png}
-
-\textbf{Complessità:} \(\Theta(n)\)
-
-Per la \textbf{ricerca} in un BST possiamo usare l'approccio
-divide-et-impera:
+\begin{enumerate}
+\tightlist
+\item
+  {Visita del nodo radice;}
+\item
+  {Visita in }{pre-ordine}{~del sottoalbero sinistro; }
+\item
+  {Visita in }{pre-ordine}{~del sottoalbero destro;}
+\end{enumerate}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Divide}: la ricerca si può dividere nella ricerca nelle
-  diverse parti della struttura dati;
-\item
-  \textbf{Impera}:
-
-  \begin{itemize}
-  \item
-    \emph{caso base}: l'albero è vuoto (NULL) o la radice contiene il
-    valore cercato;
-  \item
-    \emph{caso ricorsivo}: si assume applicazione corretta
-    dell'algoritmo a sottoalbero;
-  \end{itemize}
-\item
-  \textbf{Combina}: se non ci si trova nei casi base, si confronta il
-  valore del nodo con il valore da cercare e lì si sceglie se cercare
-  nel sottoalbero sinistro o destro.
+  {Depth-First Visit (DFV):}{~Visita in post-ordine}
 \end{itemize}
 
-\includegraphics[width=6.26772in,height=0.68056in]{media/image89.png}
+\begin{enumerate}
+\tightlist
+\item
+  {Visita in }{post-ordine}{~del sottoalbero sinistro;}
+\item
+  {Visita in }{post-ordine}{~del sottoalbero destro; }
+\item
+  {Visita del nodo radice;}
+\end{enumerate}
 
-\textbf{Complessità} {[}worst case{]}: \(\Theta(logn)\)
+\begin{itemize}
+\tightlist
+\item
+  {~Breadth-First Visit (BFV) }
+\end{itemize}
 
-Per la \textbf{ricerca del /min/max} dobbiamo tenere conto che il più
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image214.png}}}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image234.png}}}
+
+{Complessità:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image92.png}}
+
+{}
+
+{}
+
+{}
+
+{Per la }{ricerca}{~in un BST possiamo usare l'approccio
+divide-et-impera:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Divide}{: la ricerca si può dividere nella ricerca nelle diverse
+  parti della struttura dati;}
+\item
+  {Impera}{: }
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  {caso base}{: l'albero è vuoto (NULL) o la radice contiene il valore
+  cercato;}
+\item
+  {caso ricorsivo}{: si assume applicazione corretta dell'algoritmo a
+  sottoalbero;}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  {Combina}{: se non ci si trova nei casi base, si confronta il valore
+  del nodo con il valore da cercare e lì si sceglie se cercare nel
+  sottoalbero sinistro o destro.}
+\end{itemize}
+
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image276.png}}}
+
+{Complessità }{{[}worst case{]}:
+}\pandocbounded{\includegraphics[keepaspectratio]{images/image187.png}}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{}
+
+{Per la }{ricerca del /min/max}{~dobbiamo tenere conto che il più
 piccolo elemento è il nodo più a sinistra, infatti per l'ordinamento i
-padri hanno sempre valore maggiore dei nodi del sottoalbero sinistro.
+padri hanno sempre valore maggiore dei nodi del sottoalbero sinistro.}
 
-\includegraphics[width=6.26772in,height=0.83333in]{media/image29.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image217.png}}}
 
-Per \textbf{l'inserimento} dobbiamo ricordare di mantenere la proprietà
-di ordinamento, trattiamo l'inserimento come foglia: riduciamo e il
-problema all'inserimento nel sottoalbero sinistro o destro.
+{}
 
-\includegraphics[width=6.26772in,height=1.68056in]{media/image65.png}
+{Per }{l'inserimento }{dobbiamo ricordare di mantenere la proprietà di
+ordinamento, trattiamo l'inserimento come foglia: riduciamo e il
+problema all'inserimento nel sottoalbero sinistro o destro.}
 
-La \textbf{rimozione} di un nodo si distingue in:
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image265.png}}}
+
+{}
+
+{La }{rimozione}{~di un nodo si distingue in:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
-  \textbf{il nodo da rimuovere è una foglia}: basta eliminare la foglia;
+  {il nodo da rimuovere è una foglia}{: basta eliminare la foglia;}
 \item
-  \textbf{il nodo da rimuovere ha un solo figlio}: basta sostituire il
-  collegamento al nodo con il collegamento al figlio del nodo;
+  {il nodo da rimuovere ha un solo figlio}{: basta sostituire il
+  collegamento al nodo con il collegamento al figlio del nodo;}
 \item
-  \textbf{il nodo da rimuovere ha due figli}: sostituzione del nodo da
+  {il nodo da rimuovere ha due figli}{: ~sostituzione del nodo da
   cancellare con il max del sottoalbero sinistro o con il min del
-  sottoalbero destro.
+  sottoalbero destro.}
 \end{enumerate}
 
-\begin{quote}
-\includegraphics[width=5.51423in,height=1.1114in]{media/image57.png}
-\end{quote}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image253.png}}}
 
-\includegraphics[width=6.26772in,height=3.375in]{media/image43.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image229.png}}}
 
-\subsection{Complessità}\label{complessituxe0-1}
+\subsection{\texorpdfstring{{Complessità}}{Complessità}}\label{h.2ywq15c1zv84}
 
-\includegraphics[width=6.26772in,height=2.01389in]{media/image83.png}
+{\pandocbounded{\includegraphics[keepaspectratio]{images/image273.png}}}
 
-\subsection{Varianti BST}\label{varianti-bst}
+\subsection{\texorpdfstring{{Varianti
+BST}}{Varianti BST}}\label{h.l0xfoec5nusd}
 
-Un'importante classe di BST è data dei BST auto-bilancianti
+{Un'importante classe di BST è data dei BST auto-bilancianti
 (self-balancing): sfruttano operazioni di ribilanciamento a fronte di
-modifiche (inserimenti, cancellazioni) al BST, per garantirne un buon
-bilanciamento (e quindi prevenire sviluppo eccessivo in altezza che,
-come visto, impatta la complessità di varie operazioni); tra a le
+modifiche (inserimenti, cancellazioni) al BST, per }{garantirne}{~un
+buon bilanciamento (e quindi prevenire sviluppo eccessivo in altezza
+che, come visto, impatta la complessità di varie operazioni); tra a le
 tecniche di ribilanciamento vi è quella basata su rotazioni dell'albero,
-che cambiano la struttura senza impattare sull'ordine degli elementi.
+che cambiano la struttura senza impattare sull'ordine degli elementi.}
 
-Alcuni esempi sono:
+{}
+
+{Alcuni esempi sono:}
 
 \begin{itemize}
+\tightlist
 \item
-  \textbf{Red-Black Trees}: i nodi hanno un ``bit'' di colore (``rosso''
-  o ``nero'') che viene utilizzato per vincolare/riorganizzare il BST;
+  {Red-Black Trees}{: i nodi hanno un ``bit'' di colore (``rosso'' o
+  ``nero'') che viene utilizzato per vincolare/riorganizzare il BST;}
 \item
-  \textbf{Adelson-Velsky and Landis (AVL) Trees}: sono più rigidamente
+  {Adelson-Velsky and Landis (AVL) Trees}{: sono più rigidamente
   bilanciati rispetto ai Red-Black Tree; ovvero, hanno un più stretto
-  limite d'altezza.
+  limite d'altezza.}
 \end{itemize}
 
-\textbf{B-tree}: generalizzano i BST auto-bilancianti, ammettendo nodi
-con più di 2 figli; sono particolarmente utili per sistemi che
-leggono/scrivono grossi blocchi di dati
+{}
+
+{B-tree}{: generalizzano i BST auto-bilancianti, ammettendo nodi con più
+di 2 figli; sono particolarmente utili per sistemi che leggono/scrivono
+grossi blocchi di dati}
+
+{}
+
+\end{document}

@@ -6,5 +6,5 @@ Chiunque è libero di prenderli, modificarli, condividerli e altro ancora. Quest
 Tutti gli appunti sono in LaTex, inizialmente scritti in Google Doc e quindi convertiti usando [Pandoc](https://pandoc.org/#); con questo in mente tenete conto che è possibile che si siano alcuni errori o problemi di visualizzazione (in caso fatelo notare).
 
 TODO:
-- Aggiungere i pdf
+- Aggiustare la visualizzazione ed eventuali errori di conversione
 - Aggiornare Machine Learning
